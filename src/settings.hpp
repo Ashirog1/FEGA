@@ -22,6 +22,7 @@ class Drone {
   int speed, weight_limit;
 };
 
+const int POPULATION_SIZE = 50;
 class {
 
 };
