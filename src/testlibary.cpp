@@ -5,5 +5,5 @@
 using namespace std;
 
 int main() {
-  debug(10);
+  debug(10.0, 100.0);
 }

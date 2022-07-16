@@ -32,8 +32,8 @@ double euclid_distance(const Customer&A, const Customer&B) {
 std::vector<Customer> customers;
 
 class Route {
-private:
   class Node {
+  public:
     int weight, customer_id;
     Node *prev_node = nullptr, *next_node = nullptr;
     Node() {weight = 0; customer_id = -1; prev_node = nullptr, next_node = nullptr;}
@@ -43,17 +43,38 @@ public:
   0 is truck
   1 is drone
   */
-  int type;
+  int vehicle_type;
   /*
   id of truck/drone that manage that trip
   */
   int owner;
-  std::vector<Node> loc;
+  std::vector<std::vector<Node*>> route;
+  /* info = {weight, customer_id};
+  */
+  void new_route() {
+    std::vector<Node*> tmp;
+    tmp.push_back(new Node());
+    tmp.back()->customer_id = 0;
+    route.emplace_back(tmp);
+  }
+  void append(std::pair<int, int> info, int trip_id = 0) {
+    assert(trip_id < route.size());
+    Node *tmp = new Node();
+
+    tmp->customer_id = info.second;
+    tmp->prev_node = route[trip_id].back();
+    route[trip_id].back()->next_node = tmp;
+    route[trip_id].push_back(tmp); 
+  }
 };
 
 class Solution {
 public:
   std::vector<Route> truck_trip, drone_trip;
+  Solution() {
+    truck_trip.clear();
+    drone_trip.clear();
+  }
 };
 
 std::vector<Solution> Population;
