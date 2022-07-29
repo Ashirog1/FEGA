@@ -121,3 +121,13 @@ int random_number_with_probability(const std::vector<double>&partial) {
   double dice = random_number_in_range(0, partial.back());
   return std::lower_bound(partial.begin(), partial.end(), dice) - partial.begin();
 }
+
+
+template<class T>
+bool minimize(T&x, const T& y) {
+  if (x > y) {
+    x = y;
+    return true;
+  }
+  return false;
+}
