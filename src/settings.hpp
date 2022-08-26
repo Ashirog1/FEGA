@@ -5,6 +5,8 @@
 #include "iostream"
 
 int numCustomer, numTruck, numDrone, timeLimit;
+int speedTruck, speedDrone, capacityTruck, capacityDrone, durationDrone;
+std::ofstream log_debug("debug.log");
 
 template <class T>
 std::vector<T> create(size_t size, T initialValue) {
@@ -78,13 +80,6 @@ public:
 };
 
 std::vector<Solution> Population;
-
-
-class Vehicle {
-public:
-  int speed, weight_limit;
-};
-std::vector<Vehicle> drones, trucks;
 
 const int POPULATION_SIZE = 50;
 
