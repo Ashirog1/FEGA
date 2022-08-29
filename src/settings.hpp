@@ -4,6 +4,8 @@
 #include "climits"
 #include "iostream"
 
+const int TTRUCK = 0, TDRONE = 1;
+
 int numCustomer, numTruck, numDrone, timeLimit;
 int speedTruck, speedDrone, capacityTruck, capacityDrone, durationDrone;
 std::ofstream log_debug("debug.log");
@@ -29,6 +31,10 @@ public:
 
 double euclid_distance(const Customer&A, const Customer&B) {
   return (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y);
+}
+
+double time_travel(const Customer&A, const Customer&B, int type) {
+  return sqrt(euclid_distance(A, B)) /  (type == TTRUCK ? speedTruck : speedDrone);
 }
 
 std::vector<Customer> customers;

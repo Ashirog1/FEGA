@@ -14,6 +14,11 @@ void read_input() {
     read_file >> tmp.x >> tmp.y >> tmp.lower_weight >> tmp.upper_weight >> tmp.cost;
     customers.emplace_back(tmp);
   }
+
+  /*
+    assert limit of constraint
+  */
+ assert(speedTruck != 0); assert(speedDrone != 0);
   for (auto x : customers) debug(x.x, x.y);
 }
 
@@ -52,7 +57,7 @@ Solution init_random_solution() {
     first_solution.truck_trip[i].append({0, tmp}, 0); 
   }
   /*
-  3.2. Init every path
+  3.2. Init first route for every vehicle
   */
   std::vector<int> current_lowerbound(numCustomer);
   for (int i = 0; i < numTruck; ++i) {
@@ -70,13 +75,14 @@ Solution init_random_solution() {
         first_solution.truck_trip[i].route[0].pop_back(); 
         break;
       }
+      now_weight -= push_weight;
       double min_dist = std::numeric_limits<double>::max();
       int next_customer = -1;
       for (int i = 0; i < numCustomer; ++i) {
         /*
         check condition for time_limit and availablity for customer i
         */
-        if (tot_time + euclid_distance(customers[current_loc->customer_id], customers[i]) > timeLimit)
+        if (tot_time + euclid_distance(customers[current_loc->customer_id], customers[i]) + euclid_distance> timeLimit)
           continue;
         if (current_lowerbound[i] == 0) 
           continue;
