@@ -6,5 +6,8 @@
 -1 0 1 1 1
 0 -1 1 1 1
 /*
-  
+Input format
+
+numCus numTruck numDrone timeLimit
+speedTruck speedDrone capacityTruck capacityDrone durationDrone
 */
