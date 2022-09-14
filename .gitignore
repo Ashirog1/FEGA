@@ -1,2 +1,5 @@
-Data/
+Data/*
 .vscode
+txtData/*
+
+*.txt

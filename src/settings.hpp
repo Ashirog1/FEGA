@@ -239,4 +239,10 @@ class Chromosome {
       route = tmp;
     }
   }
-}
+};
+
+
+class settings{
+  public:
+
+}general_setting;

@@ -6,6 +6,13 @@ std::vector<std::vector<double>> piority;
 
 void read_input() {
   std::ifstream read_file("input.txt");
+  /*
+  tip for input reading
+
+  depot is customers[0] = {all value equal to 0}
+
+
+  */
   read_file >> numCustomer >> numTruck >> numDrone >> timeLimit;
   read_file >> speedTruck >> speedDrone >> capacityTruck >> capacityDrone >> durationDrone;
   for (int i = 0; i < numCustomer; ++i) {
@@ -169,7 +176,7 @@ Solution init_random_solution() {
   use greedy to assaign remain customer for remain trip
   */  
   priority_queue<pair<int, int>> remain_customer;
-
+  
 
   /*
   skip it because better solution?
