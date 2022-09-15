@@ -35,15 +35,18 @@ def main():
         # try to get paramater from paramater.xlsx
 
         with open(loc+"/txtData/"+filename[:len(filename)-3] + "txt", "w") as outfile:
-          print(number_truck, number_drone, working_time, end="\n", file=outfile)
-          print(truck_speed, drone_speed, truck_capacity, drone_capacity, end="\n",file=outfile)
-          for ind, cus in df.iterrows():
-            try:
-              print(cus["x"], cus["y"], cus["low"], cus["upper"], cus["weight"], end="\n", file=outfile)
-            except:
-              for val in cus:
-                print(val, end=" ", file=outfile)
-              print("", file=outfile)
+          try:
+            print(int(number_truck), int(number_drone), int(working_time), end="\n", file=outfile)
+            print(int(truck_speed), int(drone_speed), int(truck_capacity), int(drone_capacity), int(drone_duration), end="\n",file=outfile)
+            for ind, cus in df.iterrows():
+              try:
+                print(cus["x"],cus["y"], int(cus["low"]), int(cus["upper"]), int(cus["weight"]), end="\n", file=outfile)
+              except:
+                for val in cus:
+                  print(int(val), end=" ", file=outfile)
+                print("", file=outfile)
+          except:
+            print("error value type", filename)
         break
 
 
