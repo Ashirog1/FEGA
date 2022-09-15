@@ -62,6 +62,9 @@ public:
   Route() {
     total_time = 0;
     total_weight = 0;
+    route.clear();
+    route.push_back(new Node());
+    route.back()->customer_id = 0;
   }
   /*
   0 is truck
@@ -74,30 +77,40 @@ public:
   not neccessery?
   */
   int owner;
-  std::vector<std::vector<Node*>> route;
+  std::vector<Node*> route;
   double total_time = 0;
   int total_weight = 0;
-  void new_route() {
-    std::vector<Node*> tmp;
-    tmp.push_back(new Node());
-    tmp.back()->customer_id = 0;
-    route.emplace_back(tmp);
-  }
   /* info = {weight, customer_id};
   */
-  void append(std::pair<int, int> info, int trip_id = 0) {
-    assert(trip_id < route.size());
-    total_time -= time_travel(customers[route[trip_id].back()->customer_id], 
+  int size() {
+    return route.size();
+  }
+  void append(std::pair<int, int> info) {
+    total_time -= time_travel(customers[route.back()->customer_id], 
                                 customers[0], vehicle_type);
-    total_time += time_travel(customers[route[trip_id].back()->customer_id],
+    total_time += time_travel(customers[route.back()->customer_id],
                                 customers[info.second], vehicle_type);
     total_time += time_travel(customers[info.second], customers[0], vehicle_type);
     Node *tmp = new Node();
 
     tmp->customer_id = info.second;
-    tmp->prev_node = route[trip_id].back();
-    route[trip_id].back()->next_node = tmp;
-    route[trip_id].push_back(tmp); 
+    tmp->prev_node = route.back();
+    route.back()->next_node = tmp;
+    route.push_back(tmp); 
+  }
+  void pop() {
+    total_time -= time_travel(customers[route.back()->customer_id], customers[0], vehicle_type);
+    total_time -= time_travel(customers[route.back()->customer_id], 
+                                customers[route.back()->prev_node->customer_id], vehicle_type);
+    total_time += time_travel(customers[route.back()->prev_node->customer_id], 
+                              customers[0], vehicle_type);
+    total_weight -= route.back()->weight;
+
+    route.pop_back();
+  }
+  bool valid_route() {
+    return (total_weight <= (vehicle_type == TTRUCK ? capacityTruck : capacityDrone))
+    and (total_time <= timeLimit) and (vehicle_type == TTRUCK ? true : total_time <= durationDrone);
   }
   /*
     set before route building
@@ -107,9 +120,43 @@ public:
   }
 };
 
+class routeSet {
+  public:
+  std::vector<Route> multiRoute;
+  double total_time = 0;
+  int total_weight = 0;
+  int vehicle_type = 0;
+  void new_route() {
+    multiRoute.emplace_back(Route());
+  }
+  routeSet() {
+    multiRoute.emplace_back(Route());
+    multiRoute.back().set_vehicle_type(vehicle_type());
+  }
+  void append(std::pair<int, int> info, int trip_id) {
+    assert(trip_id < multiRoute.size());
+    multiRoute[trip_id].append(info);
+  }
+  void pop(int trip_id) {
+    multiRoute[trip_id].pop();
+  }
+  bool valid_route() {
+    total_time = 0; total_weight = 0;
+    for (auto route : multiRoute) {
+      if (not route.valid_route()) return false;
+      total_time += route.total_time;
+    } 
+    if (total_time > timeLimit) return false;
+    return true;
+  }
+  void set_vehicle_type(int type) {
+    vehicle_type = type;
+  }
+};
+
 class Solution {
 public:
-  std::vector<Route> truck_trip, drone_trip;
+  std::vector<routeSet> truck_trip, drone_trip;
   Solution() {
     truck_trip.clear();
     drone_trip.clear();
@@ -118,6 +165,30 @@ public:
   greedy algo to maximize objective function
   */
   void educate() {
+  }
+  bool valid_solution() {
+    vector<int> total_weight(numCustomer);
+    for (auto truck : truck_trip) {
+      if (not truck.valid_route()) return false;
+      for (auto route : truck.multiRoute) {
+        for (auto loc : route.route) {
+          total_weight[loc->customer_id] += loc->weight;
+        }
+      }
+    }
+    for (auto drone : drone_trip) {
+      if (not drone.valid_route()) return false;
+      for (auto route : drone.multiRoute) {
+        for (auto loc : route.route) {
+          total_weight[loc->customer_id] += loc->weight;
+        }
+      }
+    }
+    for (int i = 0; i < numCustomer; ++i) {
+      if (total_weight[i] < customers[i].lower_weight)
+        return false;
+    }
+    return true;
   }
 };  
 
@@ -200,18 +271,18 @@ class Chromosome {
     TODO:
     format to more readable code
     */
-    for (int r = 0; r < (int)sol.truck_trip.size(); ++r) {
-      for (int j = 0; j < (int)sol.truck_trip[r].route.size(); ++j) {
-        for (auto cus : sol.truck_trip[r].route[j]) {
-          chr.emplace_back(cus->customer_id, cus->weight);
-        }  
+    for (auto truck : sol.truck_trip) {
+      for (auto route : truck.multiRoute) {
+        for (auto loc : route.route) {
+          chr.emplace_back(loc->customer_id, loc->weight);
+        }
       }
     }
-    for (int r = 0; r < (int)sol.drone_trip.size(); ++r) {
-      for (int j = 0; j < (int)sol.drone_trip[r].route.size(); ++j) {
-        for (auto cus : sol.drone_trip[r].route[j]) {
-          chr.emplace_back(cus->customer_id, cus->weight);
-        }  
+    for (auto drone : sol.drone_trip) {
+      for (auto route : drone.multiRoute) {
+        for (auto loc : route.route) {
+          chr.emplace_back(loc->customer_id, loc->weight);
+        }
       }
     }
   }
@@ -220,7 +291,7 @@ class Chromosome {
   encode to a solution use greedy algo
   try to push customer on current route until the condition hold true
   */
-  /*
+  
   Solution encode() {
     Solution sol;
     int vehicle_idx = 0;
@@ -238,8 +309,11 @@ class Chromosome {
       route = tmp;
     }
   }
-  */
 };
+
+Chromosome crossover(const Chromosome&a, const Chromosome&b) {
+  
+}
 
 
 class settings{

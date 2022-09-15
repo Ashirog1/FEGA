@@ -82,7 +82,6 @@ Solution init_random_solution() {
   /*
   3.2. Init first route for every vehicle
   */
-
   std::vector<int> current_lowerbound(numCustomer);
   for (int i = 0; i < numCustomer; ++i) 
     current_lowerbound[i] = customers[i].lower_weight;
@@ -90,19 +89,19 @@ Solution init_random_solution() {
   for (int i = 0; i < numTruck; ++i) {
     double tot_time = 0;
     int now_weight = capacityTruck;
-    for (int j = 1; j < (int)first_solution.truck_trip[i].route[0].size(); ++j) {
-      auto current_loc = first_solution.truck_trip[i].route[0][j];
+    for (int j = 1; j < (int)first_solution.truck_trip[i].multiRoute[0].size(); ++j) {
+      auto current_loc = first_solution.truck_trip[i].multiRoute[0].route[j];
       debug("truck", current_loc->customer_id);
       if (current_loc->prev_node != nullptr)
         tot_time += time_travel(customers[current_loc->customer_id], 
                                   customers[current_loc->prev_node->customer_id], TTRUCK);
       int push_weight = min(current_lowerbound[current_loc->customer_id], now_weight);
-      first_solution.truck_trip[i].route[0].back()->weight = push_weight;
+      first_solution.truck_trip[i].multiRoute[0].route.back()->weight = push_weight;
       now_weight -= push_weight;
       current_lowerbound[current_loc->customer_id] -= push_weight;
       debug(i, push_weight);
       if (push_weight == 0) {
-        first_solution.truck_trip[i].route[0].pop_back(); 
+        first_solution.truck_trip[i].multiRoute[0].pop(); 
         break;
       }
       if (now_weight == 0) 
@@ -130,41 +129,48 @@ Solution init_random_solution() {
   for (int i = 0; i < numDrone; ++i) {
     double tot_time = 0;
     int now_weight = capacityDrone;
-    for (int j = 1; j < (int)first_solution.drone_trip[i].route[0].size(); ++j) {
-      auto current_loc = first_solution.drone_trip[i].route[0][j];
-      debug("drone", current_loc->customer_id);
-      if (current_loc->prev_node != nullptr)
-        tot_time += euclid_distance(customers[current_loc->customer_id], 
-                                  customers[current_loc->prev_node->customer_id]);
-      
-      int push_weight = min(current_lowerbound[current_loc->customer_id], now_weight);
-      first_solution.drone_trip[i].route[0].back()->weight = push_weight;
-      if (push_weight == 0) {
-        first_solution.drone_trip[i].route[0].pop_back(); 
-        break;
-      }
-      double min_dist = std::numeric_limits<double>::max();
-      int next_customer = -1;
-      for (int i = 1; i < numCustomer; ++i) {
-        /*
-        check condition for time_limit and availablity for customer i
-        */
-        if (tot_time + time_travel(customers[current_loc->customer_id], customers[i], TDRONE) > durationDrone)
-          continue;
-        if (tot_time + time_travel(customers[current_loc->customer_id], customers[i], TDRONE) > timeLimit)
-          continue;
-        if (current_lowerbound[i] == 0) 
-          continue;
-        if (minimize<double>(min_dist, euclid_distance(customers[current_loc->customer_id], customers[i]))) {
-          next_customer = i;
+    int route_id = 0;
+    while (first_solution.drone_trip[i].total_time < timeLimit) {
+      /*
+      split new route on drone
+      */
+      for (int j = 1; j < (int)first_solution.drone_trip[i].multiRoute[0].size(); ++j) {
+        auto current_loc = first_solution.drone_trip[i].multiRoute[0].route[j];
+        debug("drone", current_loc->customer_id);
+        if (current_loc->prev_node != nullptr)
+          tot_time += euclid_distance(customers[current_loc->customer_id], 
+                                    customers[current_loc->prev_node->customer_id]);
+        
+        int push_weight = min(current_lowerbound[current_loc->customer_id], now_weight);
+        first_solution.drone_trip[i].multiRoute[route_id].route.back()->weight = push_weight;
+        if (push_weight == 0) {
+          first_solution.drone_trip[i].route[0].pop_back(); 
+          break;
+        }
+        double min_dist = std::numeric_limits<double>::max();
+        int next_customer = -1;
+        for (int i = 1; i < numCustomer; ++i) {
+          /*
+          check condition for time_limit and availablity for customer i
+          */
+          if (tot_time + time_travel(customers[current_loc->customer_id], customers[i], TDRONE) > durationDrone)
+            continue;
+          if (tot_time + time_travel(customers[current_loc->customer_id], customers[i], TDRONE) > timeLimit)
+            continue;
+          if (current_lowerbound[i] == 0) 
+            continue;
+          if (minimize<double>(min_dist, euclid_distance(customers[current_loc->customer_id], customers[i]))) {
+            next_customer = i;
+          }
+        }
+        debug(next_customer);
+        if (next_customer != -1) {
+          first_solution.drone_trip[i].append({0, next_customer}, route_id);
         }
       }
-      debug(next_customer);
-      if (next_customer != -1) {
-        first_solution.drone_trip[i].append({0, next_customer}, 0);
-      }
+      ++route_id;
     }
-  }
+ }
   // log first_solution
   log_debug << "first_solution\n";
   for (int i = 0; i < numTruck; ++i) {
@@ -187,9 +193,6 @@ Solution init_random_solution() {
   
   use greedy to assaign remain customer for remain trip
   */  
-  priority_queue<pair<int, int>> remain_customer;
-  
-
   /*
   skip it because better solution?
   and i just tired
@@ -208,8 +211,24 @@ void random_init_population() {
   } 
 }
 
+void evaluate() {
+
+}
+
+void mutation() {
+
+}
+
+void educate() {
+
+}
+
 void ga_process() {
-   
+  for (int iter = 0; iter <= 10000; ++iter) {
+    evaluate();
+    mutation();
+    educate();
+  }
 }
 
 int main() {

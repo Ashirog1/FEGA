@@ -14,7 +14,7 @@ def main():
     print(paramater.dtypes)
   except Exception:
     print("error opening paramater.xlsx")
-  
+  valid_input = []
   for ind, row in paramater.iterrows():
     readfile = row["dataset"]
     for filename in os.listdir(loc+"/Data"):
@@ -45,6 +45,7 @@ def main():
                 for val in cus:
                   print(int(val), end=" ", file=outfile)
                 print("", file=outfile)
+            valid_input.append(filename[:len(filename)-4])
           except:
             print("error value type", filename)
         break
