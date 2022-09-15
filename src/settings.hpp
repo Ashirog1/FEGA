@@ -128,10 +128,11 @@ class routeSet {
   int vehicle_type = 0;
   void new_route() {
     multiRoute.emplace_back(Route());
+    multiRoute.back().set_vehicle_type(vehicle_type);
   }
   routeSet() {
     multiRoute.emplace_back(Route());
-    multiRoute.back().set_vehicle_type(vehicle_type());
+    multiRoute.back().set_vehicle_type(vehicle_type);
   }
   void append(std::pair<int, int> info, int trip_id) {
     assert(trip_id < multiRoute.size());
@@ -167,7 +168,7 @@ public:
   void educate() {
   }
   bool valid_solution() {
-    vector<int> total_weight(numCustomer);
+    std::vector<int> total_weight(numCustomer);
     for (auto truck : truck_trip) {
       if (not truck.valid_route()) return false;
       for (auto route : truck.multiRoute) {
@@ -291,7 +292,7 @@ class Chromosome {
   encode to a solution use greedy algo
   try to push customer on current route until the condition hold true
   */
-  
+  /*
   Solution encode() {
     Solution sol;
     int vehicle_idx = 0;
@@ -309,10 +310,11 @@ class Chromosome {
       route = tmp;
     }
   }
+  */
 };
 
 Chromosome crossover(const Chromosome&a, const Chromosome&b) {
-  
+
 }
 
 

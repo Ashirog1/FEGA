@@ -101,7 +101,7 @@ Solution init_random_solution() {
       current_lowerbound[current_loc->customer_id] -= push_weight;
       debug(i, push_weight);
       if (push_weight == 0) {
-        first_solution.truck_trip[i].multiRoute[0].pop(); 
+        first_solution.truck_trip[i].pop(0); 
         break;
       }
       if (now_weight == 0) 
@@ -134,6 +134,8 @@ Solution init_random_solution() {
       /*
       split new route on drone
       */
+      debug("build for ", route_id);
+      int pushed_cus = 0;
       for (int j = 1; j < (int)first_solution.drone_trip[i].multiRoute[0].size(); ++j) {
         auto current_loc = first_solution.drone_trip[i].multiRoute[0].route[j];
         debug("drone", current_loc->customer_id);
@@ -144,9 +146,12 @@ Solution init_random_solution() {
         int push_weight = min(current_lowerbound[current_loc->customer_id], now_weight);
         first_solution.drone_trip[i].multiRoute[route_id].route.back()->weight = push_weight;
         if (push_weight == 0) {
-          first_solution.drone_trip[i].route[0].pop_back(); 
+          first_solution.drone_trip[i].pop(route_id); 
+          --pushed_cus;
           break;
         }
+        if (now_weight == 0)
+          break;
         double min_dist = std::numeric_limits<double>::max();
         int next_customer = -1;
         for (int i = 1; i < numCustomer; ++i) {
@@ -166,24 +171,30 @@ Solution init_random_solution() {
         debug(next_customer);
         if (next_customer != -1) {
           first_solution.drone_trip[i].append({0, next_customer}, route_id);
+          ++pushed_cus;
         }
       }
-      ++route_id;
+      if (pushed_cus)
+        ++route_id;
+      else
+        break;
     }
  }
   // log first_solution
   log_debug << "first_solution\n";
   for (int i = 0; i < numTruck; ++i) {
     log_debug << "truck" << ' ' << i << '\n';
-    for (auto loc : first_solution.truck_trip[i].route[0]) {
+    for (auto loc : first_solution.truck_trip[i].multiRoute[0].route) {
       log_debug << loc->customer_id << ' ' << loc->weight << '\n';
     }
   }
 
   for (int i = 0; i < numDrone; ++i) {
     log_debug << "drone " << i << '\n';
-    for (auto loc : first_solution.drone_trip[i].route[0]) {
-      log_debug << loc->customer_id << ' ' << loc->weight << '\n';
+    for (auto trip : first_solution.truck_trip[i].multiRoute) {
+      for (auto loc : trip.route) {
+        log_debug << loc->customer_id << ' ' << loc->weight << '\n'; 
+      }
     }
   }
   log_debug << '\n';
