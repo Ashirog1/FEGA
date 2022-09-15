@@ -1,11 +1,16 @@
 import sys
 import pandas as pd
 import os
+import glob
 
 def main():
   loc = os.getcwd()
   print("loc", loc)
-
+  files = glob.glob(loc+'/txtData/*')
+  for f in files:
+    print(f)
+    os.remove(f)
+  
   print("reading path", loc + "/Data/" + "paramater.xlsx")
   try:
     paramater = pd.read_excel(loc + "/Data/" + "paramater.xlsx")
