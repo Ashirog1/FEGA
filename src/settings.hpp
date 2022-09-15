@@ -114,7 +114,12 @@ public:
     truck_trip.clear();
     drone_trip.clear();
   }
-};
+  /*
+  greedy algo to maximize objective function
+  */
+  void educate() {
+  }
+};  
 
 std::vector<Solution> Population;
 
@@ -214,31 +219,26 @@ class Chromosome {
   /*
   encode to a solution use greedy algo
   try to push customer on current route until the condition hold true
-
   */
+  /*
   Solution encode() {
     Solution sol;
     int vehicle_idx = 0;
     for (auto [customer_id, weight] : chr) {
-      /*
-      try to push
-      */
+      /// try to push
       auto tmp = (vehicle_idx >= numTruck ? sol.drone_trip[vehicle_idx - numTruck]:
                         sol.truck_trip[vehicle_idx]);
       sol.truck_trip[route.append({weight, customer_id}, 0);
-      /*
-      condition checking
-      */
+      /// condition checking
       if (route.total_time <= timeLimit and route.total_weight <= capacityTruck) {
         continue;
       }
 
-      /*
-      rollback
-      */
+      /// rollback
       route = tmp;
     }
   }
+  */
 };
 
 
