@@ -57,6 +57,10 @@ class Route {
     int weight, customer_id;
     Node *prev_node = nullptr, *next_node = nullptr;
     Node() {weight = 0; customer_id = -1; prev_node = nullptr, next_node = nullptr;}
+    ~Node() {
+      delete prev_node;
+      delete next_node;
+    }
   };
 public:
   Route() {
@@ -109,8 +113,8 @@ public:
     route.pop_back();
   }
   bool valid_route() {
-    return (total_weight <= (vehicle_type == TTRUCK ? capacityTruck : capacityDrone))
-    and (total_time <= timeLimit) and (vehicle_type == TTRUCK ? true : total_time <= durationDrone);
+    return 
+     (total_time <= timeLimit) and (vehicle_type == TTRUCK ? true : total_time <= durationDrone);
   }
   /*
     set before route building
@@ -136,10 +140,14 @@ class routeSet {
   }
   void append(std::pair<int, int> info, int trip_id) {
     assert(trip_id < multiRoute.size());
+    total_time -= multiRoute[trip_id].total_time;
     multiRoute[trip_id].append(info);
+    total_time += multiRoute[trip_id].total_time;
   }
   void pop(int trip_id) {
+    total_time -= multiRoute[trip_id].total_time;
     multiRoute[trip_id].pop();
+    total_time += multiRoute[trip_id].total_time;
   }
   bool valid_route() {
     total_time = 0; total_weight = 0;
@@ -191,13 +199,42 @@ public:
     }
     return true;
   }
+  int evaluate() {
+    /// make sure valid_solution() return true
+    std::vector<int> total_weight(numCustomer);
+    for (auto truck : truck_trip) {
+      if (not truck.valid_route()) return false;
+      for (auto route : truck.multiRoute) {
+        for (auto loc : route.route) {
+          total_weight[loc->customer_id] += loc->weight;
+        }
+      }
+    }
+    for (auto drone : drone_trip) {
+      if (not drone.valid_route()) return false;
+      for (auto route : drone.multiRoute) {
+        for (auto loc : route.route) {
+          total_weight[loc->customer_id] += loc->weight;
+        }
+      }
+    }
+    int ans = 0;
+    for (int i = 0; i < numCustomer; ++i) {
+      ans += customers[i].cost * total_weight[i];
+    }
+    return ans;
+  }
 };  
 
-std::vector<Solution> Population;
 
 const int POPULATION_SIZE = 50;
-/* a constant seed random interger generator
+/* a constant seed random interger generator */
 std::mt19937 rng(64);
+
+int rand(int l, int r) {
+  return l + rng() % (r - l + 1);
+}
+
 /*
 return a real value in defined range 
 */
@@ -260,12 +297,21 @@ class Chromosome {
   /*
   truck trip
   */
+  int size() {
+    return (int)  chr.size();
+  }
+  Chromosome() {
+    chr.clear();
+  }
+  Chromosome(int size) {
+    chr.resize(size);
+  }
   Chromosome(Solution sol) {
     chr.clear();
 
     /*
       for each vehicle
-        for each route
+        for each routez
           for each customer on route
     */
     /*
@@ -292,9 +338,9 @@ class Chromosome {
   encode to a solution use greedy algo
   try to push customer on current route until the condition hold true
   */
-  /*
   Solution encode() {
     Solution sol;
+    /*
     int vehicle_idx = 0;
     for (auto [customer_id, weight] : chr) {
       /// try to push
@@ -309,12 +355,48 @@ class Chromosome {
       /// rollback
       route = tmp;
     }
+    
+    return sol;
   }
+  /*
+  TODO: create dynamic Chromosome support append and pop  
   */
 };
+std::vector<Chromosome> Population;
+
+/// C = A[:pivot] + B[pivot+1:] (plus some edge case checking)
 
 Chromosome crossover(const Chromosome&a, const Chromosome&b) {
+  /*
 
+  */
+  int pivot = rand(1, (int)a.chr.size() - 1);
+  Chromosome c;
+  std::vector<int> current_lowerbound(numCustomer);
+  for (int i = 0; i < numCustomer; ++i) {
+    current_lowerbound[i] = customers[i].lower_weight;
+  }
+  // need to make sure that a don't contradict with the constraints
+  std::vector<std::pair<int, int>> A, B, C; // dirty code
+  for (auto it : a.chr) A.emplace_back(it);
+  for (auto it : b.chr) B.emplace_back(it);
+  for (int i = 0; i < pivot; ++i) C.emplace_back(A[i]);
+  const auto push = [&](int ind) {
+    if (ind >= B.size()) return;
+    auto [customer_id, weight] = B[ind];
+    if (current_lowerbound[customer_id] == 0) return;
+    int push_weight = std::min(current_lowerbound[customer_id], weight);
+    if (push_weight) C.emplace_back(customer_id, push_weight);
+    current_lowerbound[customer_id] -= push_weight;
+  };
+  for (int i = pivot; i < B.size(); ++i) {
+    push(i);
+  }
+  for (int i = 0; i < pivot; ++i) {
+    push(i);
+  }
+  for (auto it : C) c.chr.emplace_back(it);
+  return c;
 }
 
 
