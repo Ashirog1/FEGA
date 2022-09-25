@@ -268,17 +268,19 @@ void ga_process() {
         continue;
       }
       ++cnt;
-      offsprings.emplace_back();
+      offsprings.emplace_back(crossover(Population[i], Population[j]));
     }
   };
   const auto educate = [&]() {
 
   };
+  const auto choose_next_population = [&]() {};
   for (int iter = 0; iter <= 10000; ++iter) {
     init();
     evaluate();
     mutation();
     educate();
+    choose_next_population();
   }
   log_debug << "Solution is" << best.evaluate();
 }
