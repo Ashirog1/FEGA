@@ -145,11 +145,13 @@ class routeSet {
     multiRoute.emplace_back(Route());
     multiRoute.back().set_vehicle_type(vehicle_type);
   }
-  void append(std::pair<int, int> info, int trip_id) {
+  bool append(std::pair<int, int> info, int trip_id) {
     assert(trip_id < multiRoute.size());
     total_time -= multiRoute[trip_id].total_time;
+    total_weight -= multiRoute[trip_id].total_weight;
     multiRoute[trip_id].append(info);
     total_time += multiRoute[trip_id].total_time;
+    total_weight += multiRoute[trip_id].total_weight;
   }
   void pop(int trip_id) {
     total_time -= multiRoute[trip_id].total_time;
@@ -334,21 +336,13 @@ class Chromosome {
   */
   Solution encode() {
     Solution sol;
-    /*
-    int vehicle_idx = 0;
+    int current_vehicle = 0;
     for (auto [customer_id, weight] : chr) {
-      /// try to push
-      auto tmp = (vehicle_idx >= numTruck ? sol.drone_trip[vehicle_idx -
-    numTruck]: sol.truck_trip[vehicle_idx]);
-      sol.truck_trip[route.append({weight, customer_id}, 0);
-      /// condition checking
-      if (route.total_time <= timeLimit and route.total_weight <= capacityTruck)
-    { continue;
-      }
+      /// try to push current route
+      /// if fail, create new route -> check condition
+      /// if fail, update current_vehicle
 
-      /// rollback
-      route = tmp;
-    }*/
+    }
     return sol;
   }
   /*
