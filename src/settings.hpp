@@ -18,8 +18,8 @@ chromesome
 
 const int TTRUCK = 0, TDRONE = 1;
 
-int numCustomer, numTruck, numDrone, timeLimit;
-int speedTruck, speedDrone, capacityTruck, capacityDrone, durationDrone;
+int num_customer, num_truck, num_drone, time_limit;
+int speed_truck, speed_drone, capacity_truck, capacity_drone, duration_drone;
 std::ofstream log_debug("debug.log");
 
 template <class T>
@@ -49,7 +49,7 @@ double euclid_distance(const Customer &A, const Customer &B) {
 
 double time_travel(const Customer &A, const Customer &B, int type) {
   return sqrt(euclid_distance(A, B)) /
-         (type == TTRUCK ? speedTruck : speedDrone);
+         (type == TTRUCK ? speed_truck : speed_drone);
 }
 
 std::vector<Customer> customers;
@@ -92,22 +92,33 @@ class Route {
   std::vector<Node *> route;
   double total_time = 0;
   int total_weight = 0;
-  /* info = {weight, customer_id};
+  /* info = {customer_id, weight};
    */
   int size() { return route.size(); }
-  void append(std::pair<int, int> info) {
+  bool append(std::pair<int, int> info) {
+    auto [customer_id, weight] = info;
     total_time -= time_travel(customers[route.back()->customer_id],
                               customers[0], vehicle_type);
     total_time += time_travel(customers[route.back()->customer_id],
-                              customers[info.second], vehicle_type);
+                              customers[customer_id], vehicle_type);
     total_time +=
-        time_travel(customers[info.second], customers[0], vehicle_type);
+        time_travel(customers[customer_id], customers[0], vehicle_type);
+
+    total_weight += weight;
+
     Node *tmp = new Node();
 
-    tmp->customer_id = info.second;
+    tmp->customer_id = customer_id;
     tmp->prev_node = route.back();
     route.back()->next_node = tmp;
     route.push_back(tmp);
+
+    total_weight += weight;
+    if (not valid_route()) {
+      pop();
+      return false;
+    }
+    return true;
   }
   void pop() {
     total_time -= time_travel(customers[route.back()->customer_id],
@@ -122,8 +133,13 @@ class Route {
     route.pop_back();
   }
   bool valid_route() {
-    return (total_time <= timeLimit) and
-           (vehicle_type == TTRUCK ? true : total_time <= durationDrone);
+    if (total_time > time_limit) return false;
+
+    if (vehicle_type == TTRUCK) {
+      return total_weight <= capacity_truck;
+    } else {
+      return (total_weight <= capacity_drone and total_time <= duration_drone);
+    }
   }
   /*
     set before route building
@@ -145,6 +161,7 @@ class routeSet {
     multiRoute.emplace_back(Route());
     multiRoute.back().set_vehicle_type(vehicle_type);
   }
+  /*{customer_id, weight}*/
   bool append(std::pair<int, int> info, int trip_id) {
     assert(trip_id < multiRoute.size());
     total_time -= multiRoute[trip_id].total_time;
@@ -152,20 +169,22 @@ class routeSet {
     multiRoute[trip_id].append(info);
     total_time += multiRoute[trip_id].total_time;
     total_weight += multiRoute[trip_id].total_weight;
+
+    if (not valid_route() or not multiRoute[trip_id].valid_route()) {
+      pop(trip_id);
+      return false;
+    }
+    return true;
   }
   void pop(int trip_id) {
     total_time -= multiRoute[trip_id].total_time;
+    total_weight -= multiRoute[trip_id].total_weight;
     multiRoute[trip_id].pop();
     total_time += multiRoute[trip_id].total_time;
+    total_weight += multiRoute[trip_id].total_weight;
   }
   bool valid_route() {
-    total_time = 0;
-    total_weight = 0;
-    for (auto route : multiRoute) {
-      if (not route.valid_route()) return false;
-      total_time += route.total_time;
-    }
-    if (total_time > timeLimit) return false;
+    if (total_time > time_limit) return false;
     return true;
   }
   void set_vehicle_type(int type) { vehicle_type = type; }
@@ -183,7 +202,7 @@ class Solution {
   */
   void educate() {}
   bool valid_solution() {
-    std::vector<int> total_weight(numCustomer);
+    std::vector<int> total_weight(num_customer);
     for (auto truck : truck_trip) {
       if (not truck.valid_route()) return false;
       for (auto route : truck.multiRoute) {
@@ -200,14 +219,14 @@ class Solution {
         }
       }
     }
-    for (int i = 0; i < numCustomer; ++i) {
+    for (int i = 0; i < num_customer; ++i) {
       if (total_weight[i] < customers[i].lower_weight) return false;
     }
     return true;
   }
   int evaluate() {
     /// make sure valid_solution() return true
-    std::vector<int> total_weight(numCustomer);
+    std::vector<int> total_weight(num_customer);
     for (auto truck : truck_trip) {
       if (not truck.valid_route()) return false;
       for (auto route : truck.multiRoute) {
@@ -225,7 +244,7 @@ class Solution {
       }
     }
     int ans = 0;
-    for (int i = 0; i < numCustomer; ++i) {
+    for (int i = 0; i < num_customer; ++i) {
       ans += customers[i].cost * total_weight[i];
     }
     return ans;
@@ -336,12 +355,38 @@ class Chromosome {
   */
   Solution encode() {
     Solution sol;
-    int current_vehicle = 0;
-    for (auto [customer_id, weight] : chr) {
+    int current_vehicle = 0, trip_id = 0;
+    for (auto customer_info : chr) {
       /// try to push current route
       /// if fail, create new route -> check condition
       /// if fail, update current_vehicle
-
+      const auto push = [&]() {
+        if (current_vehicle < num_truck) {
+          if (not sol.truck_trip[current_vehicle].append(customer_info,
+                                                         trip_id)) {
+            return false;
+          } else {
+            return true;
+          }
+        } else {
+          if (not sol.drone_trip[current_vehicle - num_truck].append(
+                  customer_info, trip_id)) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+      };
+      while (current_vehicle < num_truck + num_drone) {
+        if (not push()) {
+          if (current_vehicle < num_truck) {
+            ++current_vehicle;
+            trip_id = 0;
+          } else {
+            /*success last drone trip?*/
+            if () }
+        }
+      }
     }
     return sol;
   }
@@ -359,12 +404,12 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
   */
   int pivot = rand(1, (int)a.chr.size() - 1);
   Chromosome c;
-  std::vector<int> current_lowerbound(numCustomer);
-  for (int i = 0; i < numCustomer; ++i) {
+  std::vector<int> current_lowerbound(num_customer);
+  for (int i = 0; i < num_customer; ++i) {
     current_lowerbound[i] = customers[i].lower_weight;
   }
   // need to make sure that a don't contradict with the constraints
-  std::vector<std::pair<int, int>> A, B, C;  // dirty code
+  std::vector<std::pair<int, int>> A, B, C;
   for (auto it : a.chr) A.emplace_back(it);
   for (auto it : b.chr) B.emplace_back(it);
   for (int i = 0; i < pivot; ++i) C.emplace_back(A[i]);

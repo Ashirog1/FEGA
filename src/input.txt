@@ -10,6 +10,6 @@
 /*
 Input format
 
-numTruck numDrone timeLimit
-speedTruck speedDrone capacityTruck capacityDrone durationDrone
+num_truck num_drone time_limit
+speed_truck speed_drone capacity_truck capacity_drone duration_drone
 */

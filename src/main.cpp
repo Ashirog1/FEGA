@@ -9,9 +9,9 @@ void read_input() {
 
   depot is customers[0] = {all value equal to 0}
   */
-  read_file >> numTruck >> numDrone >> timeLimit;
-  read_file >> speedTruck >> speedDrone >> capacityTruck >> capacityDrone >>
-      durationDrone;
+  read_file >> num_truck >> num_drone >> time_limit;
+  read_file >> speed_truck >> speed_drone >> capacity_truck >> capacity_drone >>
+      duration_drone;
   Customer tmp;
   numCustomer = 1;
   customers.emplace_back(Customer());
@@ -22,16 +22,16 @@ void read_input() {
   read_file.close();
   numCustomer = customers.size();
 
-  debug(numTruck, numDrone, timeLimit);
-  debug(speedTruck, speedDrone, capacityTruck, capacityDrone, durationDrone);
+  debug(num_truck, num_drone, time_limit);
+  debug(speed_truck, speed_drone, capacity_truck, capacity_drone, duration_drone);
   for (auto x : customers)
     debug(x.x, x.y, x.lower_weight, x.upper_weight, x.cost);
 
   /*
   assert limit of constraint
   */
-  assert(speedTruck != 0);
-  assert(speedDrone != 0);
+  assert(speed_truck != 0);
+  assert(speed_drone != 0);
 }
 
 std::vector<double> init_piority_matrix(
@@ -51,17 +51,17 @@ std::vector<double> init_piority_matrix(
 
 Solution init_random_solution() {
   Solution first_solution;
-  first_solution.drone_trip.resize(numDrone);
-  first_solution.truck_trip.resize(numDrone);
+  first_solution.drone_trip.resize(num_drone);
+  first_solution.truck_trip.resize(num_drone);
 
   /*
   set vehicle type for every trip
   try to dynamic calculate remaining time
   */
-  for (int i = 0; i < numDrone; ++i) {
+  for (int i = 0; i < num_drone; ++i) {
     first_solution.drone_trip[i].set_vehicle_type(TDRONE);
   }
-  for (int i = 0; i < numDrone; ++i) {
+  for (int i = 0; i < num_drone; ++i) {
     first_solution.truck_trip[i].set_vehicle_type(TTRUCK);
   }
 
@@ -76,9 +76,9 @@ Solution init_random_solution() {
   for (int i = 0; i < numCustomer; ++i)
     current_lowerbound[i] = customers[i].lower_weight;
 
-  for (int i = 0; i < numTruck; ++i) {
+  for (int i = 0; i < num_truck; ++i) {
     double tot_time = 0;
-    int now_weight = capacityTruck;
+    int now_weight = capacity_truck;
     int tmp = random_number_with_probability(
         build_partial_sum(init_piority_matrix(current_lowerbound)));
     first_solution.truck_trip[i].new_route();
@@ -113,7 +113,7 @@ Solution init_random_solution() {
         if (i == current_loc->customer_id) continue;
         if (tot_time + time_travel(customers[current_loc->customer_id],
                                    customers[i], TTRUCK) >
-            timeLimit)
+            time_limit)
           continue;
         if (current_lowerbound[i] == 0) continue;
         if (minimize<double>(
@@ -129,12 +129,12 @@ Solution init_random_solution() {
     }
   }
 
-  for (int i = 0; i < numDrone; ++i) {
+  for (int i = 0; i < num_drone; ++i) {
     double tot_time = 0;
-    int now_weight = capacityDrone;
+    int now_weight = capacity_drone;
     int route_id = 0;
 
-    while (first_solution.drone_trip[i].total_time < timeLimit) {
+    while (first_solution.drone_trip[i].total_time < time_limit) {
       int tmp = random_number_with_probability(
           build_partial_sum(init_piority_matrix(current_lowerbound)));
       first_solution.drone_trip[i].new_route();
@@ -170,11 +170,11 @@ Solution init_random_solution() {
           if (i == current_loc->customer_id) continue;
           if (tot_time + time_travel(customers[current_loc->customer_id],
                                      customers[i], TDRONE) >
-              durationDrone)
+              duration_drone)
             continue;
           if (tot_time + time_travel(customers[current_loc->customer_id],
                                      customers[i], TDRONE) >
-              timeLimit)
+              time_limit)
             continue;
           if (current_lowerbound[i] == 0) continue;
           if (minimize<double>(
@@ -197,26 +197,28 @@ Solution init_random_solution() {
   }
 
   // log first_solution
+  log_debug << "after 3.2\n";
   log_debug << "first_solution\n";
   log_debug << first_solution.valid_solution() << '\n';
-  log_debug << "current lowerber\n";
+  log_debug << "current lowerbound\n";
   for (int i = 0; i < numCustomer; ++i) {
-    log_debug << "cus " << i << ' ' << current_lowerbound[i] << '\n';
+    log_debug << "customer " << i << ' ' << current_lowerbound[i] << '\n';
   }
   log_debug << '\n';
-  for (int i = 0; i < numTruck; ++i) {
-    log_debug << "truck" << ' ' << i << '\n';
+  for (int i = 0; i < num_truck; ++i) {
+    log_debug << "truck route" << ' ' << i << '\n';
     for (auto loc : first_solution.truck_trip[i].multiRoute[0].route) {
       log_debug << loc->customer_id << ' ' << loc->weight << '\n';
     }
   }
 
-  for (int i = 0; i < numDrone; ++i) {
-    log_debug << "drone " << i << '\n';
+  for (int i = 0; i < num_drone; ++i) {
+    log_debug << "drone route" << i << '\n';
     for (auto trip : first_solution.drone_trip[i].multiRoute) {
       for (auto loc : trip.route) {
         log_debug << loc->customer_id << ' ' << loc->weight << '\n';
       }
+      log_debug << '\n';
     }
   }
   log_debug << '\n';
