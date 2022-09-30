@@ -13,17 +13,18 @@ void read_input() {
   read_file >> speed_truck >> speed_drone >> capacity_truck >> capacity_drone >>
       duration_drone;
   Customer tmp;
-  numCustomer = 1;
+  num_customer = 1;
   customers.emplace_back(Customer());
   while (read_file >> tmp.x >> tmp.y >> tmp.lower_weight >> tmp.upper_weight >>
          tmp.cost) {
     customers.emplace_back(tmp);
   }
   read_file.close();
-  numCustomer = customers.size();
+  num_customer = customers.size();
 
   debug(num_truck, num_drone, time_limit);
-  debug(speed_truck, speed_drone, capacity_truck, capacity_drone, duration_drone);
+  debug(speed_truck, speed_drone, capacity_truck, capacity_drone,
+        duration_drone);
   for (auto x : customers)
     debug(x.x, x.y, x.lower_weight, x.upper_weight, x.cost);
 
@@ -36,12 +37,12 @@ void read_input() {
 
 std::vector<double> init_piority_matrix(
     const std::vector<int>& current_loewrbound) {
-  std::vector<double> piority(numCustomer, 0);
+  std::vector<double> piority(num_customer, 0);
   double totDistance = 0;
-  for (int j = 0; j < numCustomer; ++j) {
+  for (int j = 0; j < num_customer; ++j) {
     totDistance += euclid_distance(customers[0], customers[j]);
   }
-  for (int j = 0; j < numCustomer; ++j) {
+  for (int j = 0; j < num_customer; ++j) {
     piority[j] = 1.0 * euclid_distance(customers[0], customers[j]) *
                  (double)current_loewrbound[j] * customers[j].cost /
                  totDistance;
@@ -72,8 +73,8 @@ Solution init_random_solution() {
   /*
   3.2. Init first route for every vehicle
   */
-  std::vector<int> current_lowerbound(numCustomer);
-  for (int i = 0; i < numCustomer; ++i)
+  std::vector<int> current_lowerbound(num_customer);
+  for (int i = 0; i < num_customer; ++i)
     current_lowerbound[i] = customers[i].lower_weight;
 
   for (int i = 0; i < num_truck; ++i) {
@@ -106,7 +107,7 @@ Solution init_random_solution() {
       if (now_weight == 0) break;
       double min_dist = std::numeric_limits<double>::max();
       int next_customer = -1;
-      for (int i = 1; i < numCustomer; ++i) {
+      for (int i = 1; i < num_customer; ++i) {
         /*
         check condition for time_limit and availablity for customer i
         */
@@ -139,12 +140,14 @@ Solution init_random_solution() {
           build_partial_sum(init_piority_matrix(current_lowerbound)));
       first_solution.drone_trip[i].new_route();
       first_solution.drone_trip[i].append({0, tmp}, route_id);
+      debug(i, route_id, tmp);
       /// split new route on drone
       debug("build for ", route_id);
       int pushed_cus = 0;
       for (int j = 1;
-           j < (int)first_solution.drone_trip[i].multiRoute[0].size(); ++j) {
-        auto current_loc = first_solution.drone_trip[i].multiRoute[0].route[j];
+           j < (int)first_solution.drone_trip[i].multiRoute[route_id].size(); ++j) {
+        auto current_loc =
+            first_solution.drone_trip[i].multiRoute[route_id].route[j];
         debug("drone", current_loc->customer_id);
         if (current_loc->prev_node != nullptr)
           tot_time +=
@@ -165,8 +168,10 @@ Solution init_random_solution() {
         if (now_weight == 0) break;
         double min_dist = std::numeric_limits<double>::max();
         int next_customer = -1;
-        for (int i = 1; i < numCustomer; ++i) {
+        for (int i = 1; i < num_customer; ++i) {
           /// check condition for time_limit and availablity for customer i
+          /// TODO: move the condition checking process to solution method?
+          /// use append is enough? and pop if success?
           if (i == current_loc->customer_id) continue;
           if (tot_time + time_travel(customers[current_loc->customer_id],
                                      customers[i], TDRONE) >
@@ -201,7 +206,7 @@ Solution init_random_solution() {
   log_debug << "first_solution\n";
   log_debug << first_solution.valid_solution() << '\n';
   log_debug << "current lowerbound\n";
-  for (int i = 0; i < numCustomer; ++i) {
+  for (int i = 0; i < num_customer; ++i) {
     log_debug << "customer " << i << ' ' << current_lowerbound[i] << '\n';
   }
   log_debug << '\n';
@@ -242,7 +247,7 @@ Solution init_random_solution() {
 
 void random_init_population() {
   int valid = 0;
-  for (int iter = 0; iter < 50; ++iter) {
+  for (int iter = 0; iter < 1; ++iter) {
     auto sol = init_random_solution();
     valid += sol.valid_solution();
     Population.emplace_back(Chromosome(sol));
@@ -263,7 +268,9 @@ void ga_process() {
   };
   const auto mutation = [&]() {
     int cnt = 0;
-    while (cnt <= 30) {
+    int off_springs_size = general_setting.POPULATION_SIZE *
+                           general_setting.OFFSPRING_PERCENT / 100;
+    while (cnt <= off_springs_size) {
       int i = rand(0, Population.size() - 1);
       int j = rand(0, Population.size() - 1);
       if (i == j) {
@@ -276,7 +283,9 @@ void ga_process() {
   const auto educate = [&]() {
 
   };
-  const auto choose_next_population = [&]() {};
+  const auto choose_next_population = [&]() {
+
+  };
   for (int iter = 0; iter <= 10000; ++iter) {
     init();
     evaluate();

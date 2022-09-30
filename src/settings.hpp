@@ -4,6 +4,8 @@
 #include "numeric"
 #include "random"
 #include "vector"
+#include "cassert"
+#include "fstream"
 
 /*
 TODO: try to split to different module.
@@ -228,7 +230,6 @@ class Solution {
     /// make sure valid_solution() return true
     std::vector<int> total_weight(num_customer);
     for (auto truck : truck_trip) {
-      if (not truck.valid_route()) return false;
       for (auto route : truck.multiRoute) {
         for (auto loc : route.route) {
           total_weight[loc->customer_id] += loc->weight;
@@ -236,7 +237,6 @@ class Solution {
       }
     }
     for (auto drone : drone_trip) {
-      if (not drone.valid_route()) return false;
       for (auto route : drone.multiRoute) {
         for (auto loc : route.route) {
           total_weight[loc->customer_id] += loc->weight;
@@ -249,9 +249,35 @@ class Solution {
     }
     return ans;
   }
+  int penalty(int alpha=1, int beta=1) {
+    double truck_pen = 0, drone_pen = 0;
+    for (auto truck : truck_trip) {
+      for (auto route : truck.multiRoute) {
+        int benefit = 0;
+        for (auto loc : route.route) {
+          benefit += loc->weight * customers[loc->customer_id].cost;
+        }
+        truck_pen += 1.0 * route.total_time / (double)time_limit
+                    * benefit;
+      } 
+    }
+    for (auto drone : drone_trip) {
+      for (auto route : drone.multiRoute) {
+        int benefit = 0;
+        for (auto loc : route.route) {
+          benefit += loc->weight * customers[loc->customer_id].cost;
+        }
+        drone_pen += 1.0 * route.total_time / (double)duration_drone
+                      * benefit;
+      }
+    }
+    return alpha * truck_pen + beta * drone_pen;
+  }
+  int fitness(int alpha=1, int beta=1) {
+    return evaluate() - penalty();
+  }
 };
 
-const int POPULATION_SIZE = 50;
 /* a constant seed random interger generator */
 std::mt19937 rng(64);
 
@@ -269,7 +295,7 @@ double random_number_in_range(double l, double r) {
 }
 
 /*
-
+1
 */
 
 std::vector<double> build_partial_sum(const std::vector<double> &prob) {
@@ -354,8 +380,8 @@ class Chromosome {
   try to push customer on current route until the condition hold true
   */
   Solution encode() {
-    Solution sol;
-    int current_vehicle = 0, trip_id = 0;
+    Solution sol; 
+    int current_vehicle = 0, trip_id = 0, current_pushed = 0;
     for (auto customer_info : chr) {
       /// try to push current route
       /// if fail, create new route -> check condition
@@ -384,7 +410,16 @@ class Chromosome {
             trip_id = 0;
           } else {
             /*success last drone trip?*/
-            if () }
+            if (current_pushed == 0) {
+              ++current_vehicle;
+              ++trip_id;
+            } else {
+              ++trip_id;
+              current_pushed = 0;
+            }
+          }
+        } else {
+          ++current_pushed;
         }
       }
     }
@@ -433,6 +468,6 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
 
 class settings {
  public:
-  static constexpr int POPULATION_SIZE = 100;
-  static constexpr int OFFSPRING_PERCENT = 30;
+  int POPULATION_SIZE = 100;
+  int OFFSPRING_PERCENT = 70;
 } general_setting;

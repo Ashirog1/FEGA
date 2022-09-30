@@ -3,6 +3,7 @@ import pandas as pd
 import os
 import glob
 
+
 def main():
   loc = os.getcwd()
   print("loc", loc)
@@ -10,7 +11,7 @@ def main():
   for f in files:
     print(f)
     os.remove(f)
-  
+
   print("reading path", loc + "/Data/" + "paramater.xlsx")
   try:
     paramater = pd.read_excel(loc + "/Data/" + "paramater.xlsx")
@@ -31,7 +32,7 @@ def main():
         print("match", readfile)
         number_truck = row["number truck"]
         number_drone = row["number drone"]
-        working_time = row["Woriking time"] # :)))) wtf
+        working_time = row["Woriking time"]  # :)))) wtf
         truck_capacity = row["Truck cappacity"]
         drone_capacity = row["Drone capacity"]
         drone_speed = row["Drone_speech"]
@@ -41,11 +42,14 @@ def main():
 
         with open(loc+"/txtData/"+filename[:len(filename)-3] + "txt", "w") as outfile:
           try:
-            print(int(number_truck), int(number_drone), int(working_time), end="\n", file=outfile)
-            print(int(truck_speed), int(drone_speed), int(truck_capacity), int(drone_capacity), int(drone_duration), end="\n",file=outfile)
+            print(int(number_truck), int(number_drone),
+                  int(working_time), end="\n", file=outfile)
+            print(int(truck_speed), int(drone_speed), int(truck_capacity), int(
+                drone_capacity), int(drone_duration), end="\n", file=outfile)
             for ind, cus in df.iterrows():
               try:
-                print(cus["x"],cus["y"], int(cus["low"]), int(cus["upper"]), int(cus["weight"]), end="\n", file=outfile)
+                print(cus["x"], cus["y"], int(cus["low"]), int(
+                    cus["upper"]), int(cus["weight"]), end="\n", file=outfile)
               except:
                 for val in cus:
                   print(int(val), end=" ", file=outfile)
