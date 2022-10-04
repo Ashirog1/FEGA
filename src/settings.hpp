@@ -381,6 +381,13 @@ class Chromosome {
   */
   Solution encode() {
     Solution sol; 
+    for (int i = 0; i < num_truck; ++i) {
+      sol.truck_trip[i].set_vehicle_type(TTRUCK);
+    }
+    for (int i = 0; i < num_drone; ++i) {
+      sol.drone_trip[i].set_vehicle_type(TDRONE);
+    }
+    sol.truck_trip[0].new_route();
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
     for (auto customer_info : chr) {
       /// try to push current route
@@ -417,6 +424,12 @@ class Chromosome {
               ++trip_id;
               current_pushed = 0;
             }
+            /// init new route
+          }
+          if (current_vehicle < num_truck) {
+            sol.truck_trip[current_vehicle].new_route();
+          } else {
+            sol.drone_trip[current_vehicle - num_truck].new_route();
           }
         } else {
           ++current_pushed;

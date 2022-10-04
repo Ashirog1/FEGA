@@ -83,7 +83,7 @@ Solution init_random_solution() {
     int tmp = random_number_with_probability(
         build_partial_sum(init_piority_matrix(current_lowerbound)));
     first_solution.truck_trip[i].new_route();
-    first_solution.truck_trip[i].append({0, tmp}, 0);
+    first_solution.truck_trip[i].append({tmp, 0}, 0);
     if (current_lowerbound[tmp] == 0) break;
     for (int j = 1; j < (int)first_solution.truck_trip[i].multiRoute[0].size();
          ++j) {
@@ -99,7 +99,7 @@ Solution init_random_solution() {
           push_weight;
       now_weight -= push_weight;
       current_lowerbound[current_loc->customer_id] -= push_weight;
-      debug(i, push_weight);
+      debug(current_loc->customer_id, push_weight);
       if (push_weight == 0) {
         first_solution.truck_trip[i].pop(0);
         break;
@@ -125,7 +125,7 @@ Solution init_random_solution() {
       }
       debug("truck", next_customer);
       if (next_customer != -1) {
-        first_solution.truck_trip[i].append({0, next_customer}, 0);
+        first_solution.truck_trip[i].append({next_customer, 0}, 0);
       }
     }
   }
@@ -139,13 +139,15 @@ Solution init_random_solution() {
       int tmp = random_number_with_probability(
           build_partial_sum(init_piority_matrix(current_lowerbound)));
       first_solution.drone_trip[i].new_route();
-      first_solution.drone_trip[i].append({0, tmp}, route_id);
+      first_solution.drone_trip[i].append({tmp, 0}, route_id);
       debug(i, route_id, tmp);
       /// split new route on drone
+      if (current_lowerbound[tmp] == 0) break;
       debug("build for ", route_id);
       int pushed_cus = 0;
       for (int j = 1;
-           j < (int)first_solution.drone_trip[i].multiRoute[route_id].size(); ++j) {
+           j < (int)first_solution.drone_trip[i].multiRoute[route_id].size();
+           ++j) {
         auto current_loc =
             first_solution.drone_trip[i].multiRoute[route_id].route[j];
         debug("drone", current_loc->customer_id);
@@ -190,11 +192,11 @@ Solution init_random_solution() {
         }
         debug(next_customer);
         if (next_customer != -1) {
-          first_solution.drone_trip[i].append({0, next_customer}, route_id);
+          first_solution.drone_trip[i].append({next_customer, 0}, route_id);
           ++pushed_cus;
         }
       }
-      if (pushed_cus)
+      if (pushed_cus >= 1)
         ++route_id;
       else
         break;
@@ -258,7 +260,10 @@ void random_init_population() {
 void ga_process() {
   Solution best;
   std::vector<Chromosome> offsprings;
-  const auto init = [&]() { offsprings.clear(); };
+  const auto init = [&]() {
+    offsprings.clear();
+    vector
+  };
   const auto evaluate = [&]() {
     for (auto Sol : Population) {
       if (best.evaluate() < Sol.encode().evaluate()) {
@@ -281,12 +286,21 @@ void ga_process() {
     }
   };
   const auto educate = [&]() {
-
+    /*
+     */
   };
   const auto choose_next_population = [&]() {
-
+    std::vector<Chromosome> next_population = offsprings;
+    /// TODO: use addition vector to reduce the fitness computation
+    const int one_hundred_percent = 100;
+    int keep = general_setting.POPULATION_SIZE *
+               (one_hundred_percent - general_setting.OFFSPRING_PERCENT) / 100;
+    next_population.insert(next_population.end(), Population.begin(),
+                           Population.begin() + keep);
+    std::swap(Population, next_population);
   };
   for (int iter = 0; iter <= 10000; ++iter) {
+    debug("generation", iter);
     init();
     evaluate();
     mutation();
