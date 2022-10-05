@@ -53,7 +53,7 @@ std::vector<double> init_piority_matrix(
 Solution init_random_solution() {
   Solution first_solution;
   first_solution.drone_trip.resize(num_drone);
-  first_solution.truck_trip.resize(num_drone);
+  first_solution.truck_trip.resize(num_truck);
 
   /*
   set vehicle type for every trip
@@ -77,132 +77,81 @@ Solution init_random_solution() {
   for (int i = 0; i < num_customer; ++i)
     current_lowerbound[i] = customers[i].lower_weight;
 
+  const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
+                                      int customer_id) {
+    return min(current_lowerbound[customer_id],
+               routeSet.multiRoute[trip_id].rem_weight());
+  };
+  const auto push_cus = [&](routeSet& routeSet, int trip_id,
+                            int cus_id) {
+    std::pair<int, int> cus = {
+        cus_id, find_pushed_weight(routeSet, 0, cus_id)};
+    if (routeSet.append(cus, trip_id)) {
+      current_lowerbound[cus.first] -= cus.second;
+    }
+  };
+
+  const auto find_next_cus = [&](routeSet& routeSet, int trip_id) {
+    std::pair<int, int> next_customer = {-1, 0};
+    double min_dist = std::numeric_limits<double>::max();
+    for (int i = 1; i < num_customer; ++i) {
+      /// check if successful append?
+      int pushed_weight =
+          min(current_lowerbound[i], routeSet.multiRoute[trip_id].rem_weight());
+      // debug(current_lowerbound[i],
+      // routeSet.multiRoute[trip_id].rem_weight());
+      debug(i, pushed_weight);
+      if (pushed_weight <= 0) continue;
+      bool flag = routeSet.append({i, pushed_weight}, trip_id);
+      if (flag)
+        routeSet.pop(trip_id);
+      else
+        continue;
+      if (minimize<double>(
+              min_dist,
+              euclid_distance(
+                  customers
+                      [routeSet.multiRoute[trip_id].route.back().customer_id],
+                  customers[i]))) {
+        next_customer = {i, pushed_weight};
+      }
+    }
+    debug(next_customer);
+    return next_customer;
+  };
+
+  const auto build_route = [&](routeSet& routeSet, int trip_id) {
+    while (routeSet.valid_route()) {
+      auto next_cus = find_next_cus(routeSet, trip_id);
+      debug(next_cus);
+      if (next_cus.first == -1) break;
+
+      routeSet.append(next_cus, trip_id);
+      current_lowerbound[next_cus.first] -= next_cus.second;
+    }
+  };
+
   for (int i = 0; i < num_truck; ++i) {
-    double tot_time = 0;
-    int now_weight = capacity_truck;
     int tmp = random_number_with_probability(
         build_partial_sum(init_piority_matrix(current_lowerbound)));
-    first_solution.truck_trip[i].new_route();
-    first_solution.truck_trip[i].append({tmp, 0}, 0);
     if (current_lowerbound[tmp] == 0) break;
-    for (int j = 1; j < (int)first_solution.truck_trip[i].multiRoute[0].size();
-         ++j) {
-      auto current_loc = first_solution.truck_trip[i].multiRoute[0].route[j];
-      debug("truck ", i, current_loc->customer_id);
-      if (current_loc->prev_node != nullptr)
-        tot_time +=
-            time_travel(customers[current_loc->customer_id],
-                        customers[current_loc->prev_node->customer_id], TTRUCK);
-      int push_weight =
-          std::min(current_lowerbound[current_loc->customer_id], now_weight);
-      first_solution.truck_trip[i].multiRoute[0].route.back()->weight =
-          push_weight;
-      now_weight -= push_weight;
-      current_lowerbound[current_loc->customer_id] -= push_weight;
-      debug(current_loc->customer_id, push_weight);
-      if (push_weight == 0) {
-        first_solution.truck_trip[i].pop(0);
-        break;
-      }
-      if (now_weight == 0) break;
-      double min_dist = std::numeric_limits<double>::max();
-      int next_customer = -1;
-      for (int i = 1; i < num_customer; ++i) {
-        /*
-        check condition for time_limit and availablity for customer i
-        */
-        if (i == current_loc->customer_id) continue;
-        if (tot_time + time_travel(customers[current_loc->customer_id],
-                                   customers[i], TTRUCK) >
-            time_limit)
-          continue;
-        if (current_lowerbound[i] == 0) continue;
-        if (minimize<double>(
-                min_dist, euclid_distance(customers[current_loc->customer_id],
-                                          customers[i]))) {
-          next_customer = i;
-        }
-      }
-      debug("truck", next_customer);
-      if (next_customer != -1) {
-        first_solution.truck_trip[i].append({next_customer, 0}, 0);
-      }
-    }
+    first_solution.truck_trip[i].new_route();
+    push_cus(first_solution.truck_trip[i], 0, tmp);
+
+    build_route(first_solution.truck_trip[i], 0);
   }
-
   for (int i = 0; i < num_drone; ++i) {
-    double tot_time = 0;
-    int now_weight = capacity_drone;
     int route_id = 0;
-
-    while (first_solution.drone_trip[i].total_time < time_limit) {
+    while (first_solution.drone_trip[i].valid_route()) {
       int tmp = random_number_with_probability(
           build_partial_sum(init_piority_matrix(current_lowerbound)));
-      first_solution.drone_trip[i].new_route();
-      first_solution.drone_trip[i].append({tmp, 0}, route_id);
-      debug(i, route_id, tmp);
-      /// split new route on drone
       if (current_lowerbound[tmp] == 0) break;
-      debug("build for ", route_id);
-      int pushed_cus = 0;
-      for (int j = 1;
-           j < (int)first_solution.drone_trip[i].multiRoute[route_id].size();
-           ++j) {
-        auto current_loc =
-            first_solution.drone_trip[i].multiRoute[route_id].route[j];
-        debug("drone", current_loc->customer_id);
-        if (current_loc->prev_node != nullptr)
-          tot_time +=
-              euclid_distance(customers[current_loc->customer_id],
-                              customers[current_loc->prev_node->customer_id]);
-
-        int push_weight =
-            std::min(current_lowerbound[current_loc->customer_id], now_weight);
-        first_solution.drone_trip[i].multiRoute[route_id].route.back()->weight =
-            push_weight;
-        current_lowerbound[i] -= push_weight;
-        now_weight -= push_weight;
-        if (push_weight == 0) {
-          first_solution.drone_trip[i].pop(route_id);
-          --pushed_cus;
-          break;
-        }
-        if (now_weight == 0) break;
-        double min_dist = std::numeric_limits<double>::max();
-        int next_customer = -1;
-        for (int i = 1; i < num_customer; ++i) {
-          /// check condition for time_limit and availablity for customer i
-          /// TODO: move the condition checking process to solution method?
-          /// use append is enough? and pop if success?
-          if (i == current_loc->customer_id) continue;
-          if (tot_time + time_travel(customers[current_loc->customer_id],
-                                     customers[i], TDRONE) >
-              duration_drone)
-            continue;
-          if (tot_time + time_travel(customers[current_loc->customer_id],
-                                     customers[i], TDRONE) >
-              time_limit)
-            continue;
-          if (current_lowerbound[i] == 0) continue;
-          if (minimize<double>(
-                  min_dist, euclid_distance(customers[current_loc->customer_id],
-                                            customers[i]))) {
-            next_customer = i;
-          }
-        }
-        debug(next_customer);
-        if (next_customer != -1) {
-          first_solution.drone_trip[i].append({next_customer, 0}, route_id);
-          ++pushed_cus;
-        }
-      }
-      if (pushed_cus >= 1)
-        ++route_id;
-      else
-        break;
+      first_solution.truck_trip[i].new_route();
+      push_cus(first_solution.drone_trip[i], route_id, tmp);
+      build_route(first_solution.drone_trip[i], route_id);
+      ++route_id;
     }
   }
-
   // log first_solution
   log_debug << "after 3.2\n";
   log_debug << "first_solution\n";
@@ -215,7 +164,7 @@ Solution init_random_solution() {
   for (int i = 0; i < num_truck; ++i) {
     log_debug << "truck route" << ' ' << i << '\n';
     for (auto loc : first_solution.truck_trip[i].multiRoute[0].route) {
-      log_debug << loc->customer_id << ' ' << loc->weight << '\n';
+      log_debug << loc.customer_id << ' ' << loc.weight << '\n';
     }
   }
 
@@ -223,7 +172,7 @@ Solution init_random_solution() {
     log_debug << "drone route" << i << '\n';
     for (auto trip : first_solution.drone_trip[i].multiRoute) {
       for (auto loc : trip.route) {
-        log_debug << loc->customer_id << ' ' << loc->weight << '\n';
+        log_debug << loc.customer_id << ' ' << loc.weight << '\n';
       }
       log_debug << '\n';
     }
@@ -249,7 +198,7 @@ Solution init_random_solution() {
 
 void random_init_population() {
   int valid = 0;
-  for (int iter = 0; iter < 1; ++iter) {
+  for (int iter = 0; iter < general_setting.POPULATION_SIZE; ++iter) {
     auto sol = init_random_solution();
     valid += sol.valid_solution();
     Population.emplace_back(Chromosome(sol));
@@ -262,7 +211,14 @@ void ga_process() {
   std::vector<Chromosome> offsprings;
   const auto init = [&]() {
     offsprings.clear();
-    vector
+    vector<pair<int, Chromosome>> val;
+    for (auto gen : Population) {
+      val.emplace_back(gen.encode().fitness(), gen);
+    }
+    sort(val.begin(), val.end(),
+         [&](auto x, auto y) { return x.first < y.first; });
+    Population.clear();
+    for (auto [w, v] : val) Population.emplace_back(v);
   };
   const auto evaluate = [&]() {
     for (auto Sol : Population) {
@@ -275,12 +231,15 @@ void ga_process() {
     int cnt = 0;
     int off_springs_size = general_setting.POPULATION_SIZE *
                            general_setting.OFFSPRING_PERCENT / 100;
+    // debug("mutation", off_springs_size, Population.size());
     while (cnt <= off_springs_size) {
       int i = rand(0, Population.size() - 1);
       int j = rand(0, Population.size() - 1);
+      // debug(i, j);
       if (i == j) {
         continue;
       }
+      // debug(cnt);
       ++cnt;
       offsprings.emplace_back(crossover(Population[i], Population[j]));
     }
@@ -295,17 +254,23 @@ void ga_process() {
     const int one_hundred_percent = 100;
     int keep = general_setting.POPULATION_SIZE *
                (one_hundred_percent - general_setting.OFFSPRING_PERCENT) / 100;
+    keep = min(keep, (int)Population.size());
     next_population.insert(next_population.end(), Population.begin(),
                            Population.begin() + keep);
     std::swap(Population, next_population);
   };
-  for (int iter = 0; iter <= 10000; ++iter) {
+  for (int iter = 0; iter <= 10; ++iter) {
     debug("generation", iter);
     init();
+    debug("complete init");
     evaluate();
+    debug("complete eval");
     mutation();
+    debug("complete mutation");
     educate();
+    debug("complete educate");
     choose_next_population();
+    debug("complete choosing next population");
   }
   log_debug << "Solution is" << best.evaluate();
 }

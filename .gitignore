@@ -9,3 +9,6 @@ txtData/*
 
 # make build
 build/*
+
+# debug log
+src/debug.log
