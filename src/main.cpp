@@ -85,7 +85,7 @@ Solution init_random_solution() {
   const auto push_cus = [&](routeSet& routeSet, int trip_id,
                             int cus_id) {
     std::pair<int, int> cus = {
-        cus_id, find_pushed_weight(routeSet, 0, cus_id)};
+        cus_id, find_pushed_weight(routeSet, trip_id, cus_id)};
     if (routeSet.append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
     }

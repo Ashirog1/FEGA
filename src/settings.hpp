@@ -61,7 +61,8 @@ class Route {
    public:
     int weight, customer_id;
     Node() {
-      weight = 0; customer_id = -1;
+      weight = 0;
+      customer_id = -1;
     }
   };
 
@@ -92,8 +93,8 @@ class Route {
   int size() { return route.size(); }
   bool append(std::pair<int, int> info) {
     auto [customer_id, weight] = info;
-    total_time -= time_travel(customers[route.back().customer_id],
-                              customers[0], vehicle_type);
+    total_time -= time_travel(customers[route.back().customer_id], customers[0],
+                              vehicle_type);
     total_time += time_travel(customers[route.back().weight],
                               customers[customer_id], vehicle_type);
     total_time +=
@@ -114,8 +115,8 @@ class Route {
   }
   void pop() {
     if (route.size() == 1) return;
-    total_time -= time_travel(customers[route.back().customer_id],
-                              customers[0], vehicle_type);
+    total_time -= time_travel(customers[route.back().customer_id], customers[0],
+                              vehicle_type);
     total_time -= time_travel(customers[route.back().customer_id],
                               customers[route[route.size() - 2].customer_id],
                               vehicle_type);
@@ -138,8 +139,8 @@ class Route {
   */
   void set_vehicle_type(int type) { vehicle_type = type; }
   int rem_weight() {
-    return (vehicle_type == TTRUCK ? capacity_truck : capacity_drone) - 
-            total_weight;
+    return (vehicle_type == TTRUCK ? capacity_truck : capacity_drone) -
+           total_weight;
   }
 };
 
@@ -189,13 +190,44 @@ class routeSet {
 class Solution {
  public:
   std::vector<routeSet> truck_trip, drone_trip;
+  std::vector<int> current_lowerbound;
   Solution() {
     truck_trip.clear();
     drone_trip.clear();
+    current_lowerbound.assign(num_customer, 0);
+    for (int i = 0; i < num_customer; ++i)
+      current_lowerbound[i] = customers[i].lower_weight;
+    truck_trip.resize(num_truck);
+    drone_trip.resize(num_drone);
+    for (int i = 0; i < num_truck; ++i) {
+      truck_trip[i].set_vehicle_type(TTRUCK);
+    }
+    for (int i = 0; i < num_drone; ++i) {
+      drone_trip[i].set_vehicle_type(TDRONE);
+    }
+
   }
   /*
   greedy algo to maximize objective function
   */
+  routeSet *route_at(int index) {
+    return (index < num_truck ? &truck_trip[index]
+                              : &drone_trip[index - num_truck]);
+  }
+  int find_pushed_weight(int route_id, int trip_id, int customer_id) {
+    return std::min(current_lowerbound[customer_id],
+                    route_at(route_id)->multiRoute[trip_id].rem_weight());
+  }
+  int push_cus(int route_id, int trip_id, int cus_id) {
+    std::pair<int, int> cus = {cus_id,
+                               find_pushed_weight(route_id, trip_id, cus_id)};
+    if (route_at(route_id)->append(cus, trip_id)) {
+      current_lowerbound[cus.first] -= cus.second;
+      return cus.second;
+    } else {
+      return -1;
+    }
+  }
   void educate() {}
   bool valid_solution() {
     std::vector<int> total_weight(num_customer);
@@ -276,6 +308,7 @@ class Solution {
         log_debug << '\n';
       }
     }
+    log_debug << "complete truck\n";
     for (auto drone : drone_trip) {
       for (auto route : drone.multiRoute) {
         for (auto loc : route.route) {
@@ -388,71 +421,58 @@ class Chromosome {
   */
   Solution encode() {
     Solution sol;
-    sol.truck_trip.resize(num_truck);
-    sol.drone_trip.resize(num_drone);
-    for (int i = 0; i < num_truck; ++i) {
-      sol.truck_trip[i].set_vehicle_type(TTRUCK);
-    }
-    for (int i = 0; i < num_drone; ++i) {
-      sol.drone_trip[i].set_vehicle_type(TDRONE);
-    }
 
     log_debug << "print out\n";
     for (auto [w, v] : chr) log_debug << w << ' ' << v << '\n';
     log_debug << "complete gen\n \n";
 
-    sol.truck_trip[0].new_route();
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
     for (auto customer_info : chr) {
       /// try to push current route
       /// if fail, create new route . check condition
       /// if fail, update current_vehicle
       assert(customer_info.first != 0);
-      log_debug << "cus " << customer_info.first << ' ' << customer_info.second << '\n';
+      log_debug << "cus " << customer_info.first << ' ' << customer_info.second
+                << '\n';
       const auto push = [&]() {
-        if (current_vehicle < num_truck) {
-          if (not sol.truck_trip[current_vehicle].append(customer_info,
-                                                         trip_id)) {
-            return false;
+        int dec_weight =
+            sol.push_cus(current_vehicle, trip_id, customer_info.first);
+        if (dec_weight <= 0) return false;
+        customer_info.second -= dec_weight;
+        return true;
+      };
+      const auto push_route = [&]() {
+        while (current_vehicle < num_truck + num_drone) {
+          if (not push()) {
+            if (current_vehicle < num_truck) {
+              ++current_vehicle;
+              trip_id = 0;
+            } else {
+              /*success last drone trip?*/
+              if (current_pushed == 0) {
+                ++current_vehicle;
+                ++trip_id;
+              } else {
+                ++trip_id;
+                current_pushed = 0;
+              }
+              /// init new route
+            }
+            if (current_vehicle < num_truck) {
+              sol.truck_trip[current_vehicle].new_route();
+            } else {
+              sol.drone_trip[current_vehicle - num_truck].new_route();
+            }
           } else {
-            return true;
-          }
-        } else {
-          if (not sol.drone_trip[current_vehicle - num_truck].append(
-                  customer_info, trip_id)) {
-            return false;
-          } else {
-            return true;
+            log_debug << current_vehicle << ' ' << trip_id << ' '
+                      << current_pushed << '\n';
+            ++current_pushed;
+            break;
           }
         }
       };
-      while (current_vehicle < num_truck + num_drone) {
-        if (not push()) {
-          if (current_vehicle < num_truck) {
-            ++current_vehicle;
-            trip_id = 0;
-          } else {
-            /*success last drone trip?*/
-            if (current_pushed == 0) {
-              ++current_vehicle;
-              ++trip_id;
-            } else {
-              ++trip_id;
-              current_pushed = 0;
-            }
-            /// init new route
-          }
-          if (current_vehicle < num_truck) {
-            sol.truck_trip[current_vehicle].new_route();
-          } else {
-            sol.drone_trip[current_vehicle - num_truck].new_route();
-          }
-        } else {
-        log_debug << current_vehicle << ' ' << trip_id << ' ' 
-                  << current_pushed << '\n';
-          ++current_pushed;
-          break;
-        }
+      while (customer_info.second > 0) {
+        push_route();
       }
     }
     sol.print_out();
@@ -472,7 +492,6 @@ std::vector<Chromosome> Population;
 
 Chromosome crossover(const Chromosome &a, const Chromosome &b) {
   /*
-
   */
   int pivot = rand(1, (int)a.chr.size() - 1);
   Chromosome c;
