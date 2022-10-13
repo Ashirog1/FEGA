@@ -35,10 +35,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -58,10 +58,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -81,10 +81,10 @@ customer 6 0
 
 truck route 0
 0 0
-3 25
-6 250
-1 250
 5 500
+1 250
+6 250
+3 25
 2 25
 drone route0
 0 0
@@ -104,10 +104,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -127,9 +127,9 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
-5 500
 1 250
+5 500
+2 25
 6 250
 3 25
 drone route0
@@ -150,11 +150,11 @@ customer 6 0
 
 truck route 0
 0 0
-3 25
-6 250
-1 250
-5 500
 2 25
+5 500
+1 250
+6 250
+3 25
 drone route0
 0 0
 
@@ -242,10 +242,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -288,10 +288,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -311,10 +311,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -357,10 +357,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -380,10 +380,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -426,11 +426,11 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
-2 25
 drone route0
 0 0
 
@@ -495,11 +495,11 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
 5 500
 1 250
 6 250
 3 25
-2 25
 drone route0
 0 0
 
@@ -564,11 +564,11 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
 1 250
+5 500
+2 25
 6 250
 3 25
-2 25
 drone route0
 0 0
 
@@ -633,10 +633,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -656,11 +656,11 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
+2 25
 drone route0
 0 0
 
@@ -679,10 +679,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -702,10 +702,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -771,11 +771,11 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
-2 25
 drone route0
 0 0
 
@@ -794,10 +794,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -840,10 +840,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -932,11 +932,11 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
+2 25
 drone route0
 0 0
 
@@ -955,11 +955,11 @@ customer 6 0
 
 truck route 0
 0 0
-1 250
 5 500
-2 25
+1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
@@ -978,10 +978,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1001,11 +1001,11 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
@@ -1070,10 +1070,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1208,10 +1208,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
-6 250
 3 25
+6 250
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1231,11 +1231,11 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
+2 25
 drone route0
 0 0
 
@@ -1300,10 +1300,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1323,10 +1323,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1346,10 +1346,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1415,10 +1415,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1438,11 +1438,11 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
-2 25
 drone route0
 0 0
 
@@ -1461,8 +1461,8 @@ customer 6 0
 
 truck route 0
 0 0
-3 25
 6 250
+3 25
 1 250
 5 500
 2 25
@@ -1484,11 +1484,11 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
@@ -1530,10 +1530,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1553,10 +1553,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1576,10 +1576,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1599,10 +1599,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1645,10 +1645,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1668,10 +1668,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1691,10 +1691,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1714,10 +1714,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1737,11 +1737,11 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
@@ -1806,8 +1806,8 @@ customer 6 0
 
 truck route 0
 0 0
-3 25
 6 250
+3 25
 1 250
 5 500
 2 25
@@ -1829,11 +1829,11 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
 1 250
+5 500
+2 25
 6 250
 3 25
-2 25
 drone route0
 0 0
 
@@ -1852,10 +1852,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1875,10 +1875,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1898,8 +1898,8 @@ customer 6 0
 
 truck route 0
 0 0
-3 25
 6 250
+3 25
 1 250
 5 500
 2 25
@@ -1921,10 +1921,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -2036,10 +2036,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -2082,11 +2082,11 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
 5 500
 1 250
 6 250
 3 25
-2 25
 drone route0
 0 0
 
@@ -2105,10 +2105,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -2128,10 +2128,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
-6 250
 3 25
+6 250
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -2151,11 +2151,11 @@ customer 6 0
 
 truck route 0
 0 0
+6 250
+3 25
 1 250
 5 500
 2 25
-6 250
-3 25
 drone route0
 0 0
 
@@ -2174,10 +2174,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -2197,11 +2197,11 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
-2 25
 drone route0
 0 0
 
@@ -2266,11 +2266,11 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
@@ -2299,5498 +2299,15 @@ drone route0
 
 
 valid solution is 100
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-1 250
-5 500
-2 25
-6 250
-3 25
-complete gen
- 
-cus 1 250
-0 0 0
-cus 5 500
-0 0 1
-cus 2 25
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-1 250
-5 500
-2 25
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-1 250
-5 500
-2 25
-6 250
-3 25
-complete gen
- 
-cus 1 250
-0 0 0
-cus 5 500
-0 0 1
-cus 2 25
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-1 250
-5 500
-2 25
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-1 250
-5 500
-2 25
-6 250
-3 25
-complete gen
- 
-cus 1 250
-0 0 0
-cus 5 500
-0 0 1
-cus 2 25
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-1 250
-5 500
-2 25
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-2 25
-5 500
-1 250
-6 250
-3 25
-complete gen
- 
-cus 2 25
-0 0 0
-cus 5 500
-0 0 1
-cus 1 250
-0 0 2
-cus 6 250
-0 0 3
-cus 3 25
-0 0 4
-solution debug
-0 0
-2 25
-5 500
-1 250
-6 250
-3 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-3 25
-6 250
-1 250
-5 500
-2 25
-complete gen
- 
-cus 3 25
-0 0 0
-cus 6 250
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-3 25
-6 250
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-5 500
-1 250
-6 250
-3 25
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
-6 250
-3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-6 250
-3 25
-1 250
-5 500
-2 25
-complete gen
- 
-cus 6 250
-0 0 0
-cus 3 25
-0 0 1
-cus 1 250
-0 0 2
-cus 5 500
-0 0 3
-cus 2 25
-0 0 4
-solution debug
+Solution is 18125solution debug
 0 0
 6 250
 3 25
-1 250
-5 500
-2 25
-
-complete truck
-0 0
-
-
-complete
-print out
-5 500
 1 250
-6 250
-3 25
-2 25
-complete gen
- 
-cus 5 500
-0 0 0
-cus 1 250
-0 0 1
-cus 6 250
-0 0 2
-cus 3 25
-0 0 3
-cus 2 25
-0 0 4
-solution debug
-0 0
 5 500
-1 250
-6 250
-3 25
 2 25
 
 complete truck
 0 0
 
 
-complete
-print out
-5 500
-1 250
-6 250
-3 25
-2 25
-complete gen
- 

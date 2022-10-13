@@ -52,8 +52,8 @@ std::vector<double> init_piority_matrix(
 
 Solution init_random_solution() {
   Solution first_solution;
-  first_solution.drone_trip.resize(num_drone);
-  first_solution.truck_trip.resize(num_truck);
+  first_solution.drone_trip.resize(num_drone, routeSet(TDRONE));
+  first_solution.truck_trip.resize(num_truck, routeSet(TTRUCK));
 
   /*
   set vehicle type for every trip
@@ -259,7 +259,7 @@ void ga_process() {
                            Population.begin() + keep);
     std::swap(Population, next_population);
   };
-  for (int iter = 0; iter <= 10; ++iter) {
+  for (int iter = 0; iter <= 1000; ++iter) {
     debug("generation", iter);
     init();
     debug("complete init");
@@ -272,7 +272,8 @@ void ga_process() {
     choose_next_population();
     debug("complete choosing next population");
   }
-  log_debug << "Solution is" << best.evaluate();
+  log_debug << "Solution is " << best.evaluate();
+  best.print_out();
 }
 
 int main() {

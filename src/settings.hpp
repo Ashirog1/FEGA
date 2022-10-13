@@ -154,7 +154,8 @@ class routeSet {
     multiRoute.emplace_back(Route());
     multiRoute.back().set_vehicle_type(vehicle_type);
   }
-  routeSet() {
+  routeSet(int _vehicle_type) {
+    set_vehicle_type(_vehicle_type);
     multiRoute.emplace_back(Route());
     multiRoute.back().set_vehicle_type(vehicle_type);
   }
@@ -197,15 +198,16 @@ class Solution {
     current_lowerbound.assign(num_customer, 0);
     for (int i = 0; i < num_customer; ++i)
       current_lowerbound[i] = customers[i].lower_weight;
-    truck_trip.resize(num_truck);
-    drone_trip.resize(num_drone);
+    truck_trip.resize(num_truck, routeSet(TTRUCK));
+    drone_trip.resize(num_drone, routeSet(TDRONE));
+    // debug("complete init solution");
     for (int i = 0; i < num_truck; ++i) {
       truck_trip[i].set_vehicle_type(TTRUCK);
     }
     for (int i = 0; i < num_drone; ++i) {
       drone_trip[i].set_vehicle_type(TDRONE);
     }
-
+    // debug("complete set vehicle type");
   }
   /*
   greedy algo to maximize objective function
@@ -422,18 +424,22 @@ class Chromosome {
   Solution encode() {
     Solution sol;
 
+    /* check
+     */
+
+    /*
     log_debug << "print out\n";
     for (auto [w, v] : chr) log_debug << w << ' ' << v << '\n';
     log_debug << "complete gen\n \n";
-
+    */
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
     for (auto customer_info : chr) {
       /// try to push current route
       /// if fail, create new route . check condition
       /// if fail, update current_vehicle
       assert(customer_info.first != 0);
-      log_debug << "cus " << customer_info.first << ' ' << customer_info.second
-                << '\n';
+      //log_debug << "cus " << customer_info.first << ' ' << customer_info.second
+      //          << '\n';
       const auto push = [&]() {
         int dec_weight =
             sol.push_cus(current_vehicle, trip_id, customer_info.first);
@@ -442,7 +448,8 @@ class Chromosome {
         return true;
       };
       const auto push_route = [&]() {
-        while (current_vehicle < num_truck + num_drone) {
+        int unsuccesd_push = 0;
+        while (current_vehicle < num_truck + num_drone and unsuccesd_push < 2) {
           if (not push()) {
             if (current_vehicle < num_truck) {
               ++current_vehicle;
@@ -458,25 +465,30 @@ class Chromosome {
               }
               /// init new route
             }
+            //debug("un", current_vehicle, trip_id, current_pushed);
             if (current_vehicle < num_truck) {
-              sol.truck_trip[current_vehicle].new_route();
-            } else {
-              sol.drone_trip[current_vehicle - num_truck].new_route();
+            } else if (trip_id > 0) {
+              if (current_vehicle - num_truck < num_drone)
+                sol.drone_trip[current_vehicle - num_truck].new_route();
+              else break;
             }
+            ++unsuccesd_push;
           } else {
-            log_debug << current_vehicle << ' ' << trip_id << ' '
-                      << current_pushed << '\n';
+            // log_debug << current_vehicle << ' ' << trip_id << ' '
+            //           << current_pushed << '\n';
             ++current_pushed;
             break;
           }
         }
       };
       while (customer_info.second > 0) {
+        auto tmp = customer_info.second;
         push_route();
+        if (tmp == customer_info.second) break;
       }
     }
-    sol.print_out();
-    log_debug << "complete\n";
+    //sol.print_out();
+    //log_debug << "complete\n";
     return sol;
   }
   /*
@@ -492,7 +504,7 @@ std::vector<Chromosome> Population;
 
 Chromosome crossover(const Chromosome &a, const Chromosome &b) {
   /*
-  */
+   */
   int pivot = rand(1, (int)a.chr.size() - 1);
   Chromosome c;
   std::vector<int> current_lowerbound(num_customer);
