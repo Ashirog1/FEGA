@@ -1,6 +1,6 @@
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -21,9 +21,2309 @@ drone route0
 0 0
 
 
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+1 250
+5 500
+2 25
+6 250
+3 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+1 250
+5 500
+2 25
+6 250
+3 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+6 250
+3 25
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+3 25
+6 250
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+3 25
+6 250
+1 250
+5 500
+2 25
+drone route0
+0 0
+
+
+after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
+after educate
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+5 500
+1 250
+6 250
+3 25
+2 25
+drone route0
+0 0
+
+
 after 3.2
+first_solution
+0
+current lowerbound
+customer 0 0
+customer 1 0
+customer 2 0
+customer 3 0
+customer 4 0
+customer 5 0
+customer 6 0
+
+truck route 0
+0 0
+2 25
+5 500
+1 250
+6 250
+3 25
+drone route0
+0 0
+
+
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -35,18 +2335,18 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
 5 500
 1 250
 6 250
 3 25
-2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -67,9 +2367,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -92,7 +2392,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -113,9 +2413,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -127,18 +2427,18 @@ customer 6 0
 
 truck route 0
 0 0
-1 250
 5 500
-2 25
+1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -150,18 +2450,18 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
-5 500
 1 250
+5 500
+2 25
 6 250
 3 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -173,18 +2473,18 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
 1 250
+5 500
+2 25
 6 250
 3 25
-2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -205,9 +2505,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -230,7 +2530,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -242,18 +2542,18 @@ customer 6 0
 
 truck route 0
 0 0
-6 250
-3 25
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -265,18 +2565,18 @@ customer 6 0
 
 truck route 0
 0 0
-6 250
-3 25
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -297,9 +2597,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -322,7 +2622,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -343,9 +2643,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -368,7 +2668,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -380,18 +2680,18 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -414,7 +2714,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -426,18 +2726,18 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -460,7 +2760,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -481,9 +2781,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -495,18 +2795,18 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -527,9 +2827,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -552,7 +2852,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -564,18 +2864,18 @@ customer 6 0
 
 truck route 0
 0 0
-1 250
 5 500
-2 25
+1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -598,7 +2898,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -619,9 +2919,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -644,7 +2944,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -656,18 +2956,18 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -690,7 +2990,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -702,18 +3002,18 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -736,7 +3036,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -748,18 +3048,18 @@ customer 6 0
 
 truck route 0
 0 0
+6 250
+3 25
 1 250
 5 500
 2 25
-6 250
-3 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -771,18 +3071,18 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
+2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -803,9 +3103,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -828,7 +3128,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -840,18 +3140,18 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
-2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -863,18 +3163,18 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
 5 500
 1 250
 6 250
 3 25
-2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -895,9 +3195,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -920,7 +3220,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -941,9 +3241,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -955,10 +3255,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -966,7 +3266,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -978,18 +3278,18 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1012,7 +3312,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1024,18 +3324,18 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
 5 500
 1 250
 6 250
 3 25
-2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1047,18 +3347,18 @@ customer 6 0
 
 truck route 0
 0 0
+2 25
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
-2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1079,9 +3379,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1093,10 +3393,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1104,7 +3404,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1125,9 +3425,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1150,7 +3450,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1171,9 +3471,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1185,10 +3485,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1196,7 +3496,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1208,18 +3508,18 @@ customer 6 0
 
 truck route 0
 0 0
-3 25
-6 250
-1 250
 5 500
+1 250
+6 250
+3 25
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1231,10 +3531,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1242,7 +3542,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1254,18 +3554,18 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1277,10 +3577,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1288,7 +3588,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1300,18 +3600,18 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
 1 250
+5 500
+2 25
 6 250
 3 25
-2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1323,18 +3623,18 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
 1 250
+5 500
+2 25
 6 250
 3 25
-2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1355,9 +3655,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1380,7 +3680,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1392,18 +3692,18 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1415,10 +3715,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1426,7 +3726,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1438,18 +3738,18 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1461,10 +3761,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1472,7 +3772,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1493,9 +3793,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1518,7 +3818,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1530,18 +3830,18 @@ customer 6 0
 
 truck route 0
 0 0
-6 250
-3 25
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1553,18 +3853,18 @@ customer 6 0
 
 truck route 0
 0 0
-6 250
-3 25
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1585,9 +3885,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1610,7 +3910,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1631,9 +3931,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1645,10 +3945,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1656,7 +3956,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1677,9 +3977,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1691,10 +3991,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1702,7 +4002,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1714,18 +4014,18 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1737,10 +4037,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -1748,7 +4048,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1769,9 +4069,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1794,7 +4094,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1806,18 +4106,18 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1829,18 +4129,18 @@ customer 6 0
 
 truck route 0
 0 0
-1 250
 5 500
-2 25
+1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1861,9 +4161,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1886,7 +4186,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1898,18 +4198,18 @@ customer 6 0
 
 truck route 0
 0 0
-6 250
-3 25
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1921,18 +4221,18 @@ customer 6 0
 
 truck route 0
 0 0
-6 250
-3 25
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1953,9 +4253,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1967,10 +4267,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -1978,7 +4278,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -1999,9 +4299,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2013,10 +4313,10 @@ customer 6 0
 
 truck route 0
 0 0
+5 500
+1 250
 6 250
 3 25
-1 250
-5 500
 2 25
 drone route0
 0 0
@@ -2024,7 +4324,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2045,9 +4345,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2070,7 +4370,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2082,18 +4382,18 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2116,7 +4416,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2128,18 +4428,18 @@ customer 6 0
 
 truck route 0
 0 0
-3 25
-6 250
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2151,18 +4451,18 @@ customer 6 0
 
 truck route 0
 0 0
-6 250
-3 25
 1 250
 5 500
 2 25
+6 250
+3 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2183,9 +4483,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2197,18 +4497,18 @@ customer 6 0
 
 truck route 0
 0 0
-2 25
 5 500
 1 250
 6 250
 3 25
+2 25
 drone route0
 0 0
 
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2220,18 +4520,18 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2243,10 +4543,10 @@ customer 6 0
 
 truck route 0
 0 0
-5 500
-1 250
 6 250
 3 25
+1 250
+5 500
 2 25
 drone route0
 0 0
@@ -2254,7 +4554,7 @@ drone route0
 
 after 3.2
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2275,9 +4575,9 @@ drone route0
 0 0
 
 
-after 3.2
+after educate
 first_solution
-1
+0
 current lowerbound
 customer 0 0
 customer 1 0
@@ -2298,13 +4598,14 @@ drone route0
 0 0
 
 
-valid solution is 100
-Solution is 18125solution debug
+valid solution is 0
+Solution is 20750
+solution debug
 0 0
-6 250
-3 25
-1 250
 5 500
+1 500
+6 250
+3 50
 2 25
 
 complete truck

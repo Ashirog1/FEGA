@@ -135,7 +135,6 @@ Solution init_random_solution() {
     int tmp = random_number_with_probability(
         build_partial_sum(init_piority_matrix(current_lowerbound)));
     if (current_lowerbound[tmp] == 0) break;
-    first_solution.truck_trip[i].new_route();
     push_cus(first_solution.truck_trip[i], 0, tmp);
 
     build_route(first_solution.truck_trip[i], 0);
@@ -146,7 +145,7 @@ Solution init_random_solution() {
       int tmp = random_number_with_probability(
           build_partial_sum(init_piority_matrix(current_lowerbound)));
       if (current_lowerbound[tmp] == 0) break;
-      first_solution.truck_trip[i].new_route();
+      first_solution.drone_trip[i].new_route();
       push_cus(first_solution.drone_trip[i], route_id, tmp);
       build_route(first_solution.drone_trip[i], route_id);
       ++route_id;
@@ -178,7 +177,11 @@ Solution init_random_solution() {
     }
   }
   log_debug << '\n';
+  debug(first_solution.evaluate());
 
+  first_solution.educate();
+  
+  debug(first_solution.evaluate());
   /*
   3.2. Split tour for every trip
 
@@ -189,10 +192,31 @@ Solution init_random_solution() {
   and i just tired
   */
 
-  /*
-  TODO:
-  is it feasible solution?
-  */
+  log_debug << "after educate\n";
+  log_debug << "first_solution\n";
+  log_debug << first_solution.valid_solution() << '\n';
+  log_debug << "current lowerbound\n";
+  for (int i = 0; i < num_customer; ++i) {
+    log_debug << "customer " << i << ' ' << current_lowerbound[i] << '\n';
+  }
+  log_debug << '\n';
+  for (int i = 0; i < num_truck; ++i) {
+    log_debug << "truck route" << ' ' << i << '\n';
+    for (auto loc : first_solution.truck_trip[i].multiRoute[0].route) {
+      log_debug << loc.customer_id << ' ' << loc.weight << '\n';
+    }
+  }
+
+  for (int i = 0; i < num_drone; ++i) {
+    log_debug << "drone route" << i << '\n';
+    for (auto trip : first_solution.drone_trip[i].multiRoute) {
+      for (auto loc : trip.route) {
+        log_debug << loc.customer_id << ' ' << loc.weight << '\n';
+      }
+      log_debug << '\n';
+    }
+  }
+  log_debug << '\n';
   return first_solution;
 }
 
@@ -246,7 +270,13 @@ void ga_process() {
   };
   const auto educate = [&]() {
     /*
-     */
+
+    */
+    for (auto &gen : offsprings) {
+      auto sol = gen.encode();
+      sol.educate();
+      gen = Chromosome(sol);
+    }
   };
   const auto choose_next_population = [&]() {
     std::vector<Chromosome> next_population = offsprings;
@@ -272,7 +302,7 @@ void ga_process() {
     choose_next_population();
     debug("complete choosing next population");
   }
-  log_debug << "Solution is " << best.evaluate();
+  log_debug << "Solution is " << best.evaluate() << '\n';
   best.print_out();
 }
 
