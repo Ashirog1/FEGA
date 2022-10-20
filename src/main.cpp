@@ -36,7 +36,7 @@ void read_input() {
 }
 
 std::vector<double> init_piority_matrix(
-    const std::vector<int>& current_loewrbound) {
+    const std::vector<int>& current_lowerbound) {
   std::vector<double> piority(num_customer, 0);
   double totDistance = 0;
   for (int j = 0; j < num_customer; ++j) {
@@ -44,7 +44,7 @@ std::vector<double> init_piority_matrix(
   }
   for (int j = 0; j < num_customer; ++j) {
     piority[j] = 1.0 * euclid_distance(customers[0], customers[j]) *
-                 (double)current_loewrbound[j] * customers[j].cost /
+                 (double)current_lowerbound[j] * customers[j].cost /
                  totDistance;
   }
   return piority;
@@ -75,7 +75,7 @@ Solution init_random_solution() {
   */
   std::vector<int> current_lowerbound(num_customer);
   for (int i = 0; i < num_customer; ++i)
-    current_lowerbound[i] = customers[i].lower_weight;
+    current_lowerbound[i] = max(customers[i].lower_weight, 1);
 
   const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
                                       int customer_id) {
@@ -100,6 +100,7 @@ Solution init_random_solution() {
           min(current_lowerbound[i], routeSet.multiRoute[trip_id].rem_weight());
       // debug(current_lowerbound[i],
       // routeSet.multiRoute[trip_id].rem_weight());
+      if (pushed_weight <= 0) continue;
       debug(i, pushed_weight);
       if (pushed_weight <= 0) continue;
       bool flag = routeSet.append({i, pushed_weight}, trip_id);
@@ -264,7 +265,7 @@ void ga_process() {
         continue;
       }
       // debug(cnt);
-      ++cnt;
+      cnt++;
       offsprings.emplace_back(crossover(Population[i], Population[j]));
     }
   };
@@ -289,6 +290,7 @@ void ga_process() {
                            Population.begin() + keep);
     std::swap(Population, next_population);
   };
+  log_debug << "start ga_process\n";
   for (int iter = 0; iter <= 1000; ++iter) {
     debug("generation", iter);
     init();
@@ -302,6 +304,8 @@ void ga_process() {
     choose_next_population();
     debug("complete choosing next population");
   }
+  debug(best.evaluate());
+  log_debug << "complete running\n";
   log_debug << "Solution is " << best.evaluate() << '\n';
   best.print_out();
 }

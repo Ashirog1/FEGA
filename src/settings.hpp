@@ -523,7 +523,7 @@ class Chromosome {
               /*success last drone trip?*/
               if (current_pushed == 0) {
                 ++current_vehicle;
-                ++trip_id;
+                trip_id = 0;
               } else {
                 ++trip_id;
                 current_pushed = 0;
@@ -571,7 +571,8 @@ std::vector<Chromosome> Population;
 Chromosome crossover(const Chromosome &a, const Chromosome &b) {
   /*
    */
-  int pivot = rand(1, (int)a.chr.size() - 1);
+  int pivot = rand(0, (int)a.chr.size());
+  //debug(a.chr.size(), pivot);
   Chromosome c;
   std::vector<int> current_lowerbound(num_customer);
   for (int i = 0; i < num_customer; ++i) {
@@ -590,12 +591,11 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
     if (push_weight) C.emplace_back(customer_id, push_weight);
     current_lowerbound[customer_id] -= push_weight;
   };
-  for (int i = pivot; i < B.size(); ++i) {
+  for (int i = pivot; i < (int)B.size(); ++i) {
     push(i);
   }
-  for (int i = 0; i < pivot; ++i) {
-    push(i);
-  }
+  c.chr.clear();
+  //debug(A, B, C);
   for (auto it : C) c.chr.emplace_back(it);
   return c;
 }
