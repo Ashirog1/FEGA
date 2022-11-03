@@ -247,7 +247,6 @@ class Solution {
     int S = N + M + 1, T = S + 1;
     mcmf.init(T, S, T);
 
-
     int cur_route = 0;
     for (int i = 0; i < num_truck; ++i) {
       for (auto route : truck_trip[i].multiRoute) {
@@ -256,7 +255,7 @@ class Solution {
         for (auto cus : route.route) {
           if (cus.customer_id == 0) continue;
           mcmf.addedge(cur_route, N + cus.customer_id, INT_MAX, 0);
-      //    debug(cur_route, N + cus.customer_id);
+          //    debug(cur_route, N + cus.customer_id);
         }
       }
     }
@@ -271,26 +270,24 @@ class Solution {
       }
     }
     for (int i = 1; i < num_customer; ++i) {
-      mcmf.addedge(N + i, T, customers[i].upper_weight - (
-                  total_weight[i]),
+      mcmf.addedge(N + i, T, customers[i].upper_weight - (total_weight[i]),
                    customers[i].cost);
     }
     for (auto e : mcmf.e) {
-   //   debug(e.from, e.to, e.cap, e.cost);
+      //   debug(e.from, e.to, e.cap, e.cost);
     }
     mcmf.mcmf();
 
     for (auto e : mcmf.e) {
-//      debug(e.from, e.to, e.cap, e.cost, e.flow);
+      //      debug(e.from, e.to, e.cap, e.cost, e.flow);
     }
-
 
     /// assign weight based on mcmf solution
     map<pair<int, int>, int> assign_weight;
 
     for (auto e : mcmf.e) {
       assign_weight[{e.from, e.to}] = e.flow;
-    }    
+    }
     cur_route = 0;
     for (int i = 0; i < num_truck; ++i) {
       for (auto route : truck_trip[i].multiRoute) {
@@ -299,9 +296,8 @@ class Solution {
           if (cus.customer_id == 0) continue;
 
           cus.weight += assign_weight[{cur_route, N + cus.customer_id}];
-          current_lowerbound[cus.customer_id] -= assign_weight[{
-            cur_route, N + cus.customer_id
-          }];
+          current_lowerbound[cus.customer_id] -=
+              assign_weight[{cur_route, N + cus.customer_id}];
         }
       }
     }
@@ -312,9 +308,8 @@ class Solution {
         for (auto &cus : route.route) {
           if (cus.customer_id == 0) continue;
           cus.weight += assign_weight[{cur_route, N + cus.customer_id}];
-          current_lowerbound[cus.customer_id] -= assign_weight[{
-            cur_route, N + cus.customer_id
-          }];
+          current_lowerbound[cus.customer_id] -=
+              assign_weight[{cur_route, N + cus.customer_id}];
         }
       }
     }
@@ -486,30 +481,16 @@ class Chromosome {
   */
   Solution encode() {
     Solution sol;
-    for (int i = 1; i < num_customer; ++i) 
+    for (int i = 1; i < num_customer; ++i)
       sol.current_lowerbound[i] = customers[i].upper_weight;
-    /* check
-     */
-
-    /*
-    log_debug << "print out\n";
-    for (auto [w, v] : chr) log_debug << w << ' ' << v << '\n';
-    log_debug << "complete gen\n \n";
-    */
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
-    for (auto customer_info : chr) {
-      /// try to push current route
-      /// if fail, create new route . check condition
-      /// if fail, update current_vehicle
-      assert(customer_info.first != 0);
-      // log_debug << "cus " << customer_info.first << ' ' <<
-      // customer_info.second
-      //           << '\n';
+    for (auto [customer_id, customer_weight] : chr) {
+      assert(customer_id != 0);
+
       const auto push = [&]() {
-        int dec_weight =
-            sol.push_cus(current_vehicle, trip_id, customer_info.first);
+        int dec_weight = sol.push_cus(current_vehicle, trip_id, customer_id);
         if (dec_weight <= 0) return false;
-        customer_info.second -= dec_weight;
+        customer_weight -= dec_weight;
         return true;
       };
       const auto push_route = [&]() {
@@ -520,7 +501,6 @@ class Chromosome {
               ++current_vehicle;
               trip_id = 0;
             } else {
-              /*success last drone trip?*/
               if (current_pushed == 0) {
                 ++current_vehicle;
                 trip_id = 0;
@@ -528,9 +508,7 @@ class Chromosome {
                 ++trip_id;
                 current_pushed = 0;
               }
-              /// init new route
             }
-            // debug("un", current_vehicle, trip_id, current_pushed);
             if (current_vehicle < num_truck) {
             } else if (trip_id > 0) {
               if (current_vehicle - num_truck < num_drone)
@@ -540,21 +518,17 @@ class Chromosome {
             }
             ++unsuccesd_push;
           } else {
-            // log_debug << current_vehicle << ' ' << trip_id << ' '
-            //           << current_pushed << '\n';
             ++current_pushed;
             break;
           }
         }
       };
-      while (customer_info.second > 0) {
-        auto tmp = customer_info.second;
+      while (customer_weight > 0) {
+        auto tmp = customer_weight;
         push_route();
-        if (tmp == customer_info.second) break;
+        if (tmp == customer_weight) break;
       }
     }
-    // sol.print_out();
-    // log_debug << "complete\n";
     return sol;
   }
   /*
@@ -572,7 +546,7 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
   /*
    */
   int pivot = rand(0, (int)a.chr.size());
-  //debug(a.chr.size(), pivot);
+  // debug(a.chr.size(), pivot);
   Chromosome c;
   std::vector<int> current_lowerbound(num_customer);
   for (int i = 0; i < num_customer; ++i) {
@@ -595,7 +569,7 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
     push(i);
   }
   c.chr.clear();
-  //debug(A, B, C);
+  // debug(A, B, C);
   for (auto it : C) c.chr.emplace_back(it);
   return c;
 }

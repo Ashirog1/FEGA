@@ -39,13 +39,16 @@ def main():
         truck_speed = row["Truck_speech"]
         drone_duration = row["Drone_duaration"]
         # try to get paramater from paramater.xlsx
-
-        with open(loc+"/txtData/"+filename[:len(filename)-3] + "txt", "w") as outfile:
-          try:
-            print(int(number_truck), int(number_drone),
-                  int(working_time), end="\n", file=outfile)
-            print(int(truck_speed), int(drone_speed), int(truck_capacity), int(
-                drone_capacity), int(drone_duration), end="\n", file=outfile)
+        try:
+          with open(loc+"/txtData/"+filename[:len(filename)-3] + "txt", "w") as outfile:
+            try:
+              print(int(number_truck), int(number_drone),
+                    int(working_time), end="\n", file=outfile)
+              print(int(truck_speed), int(drone_speed), int(truck_capacity), int(
+                  drone_capacity), int(drone_duration), end="\n", file=outfile)
+            except:
+              pass
+            
             for ind, cus in df.iterrows():
               try:
                 print(cus["x"], cus["y"], int(cus["low"]), int(
@@ -55,8 +58,8 @@ def main():
                   print(int(val), end=" ", file=outfile)
                 print("", file=outfile)
             valid_input.append(filename[:len(filename)-4])
-          except:
-            print("error value type", filename)
+        except:
+          print("error value type", filename)
         break
 
 

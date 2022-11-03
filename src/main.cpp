@@ -234,6 +234,7 @@ void random_init_population() {
 void ga_process() {
   Solution best;
   std::vector<Chromosome> offsprings;
+  int best_generation = 0;
   const auto init = [&]() {
     offsprings.clear();
     vector<pair<int, Chromosome>> val;
@@ -245,10 +246,11 @@ void ga_process() {
     Population.clear();
     for (auto [w, v] : val) Population.emplace_back(v);
   };
-  const auto evaluate = [&]() {
+  const auto evaluate = [&](int gen_id) {
     for (auto Sol : Population) {
       if (best.evaluate() < Sol.encode().evaluate()) {
         best = Sol.encode();
+        best_generation = gen_id;
       }
     }
   };
@@ -295,7 +297,7 @@ void ga_process() {
     debug("generation", iter);
     init();
     debug("complete init");
-    evaluate();
+    evaluate(iter);
     debug("complete eval");
     mutation();
     debug("complete mutation");
@@ -306,6 +308,7 @@ void ga_process() {
   }
   debug(best.evaluate());
   log_debug << "complete running\n";
+  log_debug << "convergence after " << best_generation << '\n';
   log_debug << "Solution is " << best.evaluate() << '\n';
   best.print_out();
 }

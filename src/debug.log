@@ -13,22 +13,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 28
+15 50
+10 50
+12 1
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -54,22 +74,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 28
+15 50
+10 50
+12 1
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -95,22 +135,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+14 100
 2 100
-7 23
+8 1
+20 250
+3 250
+9 100
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -136,22 +196,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+14 100
 2 100
-7 23
+8 1
+20 250
+3 250
+9 100
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -177,22 +257,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -218,22 +318,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -259,22 +379,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -300,22 +440,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -341,22 +501,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -382,22 +562,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -423,22 +623,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -464,22 +684,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -505,22 +745,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+3 123
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -546,22 +806,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+3 123
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -587,22 +867,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+9 100
+3 127
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -628,22 +928,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+9 100
+3 127
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -669,22 +989,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -710,22 +1050,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -751,22 +1111,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+3 250
+9 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -792,22 +1172,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+3 250
+9 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -833,22 +1233,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+17 100
+18 500
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -874,22 +1294,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+17 100
+18 500
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -915,22 +1355,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -956,22 +1416,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -997,22 +1477,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+19 1
 drone route0
 0 0
 0 1
@@ -1038,22 +1538,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+19 1
 drone route0
 0 0
 0 1
@@ -1079,22 +1599,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 250
+9 100
+12 1
+18 471
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+18 29
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -1120,22 +1660,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 250
+9 100
+12 1
+18 471
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+18 29
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -1161,22 +1721,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
-2 100
-7 23
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 250
+20 197
 truck route 1
 0 0
-7 227
+17 100
+18 500
+14 100
+2 100
+8 1
+20 53
+19 1
 drone route0
 0 0
 0 1
@@ -1202,22 +1782,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
-2 100
-7 23
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 250
+20 197
 truck route 1
 0 0
-7 227
+17 100
+18 500
+14 100
+2 100
+8 1
+20 53
+19 1
 drone route0
 0 0
 0 1
@@ -1243,22 +1843,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+3 53
+9 100
+12 1
+18 500
+17 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -1284,22 +1904,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+3 53
+9 100
+12 1
+18 500
+17 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -1325,22 +1965,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+19 1
 drone route0
 0 0
 0 1
@@ -1366,22 +2026,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+19 1
 drone route0
 0 0
 0 1
@@ -1407,22 +2087,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1448,22 +2148,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1489,22 +2209,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -1530,22 +2270,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -1571,22 +2331,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1612,22 +2392,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1653,22 +2453,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1694,22 +2514,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1735,22 +2575,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -1776,22 +2636,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -1817,22 +2697,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1858,22 +2758,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -1899,22 +2819,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -1940,22 +2880,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -1981,22 +2941,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -2022,22 +3002,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -2063,22 +3063,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -2104,22 +3124,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -2145,22 +3185,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -2186,22 +3246,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -2227,22 +3307,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+15 50
+16 100
+4 25
+5 28
+19 1
+12 1
+18 500
+17 100
+10 50
 drone route0
 0 0
 0 1
@@ -2268,22 +3368,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+15 50
+16 100
+4 25
+5 28
+19 1
+12 1
+18 500
+17 100
+10 50
 drone route0
 0 0
 0 1
@@ -2309,22 +3429,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+1 25
+11 1
+13 1
+7 100
+6 2
+5 500
+4 25
+16 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -2350,22 +3490,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+1 25
+11 1
+13 1
+7 100
+6 2
+5 500
+4 25
+16 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -2391,22 +3551,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -2432,22 +3612,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -2473,22 +3673,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+7 100
+13 1
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 250
+9 100
+12 1
+18 497
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+11 1
+1 25
+19 1
+18 3
+17 100
 drone route0
 0 0
 0 1
@@ -2514,22 +3734,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+7 100
+13 1
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 250
+9 100
+12 1
+18 497
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+11 1
+1 25
+19 1
+18 3
+17 100
 drone route0
 0 0
 0 1
@@ -2555,22 +3795,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -2596,22 +3856,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -2637,22 +3917,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -2678,22 +3978,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -2719,22 +4039,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+3 3
+20 250
+8 1
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -2760,22 +4100,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+3 3
+20 250
+8 1
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -2801,22 +4161,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+9 100
+3 53
+19 1
+15 50
+10 50
 drone route0
 0 0
 0 1
@@ -2842,22 +4222,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+9 100
+3 53
+19 1
+15 50
+10 50
 drone route0
 0 0
 0 1
@@ -2883,22 +4283,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -2924,22 +4344,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -2965,22 +4405,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -3006,22 +4466,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -3047,22 +4527,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -3088,22 +4588,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -3129,22 +4649,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -3170,22 +4710,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -3211,22 +4771,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 500
-7 123
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
+2 100
+14 100
+6 98
 truck route 1
 0 0
-7 127
-2 100
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -3252,22 +4832,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 500
-7 123
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
+2 100
+14 100
+6 98
 truck route 1
 0 0
-7 127
-2 100
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -3293,22 +4893,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 28
+15 50
+10 50
+12 1
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -3334,22 +4954,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 28
+15 50
+10 50
+12 1
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -3375,22 +5015,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3416,22 +5076,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3457,22 +5137,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3498,22 +5198,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3539,22 +5259,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+9 100
+3 53
+19 1
+15 50
+10 50
 drone route0
 0 0
 0 1
@@ -3580,22 +5320,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+9 100
+3 53
+19 1
+15 50
+10 50
 drone route0
 0 0
 0 1
@@ -3621,22 +5381,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3662,22 +5442,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3703,22 +5503,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+3 53
+9 100
+12 1
+18 500
+17 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -3744,22 +5564,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+3 53
+9 100
+12 1
+18 500
+17 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -3785,22 +5625,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+9 100
+3 127
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -3826,22 +5686,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+9 100
+3 127
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -3867,22 +5747,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3908,22 +5808,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -3949,22 +5869,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+9 100
+3 127
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -3990,22 +5930,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+9 100
+3 127
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -4031,22 +5991,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
+3 250
+9 100
+14 100
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -4072,22 +6052,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
+3 250
+9 100
+14 100
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -4113,22 +6113,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -4154,22 +6174,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -4195,22 +6235,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -4236,22 +6296,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 123
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -4277,22 +6357,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -4318,22 +6418,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+17 100
+18 500
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -4359,22 +6479,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+10 50
+15 50
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+3 97
 truck route 1
 0 0
-6 227
+3 153
+9 100
+12 1
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -4400,22 +6540,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+10 50
+15 50
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+3 97
 truck route 1
 0 0
-6 227
+3 153
+9 100
+12 1
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -4441,22 +6601,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-7 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -4482,22 +6662,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-7 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -4523,22 +6723,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -4564,22 +6784,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -4605,22 +6845,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -4646,22 +6906,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -4687,22 +6967,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+5 29
+4 25
+16 100
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -4728,22 +7028,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+5 29
+4 25
+16 100
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -4769,22 +7089,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -4810,22 +7150,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+10 50
+15 50
+16 100
+4 25
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -4851,22 +7211,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -4892,22 +7272,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -4933,22 +7333,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -4974,22 +7394,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -5015,22 +7455,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-7 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -5056,22 +7516,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-7 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -5097,22 +7577,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5138,22 +7638,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5179,22 +7699,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5220,22 +7760,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5261,22 +7821,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5302,22 +7882,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5343,22 +7943,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -5384,22 +8004,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -5425,22 +8065,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -5466,22 +8126,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -5507,22 +8187,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5548,22 +8248,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5589,22 +8309,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+3 250
+9 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+10 50
+15 50
+16 100
+4 25
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -5630,22 +8370,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
+3 250
+9 100
+14 100
 2 100
-7 250
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+10 50
+15 50
+16 100
+4 25
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -5671,22 +8431,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -5712,22 +8492,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 29
+19 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -5753,22 +8553,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5794,22 +8614,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5835,22 +8675,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5876,22 +8736,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5917,22 +8797,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5958,22 +8858,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -5999,22 +8919,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
+3 250
+9 100
+14 100
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6040,22 +8980,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-7 250
+3 250
+9 100
+14 100
 2 100
-4 50
-9 1
-5 250
-1 50
-10 25
-3 1
-8 500
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6081,22 +9041,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6122,22 +9102,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-6 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6163,22 +9163,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-10 25
-3 1
-8 500
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 197
 truck route 1
 0 0
-6 227
+9 100
+3 53
+12 1
+18 500
+17 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -6204,22 +9224,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-10 25
-3 1
-8 500
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 197
 truck route 1
 0 0
-6 227
+9 100
+3 53
+12 1
+18 500
+17 100
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -6245,22 +9285,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6286,22 +9346,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6327,22 +9407,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6368,22 +9468,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6409,22 +9529,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -6450,22 +9590,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
 2 100
-7 250
-6 273
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 500
+4 25
+16 100
+15 50
+10 50
+12 1
+9 100
+3 247
 truck route 1
 0 0
-6 227
+18 500
+17 100
+3 3
+20 250
+8 1
+19 1
 drone route0
 0 0
 0 1
@@ -6491,22 +9651,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+10 50
+15 50
+12 1
+9 100
+3 53
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -6532,22 +9712,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 23
+8 1
+20 250
+3 197
 truck route 1
 0 0
-7 227
+10 50
+15 50
+12 1
+9 100
+3 53
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -6573,22 +9773,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -6614,22 +9834,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -6655,22 +9895,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6696,22 +9956,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -6737,22 +10017,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -6778,22 +10078,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -6819,22 +10139,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -6860,22 +10200,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+17 100
+18 500
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 2
+15 50
+10 50
+19 1
 drone route0
 0 0
 0 1
@@ -6901,22 +10261,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-10 25
-3 1
-8 500
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -6942,22 +10322,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-10 25
-3 1
-8 500
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -6983,22 +10383,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7024,22 +10444,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7065,22 +10505,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7106,22 +10566,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 98
 truck route 1
 0 0
-7 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7147,22 +10627,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -7188,22 +10688,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 23
+14 100
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -7229,22 +10749,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -7270,22 +10810,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-7 227
+4 25
+16 100
+15 50
+10 50
+5 28
+19 1
+12 1
+18 500
+17 100
 drone route0
 0 0
 0 1
@@ -7311,22 +10871,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7352,22 +10932,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+20 250
+3 250
+9 100
+14 100
 2 100
-7 250
-6 273
+8 1
+6 100
+7 100
+13 1
+11 1
+1 25
+5 472
 truck route 1
 0 0
-6 227
+17 100
+18 500
+12 1
+15 50
+16 100
+4 25
+5 28
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7393,22 +10993,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7434,22 +11054,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7475,22 +11115,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+10 50
+15 50
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 97
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+9 100
+3 153
+19 1
 drone route0
 0 0
 0 1
@@ -7516,22 +11176,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+10 50
+15 50
+16 100
+4 25
+5 500
+1 25
+11 1
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 97
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+9 100
+3 153
+19 1
 drone route0
 0 0
 0 1
@@ -7557,22 +11237,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 123
 truck route 1
 0 0
-6 227
+3 127
+9 100
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7598,22 +11298,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 123
 truck route 1
 0 0
-6 227
+3 127
+9 100
+12 1
+18 500
+17 100
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7639,22 +11359,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7680,22 +11420,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7721,22 +11481,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7762,22 +11542,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+18 500
+17 100
+12 1
+9 100
+3 250
+20 250
+8 1
 2 100
-7 250
-6 273
+14 100
+6 98
 truck route 1
 0 0
-6 227
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 2
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7803,22 +11603,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7844,22 +11664,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -7885,22 +11725,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 123
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7926,22 +11786,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+5 500
+4 25
+16 100
+15 50
+10 50
+13 1
+7 100
+6 100
+14 100
 2 100
-7 250
-6 273
+8 1
+20 250
+3 123
 truck route 1
 0 0
-6 227
+18 500
+17 100
+12 1
+9 100
+3 127
+11 1
+1 25
+19 1
 drone route0
 0 0
 0 1
@@ -7967,22 +11847,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -8008,22 +11908,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -8049,22 +11969,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -8090,22 +12030,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+16 100
+4 25
+5 29
+15 50
+10 50
+18 500
+17 100
+19 1
 drone route0
 0 0
 0 1
@@ -8131,22 +12091,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -8172,22 +12152,42 @@ customer 7 0
 customer 8 0
 customer 9 0
 customer 10 0
+customer 11 0
+customer 12 0
+customer 13 0
+customer 14 0
+customer 15 0
+customer 16 0
+customer 17 0
+customer 18 0
+customer 19 0
+customer 20 0
 
 truck route 0
 0 0
-6 500
-8 500
-3 1
-10 25
-1 50
-5 250
-4 50
-9 1
+3 250
+9 100
+14 100
 2 100
-7 23
+8 1
+20 250
+12 1
+7 100
+13 1
+6 100
+11 1
+1 25
+5 471
 truck route 1
 0 0
-7 227
+18 500
+17 100
+15 50
+16 100
+4 25
+5 29
+19 1
+10 50
 drone route0
 0 0
 0 1
@@ -8204,27 +12204,96 @@ complete running
 Solution is 32250
 solution debug
 0 0
-6 500
-8 500
-3 25
-10 50
+16 200
+4 25
+5 500
 1 50
-5 250
-4 50
-9 25
-2 50
-2 0
+11 25
+13 25
+7 200
+6 200
+14 100
+2 100
+8 25
+20 50
+20 0
 
 0 0
-2 50
-7 500
-7 0
+20 450
+3 500
+10 50
+15 100
+12 25
+9 100
+3 0
 
 complete truck
 0 0
-7 0
+3 0
 
 0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 40
+18 0
+
+0 0
+18 20
+17 20
+17 0
+
+0 0
+17 40
+17 0
+
+0 0
+17 40
+19 0
+
+0 0
+19 25
 
 0 0
 
