@@ -10,16 +10,22 @@ def main():
     os.system(str)
   loc = os.getcwd()
   print("loc", loc)
-  run(loc + "/src/./main" + " < " + loc + "/src/input.txt")
-  return
-  for f in os.listdir(loc+"/txtData"):
+  run("pwd")
+  for f in os.listdir(loc+"/txtData2"):
     print(f)
-    with open(loc + "/txtData/" + f) as input:
+    with open(loc + "/txtData2/" + f) as input:
       if (sum(1 for l in input) == 0):
         continue 
-      os.system("cp " + loc + "/txtData/" + f + " " + loc + "/src/input.txt")
-      os.system("sh " + "run.sh")
-      os.system("cp " + loc + "/src/debug.log" + " " + loc + "/result/" + f[:len(f)-3] + "txt") 
+      run("cp " + loc + "/txtData2/" + f + " " + loc + "/src/input.txt")
+      os.chdir(os.path.expanduser("src"))
+      try:
+        run("sh run.sh")
+      except:
+        pass
+      os.chdir(loc)
+      #run("cat" + loc + "/src/input.txt")
+      run("cp " + loc + "/src/result.log" + " " + loc + "/result/" + f[:len(f)-3] + "txt") 
+      
 
 if __name__ == '__main__':
   main()  

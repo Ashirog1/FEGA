@@ -1,5 +1,3 @@
-#include "cassert"
-#include "climits"
 #include "fstream"
 #include "iostream"
 #include "list"
@@ -16,7 +14,7 @@ solution.hpp
 customer.hpp
 vehicle.hpp
 
-chromesome
+chromosome
 */
 
 const int TTRUCK = 0, TDRONE = 1;
@@ -24,6 +22,7 @@ const int TTRUCK = 0, TDRONE = 1;
 int num_customer, num_truck, num_drone, time_limit;
 int speed_truck, speed_drone, capacity_truck, capacity_drone, duration_drone;
 std::ofstream log_debug("debug.log");
+std::ofstream log_result("result.log");
 
 template <class T>
 std::vector<T> create(size_t size, T initialValue) {
@@ -83,7 +82,7 @@ class Route {
   /*
   id of truck/drone that manage that trip
 
-  not neccessery?
+  not necessary?
   */
   int owner;
   std::vector<Node> route;
@@ -220,8 +219,15 @@ class Solution {
                               : &drone_trip[index - num_truck]);
   }
   int find_pushed_weight(int route_id, int trip_id, int customer_id) {
+    if (route_id > num_drone + num_truck) return 0;
+    debug(route_id, trip_id, customer_id, route_at(route_id)->multiRoute.size());
+    if (trip_id > route_at(route_id)->multiRoute.size()) {
+      return 0;
+    }
     return std::min(current_lowerbound[customer_id],
-                    route_at(route_id)->multiRoute[trip_id].rem_weight());
+                    (route_id < num_truck)
+                        ? truck_trip[route_id].multiRoute[trip_id].rem_weight()
+                        : drone_trip[route_id - num_truck].multiRoute[trip_id].rem_weight());
   }
   int push_cus(int route_id, int trip_id, int cus_id) {
     std::pair<int, int> cus = {cus_id,
@@ -239,6 +245,15 @@ class Solution {
     /// push process? push remaining weight to cus
     /// TODO: change to mincostmaxflow
     if (not valid_solution()) return;
+    std::vector<int> total_weight(num_customer);
+    for (auto truck : truck_trip) {
+      for (auto r : truck.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    for (auto drone : drone_trip) {
+      for (auto r : drone.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
     mincostmaxflow mcmf;
     int N = num_truck, M = num_customer;
     for (int i = 0; i < num_drone; ++i) {
@@ -315,14 +330,25 @@ class Solution {
     }
   }
   bool valid_solution() {
-    std::vector<int> total_weight(num_customer);
     for (auto truck : truck_trip) {
       if (not truck.valid_route()) return false;
     }
     for (auto drone : drone_trip) {
       if (not drone.valid_route()) return false;
     }
-    for (int i = 0; i < num_customer; ++i) {
+    std::vector<int> total_weight(num_customer);
+    for (auto truck : truck_trip) {
+      for (auto r : truck.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    for (auto drone : drone_trip) {
+      for (auto r : drone.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+
+    for (int i = 1; i < num_customer; ++i) {
+      //  log_debug << "weight " << total_weight[i] << ' ' <<
+      //  customers[i].lower_weight << '\n';
       if (total_weight[i] < customers[i].lower_weight) return false;
     }
     return true;
@@ -435,7 +461,7 @@ class Chromosome {
   {customer id, weight}
   kind of conflict? right
   */
-  std::list<std::pair<int, int>> chr;
+  std::vector<std::pair<int, int>> chr;
   /*
   decode to a genetic
   */
@@ -484,8 +510,9 @@ class Chromosome {
     for (int i = 1; i < num_customer; ++i)
       sol.current_lowerbound[i] = customers[i].upper_weight;
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
+    debug(chr);
     for (auto [customer_id, customer_weight] : chr) {
-      assert(customer_id != 0);
+      if (customer_id == 0 or customer_id >= num_customer) continue;
 
       const auto push = [&]() {
         int dec_weight = sol.push_cus(current_vehicle, trip_id, customer_id);
@@ -578,4 +605,5 @@ class settings {
  public:
   int POPULATION_SIZE = 100;
   int OFFSPRING_PERCENT = 70;
+  int MUTATION_ITER = 10;
 } general_setting;

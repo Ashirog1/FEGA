@@ -82,10 +82,9 @@ Solution init_random_solution() {
     return min(current_lowerbound[customer_id],
                routeSet.multiRoute[trip_id].rem_weight());
   };
-  const auto push_cus = [&](routeSet& routeSet, int trip_id,
-                            int cus_id) {
-    std::pair<int, int> cus = {
-        cus_id, find_pushed_weight(routeSet, trip_id, cus_id)};
+  const auto push_cus = [&](routeSet& routeSet, int trip_id, int cus_id) {
+    std::pair<int, int> cus = {cus_id,
+                               find_pushed_weight(routeSet, trip_id, cus_id)};
     if (routeSet.append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
     }
@@ -153,6 +152,7 @@ Solution init_random_solution() {
     }
   }
   // log first_solution
+  /*
   log_debug << "after 3.2\n";
   log_debug << "first_solution\n";
   log_debug << first_solution.valid_solution() << '\n';
@@ -177,11 +177,12 @@ Solution init_random_solution() {
       log_debug << '\n';
     }
   }
+  */
   log_debug << '\n';
   debug(first_solution.evaluate());
 
   first_solution.educate();
-  
+
   debug(first_solution.evaluate());
   /*
   3.2. Split tour for every trip
@@ -192,32 +193,33 @@ Solution init_random_solution() {
   skip it because better solution?
   and i just tired
   */
-
-  log_debug << "after educate\n";
-  log_debug << "first_solution\n";
-  log_debug << first_solution.valid_solution() << '\n';
-  log_debug << "current lowerbound\n";
-  for (int i = 0; i < num_customer; ++i) {
-    log_debug << "customer " << i << ' ' << current_lowerbound[i] << '\n';
-  }
-  log_debug << '\n';
-  for (int i = 0; i < num_truck; ++i) {
-    log_debug << "truck route" << ' ' << i << '\n';
-    for (auto loc : first_solution.truck_trip[i].multiRoute[0].route) {
-      log_debug << loc.customer_id << ' ' << loc.weight << '\n';
+  /*
+    log_debug << "after educate\n";
+    log_debug << "first_solution\n";
+    log_debug << first_solution.valid_solution() << '\n';
+    log_debug << "current lowerbound\n";
+    for (int i = 0; i < num_customer; ++i) {
+      log_debug << "customer " << i << ' ' << current_lowerbound[i] << '\n';
     }
-  }
-
-  for (int i = 0; i < num_drone; ++i) {
-    log_debug << "drone route" << i << '\n';
-    for (auto trip : first_solution.drone_trip[i].multiRoute) {
-      for (auto loc : trip.route) {
+    log_debug << '\n';
+    for (int i = 0; i < num_truck; ++i) {
+      log_debug << "truck route" << ' ' << i << '\n';
+      for (auto loc : first_solution.truck_trip[i].multiRoute[0].route) {
         log_debug << loc.customer_id << ' ' << loc.weight << '\n';
       }
-      log_debug << '\n';
     }
-  }
-  log_debug << '\n';
+
+    for (int i = 0; i < num_drone; ++i) {
+      log_debug << "drone route" << i << '\n';
+      for (auto trip : first_solution.drone_trip[i].multiRoute) {
+        for (auto loc : trip.route) {
+          log_debug << loc.customer_id << ' ' << loc.weight << '\n';
+        }
+        log_debug << '\n';
+      }
+    }
+    log_debug << '\n';
+  */
   return first_solution;
 }
 
@@ -227,6 +229,8 @@ void random_init_population() {
     auto sol = init_random_solution();
     valid += sol.valid_solution();
     Population.emplace_back(Chromosome(sol));
+   // sol.print_out();
+//    log_debug << "valid" << sol.valid_solution() << '\n';
   }
 
   log_debug << "valid solution is " << valid << '\n';
@@ -254,7 +258,7 @@ void ga_process() {
       }
     }
   };
-  const auto mutation = [&]() {
+  const auto create_offspring = [&]() {
     int cnt = 0;
     int off_springs_size = general_setting.POPULATION_SIZE *
                            general_setting.OFFSPRING_PERCENT / 100;
@@ -262,11 +266,9 @@ void ga_process() {
     while (cnt <= off_springs_size) {
       int i = rand(0, Population.size() - 1);
       int j = rand(0, Population.size() - 1);
-      // debug(i, j);
       if (i == j) {
         continue;
       }
-      // debug(cnt);
       cnt++;
       offsprings.emplace_back(crossover(Population[i], Population[j]));
     }
@@ -275,7 +277,7 @@ void ga_process() {
     /*
 
     */
-    for (auto &gen : offsprings) {
+    for (auto& gen : offsprings) {
       auto sol = gen.encode();
       sol.educate();
       gen = Chromosome(sol);
@@ -292,6 +294,32 @@ void ga_process() {
                            Population.begin() + keep);
     std::swap(Population, next_population);
   };
+  const auto mutation = [&]() {
+    for (int iter = 0; iter < general_setting.MUTATION_ITER; ++iter) {
+      int i = random_number_in_range(0, (int)Population.size());
+      int maxsize = Population[i].chr.size();
+      int len = random_number_in_range(1, max(1, (int)Population[i].chr.size() / 5));
+
+      int s1 = random_number_in_range(0, len);
+      int s2 = random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
+
+      Chromosome new_gen;
+
+      for (int j = 0; j < s1; ++j) 
+        new_gen.chr.push_back(Population[i].chr[j]);
+      for (int j = s2; j < min(maxsize, s2 + len); ++j)
+        new_gen.chr.push_back(Population[i].chr[j]);
+      for (int j = s1; j < s2; ++j)
+        new_gen.chr.push_back(Population[i].chr[j]);
+      for (int j = s1; j < min(maxsize,s1 + len); ++j) 
+        new_gen.chr.push_back(Population[i].chr[j]);
+      for (int j = s2 + len; j < maxsize; ++j) 
+        new_gen.chr.push_back(Population[i].chr[j]);
+      debug(Population[i].chr);
+      debug(new_gen.chr);
+      Population[i] = new_gen;
+    }
+  };
   log_debug << "start ga_process\n";
   for (int iter = 0; iter <= 1000; ++iter) {
     debug("generation", iter);
@@ -299,22 +327,26 @@ void ga_process() {
     debug("complete init");
     evaluate(iter);
     debug("complete eval");
-    mutation();
-    debug("complete mutation");
+    create_offspring();
+    debug("complete new offspring");
     educate();
     debug("complete educate");
     choose_next_population();
     debug("complete choosing next population");
+    mutation();
+    debug("complete mutation");
   }
   debug(best.evaluate());
-  log_debug << "complete running\n";
-  log_debug << "convergence after " << best_generation << '\n';
-  log_debug << "Solution is " << best.evaluate() << '\n';
-  best.print_out();
+  log_result << "complete running\n";
+  log_result << "convergence after " << best_generation << '\n';
+  log_result << "Solution is " << best.evaluate() << '\n';
+  // best.print_out();
 }
 
 int main() {
   read_input();
   random_init_population();
   ga_process();
+
+  cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }

@@ -32,7 +32,7 @@ def main():
         print("match", readfile)
         number_truck = row["number truck"]
         number_drone = row["number drone"]
-        working_time = row["Woriking time"]  # :)))) wtf
+        working_time = row["Woriking time"]
         truck_capacity = row["Truck cappacity"]
         drone_capacity = row["Drone capacity"]
         drone_speed = row["Drone_speech"]
