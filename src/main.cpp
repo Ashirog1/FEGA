@@ -246,7 +246,7 @@ void ga_process() {
       val.emplace_back(gen.encode().fitness(), gen);
     }
     sort(val.begin(), val.end(),
-         [&](auto x, auto y) { return x.first < y.first; });
+         [&](auto x, auto y) { return x.first > y.first; });
     Population.clear();
     for (auto [w, v] : val) Population.emplace_back(v);
   };
@@ -284,15 +284,20 @@ void ga_process() {
     }
   };
   const auto choose_next_population = [&]() {
+    std::sort(Population.begin(), Population.end(), [&](auto x, auto y) {
+      return x.encode().fitness() > y.encode().fitness();
+    });
     std::vector<Chromosome> next_population = offsprings;
     /// TODO: use addition vector to reduce the fitness computation
     const int one_hundred_percent = 100;
     int keep = general_setting.POPULATION_SIZE *
                (one_hundred_percent - general_setting.OFFSPRING_PERCENT) / 100;
     keep = min(keep, (int)Population.size());
-    next_population.insert(next_population.end(), Population.begin(),
-                           Population.begin() + keep);
+    for (int i = 0; i < keep; ++i) next_population.push_back(Population[i]);
+
+  //  for (auto it : Population) log_result << it.encode().evaluate() << ' ';
     std::swap(Population, next_population);
+  //  for (auto it : Population) log_result << it.encode().evaluate() << ' ';
   };
   const auto mutation = [&]() {
     for (int iter = 0; iter < general_setting.MUTATION_ITER; ++iter) {
@@ -321,9 +326,10 @@ void ga_process() {
     }
   };
   log_debug << "start ga_process\n";
-  for (int iter = 0; iter <= 1000; ++iter) {
+  for (int iter = 0; iter <= 100; ++iter) {
     debug("generation", iter);
     init();
+    log_result << Population[0].encode().evaluate() << '\n';
     debug("complete init");
     evaluate(iter);
     debug("complete eval");

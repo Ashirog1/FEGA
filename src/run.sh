@@ -1,2 +1,2 @@
-g++ main.cpp -o main -Werror 
+g++ main.cpp -o main -fsanitize=address 
 ./main
