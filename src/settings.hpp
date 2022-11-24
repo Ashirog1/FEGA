@@ -50,8 +50,8 @@ double euclid_distance(const Customer &A, const Customer &B) {
 }
 
 double time_travel(const Customer &A, const Customer &B, int type) {
-  return sqrt(euclid_distance(A, B)) /
-         (type == TTRUCK ? speed_truck : speed_drone);
+  return sqrt(1.0 * euclid_distance(A, B)) /
+         (type == TTRUCK ? (double)speed_truck : (double)speed_drone);
 }
 
 std::vector<Customer> customers;
@@ -114,7 +114,7 @@ class Route {
     return true;
   }
   void pop() {
-    if (route.size() == 1) return;
+    if (route.size() <= 1) return;
     total_time -= time_travel(customers[route.back().customer_id], customers[0],
                               vehicle_type);
     total_time -= time_travel(customers[route.back().customer_id],
@@ -220,7 +220,7 @@ class Solution {
   }
   int find_pushed_weight(int route_id, int trip_id, int customer_id) {
     if (route_id > num_drone + num_truck) return 0;
-    debug(route_id, trip_id, customer_id, route_at(route_id)->multiRoute.size());
+    ///debug(route_id, trip_id, customer_id, route_at(route_id)->multiRoute.size());
     if (trip_id > route_at(route_id)->multiRoute.size()) {
       return 0;
     }
@@ -386,6 +386,9 @@ class Solution {
   int fitness(int alpha = 1, int beta = 1) { return evaluate() - penalty(); }
   void print_out() {
     log_debug << "solution debug\n";
+
+    for (int i = 1; i < num_customer; ++i) log_debug << total_weight[i] << ' ';
+    log_debug << '\n';
     for (auto truck : truck_trip) {
       for (auto route : truck.multiRoute) {
         for (auto loc : route.route) {
@@ -510,7 +513,7 @@ class Chromosome {
     for (int i = 1; i < num_customer; ++i)
       sol.current_lowerbound[i] = customers[i].upper_weight;
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
-    debug(chr);
+    //debug(chr);
     for (auto [customer_id, customer_weight] : chr) {
       if (customer_id == 0 or customer_id >= num_customer) continue;
 

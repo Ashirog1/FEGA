@@ -252,6 +252,7 @@ void ga_process() {
   };
   const auto evaluate = [&](int gen_id) {
     for (auto Sol : Population) {
+      if (Sol.encode().valid_solution())
       if (best.evaluate() < Sol.encode().evaluate()) {
         best = Sol.encode();
         best_generation = gen_id;
@@ -284,9 +285,18 @@ void ga_process() {
     }
   };
   const auto choose_next_population = [&]() {
-    std::sort(Population.begin(), Population.end(), [&](auto x, auto y) {
-      return x.encode().fitness() > y.encode().fitness();
-    });
+    /// @brief sort Population
+
+    vector<pair<int, Chromosome>> val;
+    for (auto gen : Population) {
+      val.emplace_back(gen.encode().fitness(), gen);
+    }
+    sort(val.begin(), val.end(),
+         [&](auto x, auto y) { return x.first > y.first; });
+    Population.clear();
+    for (auto [w, v] : val) Population.emplace_back(v);
+
+
     std::vector<Chromosome> next_population = offsprings;
     /// TODO: use addition vector to reduce the fitness computation
     const int one_hundred_percent = 100;
@@ -346,7 +356,11 @@ void ga_process() {
   log_result << "complete running\n";
   log_result << "convergence after " << best_generation << '\n';
   log_result << "Solution is " << best.evaluate() << '\n';
-  // best.print_out();
+  best.print_out();
+  assert(best.valid_solution());
+
+  cout << fixed << setprecision(15) << (best.drone_trip[0].total_time) << '\n';
+  debug(best.drone_trip[0].multiRoute.size());
 }
 
 int main() {
