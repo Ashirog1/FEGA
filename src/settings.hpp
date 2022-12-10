@@ -92,6 +92,7 @@ class Route {
    */
   int size() { return route.size(); }
   bool append(std::pair<int, int> info) {
+    assert(route.size() >= 1);
     auto [customer_id, weight] = info;
     total_time -= time_travel(customers[route.back().customer_id], customers[0],
                               vehicle_type);
@@ -183,6 +184,9 @@ class routeSet {
   }
   bool valid_route() {
     if (total_time > time_limit) return false;
+    if (vehicle_type == TDRONE) {
+      if (total_time > duration_drone) return false;
+    }
     return true;
   }
   void set_vehicle_type(int type) { vehicle_type = type; }
@@ -232,6 +236,7 @@ class Solution {
   int push_cus(int route_id, int trip_id, int cus_id) {
     std::pair<int, int> cus = {cus_id,
                                find_pushed_weight(route_id, trip_id, cus_id)};
+    if (cus.second == 0) return -1;
     if (route_at(route_id)->append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
       total_weight[cus.first] += cus.second;
@@ -342,8 +347,11 @@ class Solution {
         for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
     }
     for (auto drone : drone_trip) {
-      for (auto r : drone.multiRoute)
+      double tot = 0;
+      for (auto r : drone.multiRoute) {
         for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+        tot += r.total_time;
+      }
     }
 
     for (int i = 1; i < num_customer; ++i) {
@@ -392,7 +400,7 @@ class Solution {
     for (auto truck : truck_trip) {
       for (auto route : truck.multiRoute) {
         for (auto loc : route.route) {
-          log_debug << loc.customer_id << ' ' << loc.weight << '\n';
+          log_debug << "[" << loc.customer_id << ' ' << loc.weight << "]," << ' ';
         }
         log_debug << '\n';
       }
@@ -401,11 +409,12 @@ class Solution {
     for (auto drone : drone_trip) {
       for (auto route : drone.multiRoute) {
         for (auto loc : route.route) {
-          log_debug << loc.customer_id << ' ' << loc.weight << '\n';
+          log_debug << "[" << loc.customer_id << ' ' << loc.weight << ']' <<  ' ';
         }
         log_debug << '\n';
       }
     }
+    log_debug << "complete drone\n";
     log_debug << '\n';
   }
 };
@@ -489,7 +498,7 @@ class Chromosome {
     for (auto truck : sol.truck_trip) {
       for (auto route : truck.multiRoute) {
         for (auto loc : route.route) {
-          if (loc.customer_id == 0) continue;
+          if (loc.customer_id == 0 or loc.weight == 0) continue;
           chr.emplace_back(loc.customer_id, loc.weight);
         }
       }
@@ -497,7 +506,7 @@ class Chromosome {
     for (auto drone : sol.drone_trip) {
       for (auto route : drone.multiRoute) {
         for (auto loc : route.route) {
-          if (loc.customer_id == 0) continue;
+          if (loc.customer_id == 0 or loc.weight == 0) continue;
           chr.emplace_back(loc.customer_id, loc.weight);
         }
       }
@@ -509,6 +518,9 @@ class Chromosome {
   try to push customer on current route until the valid_solution false
   */
   Solution encode() {
+
+    /// merge adj cus
+
     Solution sol;
     for (int i = 1; i < num_customer; ++i)
       sol.current_lowerbound[i] = customers[i].upper_weight;
@@ -606,7 +618,7 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
 
 class settings {
  public:
-  int POPULATION_SIZE = 100;
+  int POPULATION_SIZE = 200;
   int OFFSPRING_PERCENT = 70;
   int MUTATION_ITER = 10;
 } general_setting;

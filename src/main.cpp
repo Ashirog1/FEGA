@@ -75,7 +75,7 @@ Solution init_random_solution() {
   */
   std::vector<int> current_lowerbound(num_customer);
   for (int i = 0; i < num_customer; ++i)
-    current_lowerbound[i] = max(customers[i].lower_weight, 1);
+    current_lowerbound[i] = max(customers[i].lower_weight, 20);
 
   const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
                                       int customer_id) {
@@ -243,7 +243,9 @@ void ga_process() {
     offsprings.clear();
     vector<pair<int, Chromosome>> val;
     for (auto gen : Population) {
+      if (gen.encode().valid_solution())
       val.emplace_back(gen.encode().fitness(), gen);
+      else val.emplace_back(gen.encode().fitness() - 10000, gen);
     }
     sort(val.begin(), val.end(),
          [&](auto x, auto y) { return x.first > y.first; });
@@ -289,13 +291,14 @@ void ga_process() {
 
     vector<pair<int, Chromosome>> val;
     for (auto gen : Population) {
+      if (gen.encode().valid_solution())
       val.emplace_back(gen.encode().fitness(), gen);
+      else val.emplace_back(gen.encode().fitness() - 10000, gen);
     }
     sort(val.begin(), val.end(),
          [&](auto x, auto y) { return x.first > y.first; });
     Population.clear();
     for (auto [w, v] : val) Population.emplace_back(v);
-
 
     std::vector<Chromosome> next_population = offsprings;
     /// TODO: use addition vector to reduce the fitness computation
@@ -310,7 +313,7 @@ void ga_process() {
   //  for (auto it : Population) log_result << it.encode().evaluate() << ' ';
   };
   const auto mutation = [&]() {
-    for (int iter = 0; iter < general_setting.MUTATION_ITER; ++iter) {
+    for (int iter = 0; iter < (general_setting.POPULATION_SIZE * general_setting.MUTATION_ITER) / 100; ++iter) {
       int i = random_number_in_range(0, (int)Population.size());
       int maxsize = Population[i].chr.size();
       int len = random_number_in_range(1, max(1, (int)Population[i].chr.size() / 5));
@@ -336,10 +339,12 @@ void ga_process() {
     }
   };
   log_debug << "start ga_process\n";
-  for (int iter = 0; iter <= 100; ++iter) {
+  for (int iter = 0; iter <= 1000; ++iter) {
     debug("generation", iter);
     init();
-    log_result << Population[0].encode().evaluate() << '\n';
+    log_debug << Population[0].encode().evaluate() << '\n';
+    Population[0].encode().print_out(); 
+
     debug("complete init");
     evaluate(iter);
     debug("complete eval");
@@ -358,9 +363,6 @@ void ga_process() {
   log_result << "Solution is " << best.evaluate() << '\n';
   best.print_out();
   assert(best.valid_solution());
-
-  cout << fixed << setprecision(15) << (best.drone_trip[0].total_time) << '\n';
-  debug(best.drone_trip[0].multiRoute.size());
 }
 
 int main() {
