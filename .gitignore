@@ -19,6 +19,5 @@ txtData2/*
 build/*
 
 # log file
-src/debug.log
-src/result.log
 src/input.txt
+
