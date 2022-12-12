@@ -20,4 +20,6 @@ build/*
 
 # log file
 src/input.txt
+src/result.log
+src/debug.log
 
