@@ -4,11 +4,18 @@
 # Local History for Visual Studio Code
 .history/
 
+# 
+.idea
+
+# Data
 Data/*
 txtData/*
+txtData2/*
 
 # make build
 build/*
 
-# debug log
+# log file
 src/debug.log
+src/result.log
+src/input.txt

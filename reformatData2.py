@@ -40,7 +40,7 @@ def main():
         drone_duration = row["Drone_duaration (min)"]
         # try to get paramater from paramater.xlsx
         try:
-          with open(loc+"/txtData2/"+filename[:len(filename)-3] + "txt", "w") as outfile:
+          with open(loc+"/txtData/"+filename[:len(filename)-3] + "txt", "w") as outfile:
             try:
               print(int(number_truck), int(number_drone),
                     int(working_time), end="\n", file=outfile)
