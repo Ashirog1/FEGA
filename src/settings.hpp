@@ -21,7 +21,8 @@ const int TTRUCK = 0, TDRONE = 1;
 
 /// @brief default constraint parameter
 int num_customer, num_truck, num_drone, time_limit;
-int speed_truck, speed_drone, capacity_truck, capacity_drone, duration_drone;
+double speed_truck, speed_drone;
+int capacity_truck, capacity_drone, duration_drone;
 
 std::ofstream log_debug("debug.log");
 std::ofstream log_result("result.log");
@@ -49,11 +50,11 @@ class Customer {
 };
 
 double euclid_distance(const Customer &A, const Customer &B) {
-  return (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y);
+  return sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
 }
 
 double time_travel(const Customer &A, const Customer &B, int type) {
-  return sqrt(1.0 * euclid_distance(A, B)) /
+  return (1.0 * euclid_distance(A, B)) /
          (type == TTRUCK ? (double)speed_truck : (double)speed_drone);
 }
 
@@ -97,9 +98,10 @@ class Route {
   bool append(std::pair<int, int> info) {
     assert(route.size() >= 1);
     auto [customer_id, weight] = info;
+    assert(0 <= customer_id && customer_id < num_customer);
     total_time -= time_travel(customers[route.back().customer_id], customers[0],
                               vehicle_type);
-    total_time += time_travel(customers[route.back().weight],
+    total_time += time_travel(customers[route.back().customer_id],
                               customers[customer_id], vehicle_type);
     total_time +=
         time_travel(customers[customer_id], customers[0], vehicle_type);
@@ -228,18 +230,32 @@ class Solution {
   }
   int find_pushed_weight(int route_id, int trip_id, int customer_id) {
     if (route_id > num_drone + num_truck) return 0;
-    ///debug(route_id, trip_id, customer_id, route_at(route_id)->multiRoute.size());
+    /// debug(route_id, trip_id, customer_id,
+    /// route_at(route_id)->multiRoute.size());
     if (trip_id > route_at(route_id)->multiRoute.size()) {
       return 0;
     }
     return std::min(current_lowerbound[customer_id],
-                    (route_id < num_truck)
-                        ? truck_trip[route_id].multiRoute[trip_id].rem_weight()
-                        : drone_trip[route_id - num_truck].multiRoute[trip_id].rem_weight());
+                      find_remaining_weight(route_id, trip_id));
   }
-  int push_cus(int route_id, int trip_id, int cus_id) {
-    std::pair<int, int> cus = {cus_id,
-                               find_pushed_weight(route_id, trip_id, cus_id)};
+  int find_remaining_weight(int route_id, int trip_id) {
+    if (route_id > num_drone + num_truck) return 0;
+    /// debug(route_id, trip_id, customer_id,
+    /// route_at(route_id)->multiRoute.size());
+    if (trip_id > route_at(route_id)->multiRoute.size()) {
+      return 0;
+    }
+    return (route_id < num_truck)
+               ? truck_trip[route_id].multiRoute[trip_id].rem_weight()
+               : drone_trip[route_id - num_truck]
+                     .multiRoute[trip_id]
+                     .rem_weight();
+  }
+  int push_cus(int route_id, int trip_id, pair<int, int> customer_info) {
+    std::pair<int, int> cus = {
+        customer_info.first,
+        find_pushed_weight(route_id, trip_id, customer_info.first)};
+    cus.second = min(customer_info.second, cus.second);
     if (cus.second == 0) return -1;
     if (route_at(route_id)->append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
@@ -252,7 +268,6 @@ class Solution {
   void split_process() {}
   void educate() {
     /// push process? push remaining weight to cus
-    /// TODO: change to mincostmaxflow
     if (not valid_solution()) return;
     std::vector<int> total_weight(num_customer);
     for (auto truck : truck_trip) {
@@ -342,8 +357,6 @@ class Solution {
     /// heuristic
     /// 1. trip with remaining weight -> push remaining customer
     /// 2. do sth heuristic
-
-     
   }
   bool valid_solution() {
     for (auto truck : truck_trip) {
@@ -382,6 +395,7 @@ class Solution {
     return ans;
   }
   int penalty(int alpha = 1, int beta = 1) {
+    if (valid_solution()) return 0;
     double truck_pen = 0, drone_pen = 0;
     for (auto truck : truck_trip) {
       for (auto route : truck.multiRoute) {
@@ -413,7 +427,8 @@ class Solution {
     for (auto truck : truck_trip) {
       for (auto route : truck.multiRoute) {
         for (auto loc : route.route) {
-          log_debug << "[" << loc.customer_id << ' ' << loc.weight << "]," << ' ';
+          log_debug << "[" << loc.customer_id << ' ' << loc.weight << "],"
+                    << ' ';
           tot_weight += loc.weight;
         }
         log_debug << '\n';
@@ -424,7 +439,8 @@ class Solution {
     for (auto drone : drone_trip) {
       for (auto route : drone.multiRoute) {
         for (auto loc : route.route) {
-          log_debug << "[" << loc.customer_id << ' ' << loc.weight << ']' <<  ' ';
+          log_debug << "[" << loc.customer_id << ' ' << loc.weight << ']'
+                    << ' ';
           tot_weight += loc.weight;
         }
         log_debug << '\n';
@@ -435,7 +451,7 @@ class Solution {
     log_debug << '\n';
   }
 };
-/* a constant seed random interger generator */
+/* a constant seed random integer generator */
 std::mt19937 rng(64);
 
 int rand(int l, int r) { return l + rng() % (r - l + 1); }
@@ -535,50 +551,55 @@ class Chromosome {
   try to push customer on current route until the valid_solution false
   */
   Solution encode() {
-
     /// merge adj cus
 
     Solution sol;
     for (int i = 1; i < num_customer; ++i)
       sol.current_lowerbound[i] = customers[i].upper_weight;
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
-    //debug(chr);
-    for (auto [customer_id, customer_weight] : chr) {
+    log_debug << "[";
+    for (auto it : chr) {
+      log_debug << "[" << it.first << "," << it.second << "]";
+    }
+    log_debug << "]";
+
+    for (auto customer_info : chr) {
+      auto [customer_id, customer_weight] = customer_info;
       if (customer_id == 0 or customer_id >= num_customer) continue;
 
-      const auto push = [&]() {
-        int dec_weight = sol.push_cus(current_vehicle, trip_id, customer_id);
+      const auto pushable = [&]() {
+        int dec_weight = sol.push_cus(current_vehicle, trip_id, customer_info);
         if (dec_weight <= 0) return false;
         customer_weight -= dec_weight;
         return true;
       };
       const auto push_route = [&]() {
-        int unsuccesd_push = 0;
-        while (current_vehicle < num_truck + num_drone and unsuccesd_push < 2) {
-          if (not push()) {
-            if (current_vehicle < num_truck) {
-              ++current_vehicle;
-              trip_id = 0;
-            } else {
-              if (current_pushed == 0) {
-                ++current_vehicle;
-                trip_id = 0;
-              } else {
-                ++trip_id;
-                current_pushed = 0;
-              }
-            }
-            if (current_vehicle < num_truck) {
-            } else if (trip_id > 0) {
-              if (current_vehicle - num_truck < num_drone)
-                sol.drone_trip[current_vehicle - num_truck].new_route();
-              else
-                break;
-            }
-            ++unsuccesd_push;
+        while (current_vehicle < num_truck) {
+          if (not pushable()) {
+            ++current_vehicle;
+            trip_id = 0;
           } else {
             ++current_pushed;
             break;
+          }
+        }
+        /// @brief drone route
+        if (current_vehicle >= num_truck) {
+          while (current_vehicle < num_truck + num_drone) {
+            if (not pushable()) {
+              if (current_pushed == 0) {
+                ++current_vehicle;
+                current_pushed = 0;
+                trip_id = 0;
+              } else {
+                ++trip_id;
+                sol.drone_trip[current_vehicle - num_truck].new_route();
+                current_pushed = 0;
+              }
+            } else {
+              ++current_pushed;
+              break;
+            }
           }
         }
       };
@@ -588,6 +609,7 @@ class Chromosome {
         if (tmp == customer_weight) break;
       }
     }
+    sol.print_out();
     return sol;
   }
   /*
@@ -638,13 +660,14 @@ class settings {
   int POPULATION_SIZE = 200;
   int OFFSPRING_PERCENT = 70;
   int MUTATION_ITER = 10;
+  int NUM_GENERATION = 100;
 } general_setting;
 
 /// @brief log result variable
 
 /*
 - objective func
-	- average, min, max in each generation
+        - average, min, max in each generation
 - educate call
 - evaluation call
 - infeasible solution in each generation

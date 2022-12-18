@@ -1,0 +1,3 @@
+complete running
+convergence after 40
+Solution is 22255

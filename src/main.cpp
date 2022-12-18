@@ -177,7 +177,6 @@ Solution init_random_solution() {
     }
   }
   */
-  log_debug << '\n';
   debug(first_solution.evaluate());
 
   first_solution.educate();
@@ -224,14 +223,17 @@ Solution init_random_solution() {
 
 void random_init_population() {
   int valid = 0;
+  int best = 0;
   for (int iter = 0; iter < general_setting.POPULATION_SIZE; ++iter) {
     auto sol = init_random_solution();
     valid += sol.valid_solution();
     Population.emplace_back(Chromosome(sol));
+    if (sol.valid_solution())
+      best = max(best, sol.evaluate());
     // sol.print_out();
     //    log_debug << "valid" << sol.valid_solution() << '\n';
   }
-
+  log_debug << "best solution evaluate is " << best << '\n';
   log_debug << "valid solution is " << valid << '\n';
 }
 
@@ -319,7 +321,7 @@ void ga_process() {
                                general_setting.MUTATION_ITER) /
                                   100;
          ++iter) {
-      int i = random_number_in_range(0, (int)Population.size());
+      int i = random_number_in_range(10, (int)Population.size());
       int maxsize = Population[i].chr.size();
       int len =
           random_number_in_range(1, max(1, (int)Population[i].chr.size() / 5));
@@ -338,13 +340,13 @@ void ga_process() {
         new_gen.chr.push_back(Population[i].chr[j]);
       for (int j = s2 + len; j < maxsize; ++j)
         new_gen.chr.push_back(Population[i].chr[j]);
-      debug(Population[i].chr);
-      debug(new_gen.chr);
+      // debug(Population[i].chr);
+      //debug(new_gen.chr);
       Population[i] = new_gen;
     }
   };
   log_debug << "start ga_process\n";
-  for (int iter = 0; iter <= 10; ++iter) {
+  for (int iter = 0; iter <= general_setting.NUM_GENERATION; ++iter) {
     init();
 
     evaluate(iter);
@@ -360,20 +362,52 @@ void ga_process() {
     /*logging process*/
     best_in_generation.push_back(Population[0].encode().evaluate());
     worst_in_generation.push_back(Population.back().encode().evaluate());
-    log_csv_result << "test iter" << endrow;
+    int64_t total_results = 0;
+    int total_infeasibility = 0;
+    for (auto gene : Population) {
+      total_results += gene.encode().evaluate();
+      total_infeasibility += gene.encode().valid_solution();
+    }
+    average_in_generation.push_back(1.0 * (double)total_results /
+                                    (int)Population.size());
+    num_infeasible_solution.push_back(total_infeasibility);
   }
   debug(best.evaluate());
   log_result << "complete running\n";
   log_result << "convergence after " << best_generation << '\n';
   log_result << "Solution is " << best.evaluate() << '\n';
   best.print_out();
-  assert(best.valid_solution());
+  //assert(best.valid_solution());
+}
+
+void logging_to_csv() {
+  /// @brief convert all generation result to string format
+  string best, worst, average, infeasible;
+  const auto vector_to_string = [&](const auto& v) {
+    string ans = "[";
+    for (const auto& it : v) {
+      ans += to_string(it);
+      ans += ',';
+    }
+    ans += ']';
+    return ans;
+  };
+  best = vector_to_string(best_in_generation);
+  worst = vector_to_string(worst_in_generation);
+  average = vector_to_string(average_in_generation);
+  infeasible = vector_to_string(num_infeasible_solution);
+
+  log_csv_result << best << worst << average << infeasible;
+
+  log_csv_result << Solution::evaluate_call;
+  log_csv_result << Solution::educate_call;
 }
 
 int main() {
   read_input();
   random_init_population();
   ga_process();
+  logging_to_csv();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }

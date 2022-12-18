@@ -1,0 +1,3 @@
+complete running
+convergence after 63
+Solution is 13875

@@ -1,2 +1,2 @@
-g++ main.cpp -o main -fsanitize=address 
+g++ main.cpp -o main
 ./main

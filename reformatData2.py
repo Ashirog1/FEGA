@@ -12,9 +12,9 @@ def main():
     print(f)
     os.remove(f)
 
-  print("reading path", loc + "/Data/" + "paramater2.xlsx")
+  print("reading path", loc + "/Data/" + "para.csv")
   try:
-    paramater = pd.read_excel(loc + "/Data/" + "paramater2.xlsx")
+    paramater = pd.read_csv(loc + "/Data/" + "para.csv")
     print("paramater2", paramater['dataset'])
     print("reading paramater.xlsx", paramater)
     print(paramater.dtypes)
@@ -42,9 +42,9 @@ def main():
         try:
           with open(loc+"/txtData/"+filename[:len(filename)-3] + "txt", "w") as outfile:
             try:
-              print(int(number_truck), int(number_drone),
-                    int(working_time), end="\n", file=outfile)
-              print(int(truck_speed), int(drone_speed), int(truck_capacity), int(
+              print((number_truck),(number_drone),
+                    (working_time), end="\n", file=outfile)
+              print((truck_speed),(drone_speed), int(truck_capacity), int(
                   drone_capacity), int(drone_duration), end="\n", file=outfile)
             except:
               pass
