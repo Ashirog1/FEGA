@@ -115,7 +115,7 @@ Solution init_random_solution() {
         next_customer = {i, pushed_weight};
       }
     }
-    debug(next_customer);
+    debug(next_customer);  
     return next_customer;
   };
 
