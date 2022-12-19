@@ -1,3 +1,3 @@
 complete running
-convergence after 63
-Solution is 13875
+convergence after 0
+Solution is 0
