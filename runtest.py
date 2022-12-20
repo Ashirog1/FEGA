@@ -18,7 +18,11 @@ def main():
     os.remove(f)
   for f in os.listdir(loc+"/txtData"):
     print(f)
-    if (f[0] != '6'):
+    if (f[:3] == "100" or f[:3] == "200"):
+      continue
+    if (f[:2] == "50"):
+      continue
+    if (f[:3] == "150"):
       continue
     with open(loc + "/txtData/" + f) as input:
       if (sum(1 for l in input) == 0):
