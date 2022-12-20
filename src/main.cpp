@@ -34,21 +34,23 @@ void read_input() {
   */
   assert(speed_truck != 0);
   assert(speed_drone != 0);
+
+  /// time_travel logging
+  for (int i = 1; i < num_customer; ++i) {
+    log_debug << "time travel from 0 to " << i << " is "
+              << time_travel(customers[i], customers[0], TDRONE) << '\n';
+  }
 }
 
 std::vector<double> init_piority_matrix(
     const std::vector<int>& current_lowerbound) {
-  std::vector<double> piority(num_customer, 0);
-  double totDistance = 0;
-  for (int j = 0; j < num_customer; ++j) {
-    totDistance += euclid_distance(customers[0], customers[j]);
+  std::vector<double> priority(num_customer, 0);
+  for (int j = 1; j < num_customer; ++j) {
+    priority[j] = 1.0 * (double)current_lowerbound[j] * customers[j].cost /
+                  (double)euclid_distance(customers[0], customers[j]);
   }
-  for (int j = 0; j < num_customer; ++j) {
-    piority[j] = 1.0 * euclid_distance(customers[0], customers[j]) *
-                 (double)current_lowerbound[j] * customers[j].cost /
-                 totDistance;
-  }
-  return piority;
+  debug(current_lowerbound, priority);
+  return priority;
 }
 
 Solution init_random_solution() {
@@ -101,11 +103,20 @@ Solution init_random_solution() {
       // routeSet.multiRoute[trip_id].rem_weight());
       if (pushed_weight <= 0) continue;
       debug(i, pushed_weight);
+      debug("before");
+      for (auto it : routeSet.multiRoute[trip_id].route)
+        debug(it.customer_id, it.weight);
       bool flag = routeSet.append({i, pushed_weight}, trip_id);
+      debug("after append", flag);
+      for (auto it : routeSet.multiRoute[trip_id].route)
+        debug(it.customer_id, it.weight);
       if (flag)
         routeSet.pop(trip_id);
       else
         continue;
+      debug("after");
+      for (auto it : routeSet.multiRoute[trip_id].route)
+        debug(it.customer_id, it.weight);
       if (minimize<double>(
               min_dist,
               euclid_distance(
@@ -115,7 +126,7 @@ Solution init_random_solution() {
         next_customer = {i, pushed_weight};
       }
     }
-    debug(next_customer);  
+    debug(next_customer);
     return next_customer;
   };
 
@@ -124,15 +135,17 @@ Solution init_random_solution() {
       auto next_cus = find_next_cus(routeSet, trip_id);
       debug(next_cus);
       if (next_cus.first == -1) break;
-
-      routeSet.append(next_cus, trip_id);
-      current_lowerbound[next_cus.first] -= next_cus.second;
+      
+      push_cus(routeSet, trip_id, next_cus.first);
+      debug(current_lowerbound);
     }
   };
 
   for (int i = 0; i < num_truck; ++i) {
+    debug("build truck trip", i);
     int tmp = random_number_with_probability(
         build_partial_sum(init_piority_matrix(current_lowerbound)));
+    debug("first customer is", tmp);
     if (current_lowerbound[tmp] == 0) break;
     push_cus(first_solution.truck_trip[i], 0, tmp);
 
@@ -141,8 +154,10 @@ Solution init_random_solution() {
   for (int i = 0; i < num_drone; ++i) {
     int route_id = 0;
     while (first_solution.drone_trip[i].valid_route()) {
+      debug("build drone trip", i, "trip_id", route_id);
       int tmp = random_number_with_probability(
           build_partial_sum(init_piority_matrix(current_lowerbound)));
+      debug("first customer is", tmp);
       if (current_lowerbound[tmp] == 0) break;
       first_solution.drone_trip[i].new_route();
       push_cus(first_solution.drone_trip[i], route_id, tmp);
@@ -177,47 +192,28 @@ Solution init_random_solution() {
     }
   }
   */
-  debug(first_solution.evaluate());
 
+  debug(first_solution.evaluate());
+  /// std::chrono::steady_clock::time_point begin =
+  /// std::chrono::steady_clock::now();
   first_solution.educate();
+  /// std::chrono::steady_clock::time_point end =
+  /// std::chrono::steady_clock::now();
+
+  /// std::cout << "Time difference = " <<
+  /// std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count()
+  /// << "[µs]" << std::endl;
 
   debug(first_solution.evaluate());
   /*
   3.2. Split tour for every trip
 
   use greedy to assaign remain customer for remain trip
-  */
-  /*
   skip it because better solution?
   and i just tired
   */
-  /*
-    log_debug << "after educate\n";
-    log_debug << "first_solution\n";
-    log_debug << first_solution.valid_solution() << '\n';
-    log_debug << "current lowerbound\n";
-    for (int i = 0; i < num_customer; ++i) {
-      log_debug << "customer " << i << ' ' << current_lowerbound[i] << '\n';
-    }
-    log_debug << '\n';
-    for (int i = 0; i < num_truck; ++i) {
-      log_debug << "truck route" << ' ' << i << '\n';
-      for (auto loc : first_solution.truck_trip[i].multiRoute[0].route) {
-        log_debug << loc.customer_id << ' ' << loc.weight << '\n';
-      }
-    }
 
-    for (int i = 0; i < num_drone; ++i) {
-      log_debug << "drone route" << i << '\n';
-      for (auto trip : first_solution.drone_trip[i].multiRoute) {
-        for (auto loc : trip.route) {
-          log_debug << loc.customer_id << ' ' << loc.weight << '\n';
-        }
-        log_debug << '\n';
-      }
-    }
-    log_debug << '\n';
-  */
+  first_solution.print_out();
   return first_solution;
 }
 
@@ -228,8 +224,7 @@ void random_init_population() {
     auto sol = init_random_solution();
     valid += sol.valid_solution();
     Population.emplace_back(Chromosome(sol));
-    if (sol.valid_solution())
-      best = max(best, sol.evaluate());
+    if (sol.valid_solution()) best = max(best, sol.evaluate());
     // sol.print_out();
     //    log_debug << "valid" << sol.valid_solution() << '\n';
   }
@@ -341,7 +336,7 @@ void ga_process() {
       for (int j = s2 + len; j < maxsize; ++j)
         new_gen.chr.push_back(Population[i].chr[j]);
       // debug(Population[i].chr);
-      //debug(new_gen.chr);
+      // debug(new_gen.chr);
       Population[i] = new_gen;
     }
   };
@@ -363,21 +358,21 @@ void ga_process() {
     best_in_generation.push_back(Population[0].encode().evaluate());
     worst_in_generation.push_back(Population.back().encode().evaluate());
     int64_t total_results = 0;
-    int total_infeasibility = 0;
+    int num_feasible = 0;
     for (auto gene : Population) {
       total_results += gene.encode().evaluate();
-      total_infeasibility += gene.encode().valid_solution();
+      num_feasible += gene.encode().valid_solution();
     }
     average_in_generation.push_back(1.0 * (double)total_results /
                                     (int)Population.size());
-    num_infeasible_solution.push_back(total_infeasibility);
+    num_infeasible_solution.push_back(num_feasible);
   }
   debug(best.evaluate());
   log_result << "complete running\n";
   log_result << "convergence after " << best_generation << '\n';
   log_result << "Solution is " << best.evaluate() << '\n';
   best.print_out();
-  //assert(best.valid_solution());
+  // assert(best.valid_solution());
 }
 
 void logging_to_csv() {

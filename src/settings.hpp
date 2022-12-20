@@ -170,11 +170,12 @@ class routeSet {
     assert(trip_id < multiRoute.size());
     total_time -= multiRoute[trip_id].total_time;
     total_weight -= multiRoute[trip_id].total_weight;
-    multiRoute[trip_id].append(info);
+    bool flag = multiRoute[trip_id].append(info);
     total_time += multiRoute[trip_id].total_time;
     total_weight += multiRoute[trip_id].total_weight;
-
-    if (not valid_route() or not multiRoute[trip_id].valid_route()) {
+    if (not flag)
+      return false;
+    if (flag and not valid_route() or not multiRoute[trip_id].valid_route()) {
       pop(trip_id);
       return false;
     }
@@ -268,6 +269,7 @@ class Solution {
   void split_process() {}
   void educate() {
     /// push process? push remaining weight to cus
+
     if (not valid_solution()) return;
     std::vector<int> total_weight(num_customer);
     for (auto truck : truck_trip) {
@@ -461,10 +463,8 @@ return a real value in defined range
 */
 double random_number_in_range(double l, double r) {
   std::uniform_real_distribution<double> unif(l, r);
-  std::random_device rand_dev;
-  std::mt19937 rand_engine(rand_dev());
-  double x = unif(rand_engine);
-  return x;
+  std::default_random_engine re;
+  return unif(re);
 }
 
 std::vector<double> build_partial_sum(const std::vector<double> &prob) {
@@ -472,6 +472,7 @@ std::vector<double> build_partial_sum(const std::vector<double> &prob) {
   for (int i = 0; i < (int)prob.size(); ++i) {
     partial[i] = (i == 0 ? 0 : partial[i - 1]) + prob[i];
   }
+  debug(prob, partial);
   return partial;
 }
 
@@ -482,6 +483,7 @@ P(i) = prob(i) / (sigma(prob))
 
 int random_number_with_probability(const std::vector<double> &partial) {
   double dice = random_number_in_range(0, partial.back());
+  debug(dice, partial.back());
   return std::lower_bound(partial.begin(), partial.end(), dice) -
          partial.begin();
 }
