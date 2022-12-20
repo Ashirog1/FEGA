@@ -99,6 +99,13 @@ class Route {
     assert(route.size() >= 1);
     auto [customer_id, weight] = info;
     assert(0 <= customer_id && customer_id < num_customer);
+/*     debug("route");
+    // /for (auto it : route) debug(it.customer_id, it.weight);
+    debug(route.size());
+    debug(route.back().customer_id);
+    debug(vehicle_type);
+    debug(customers[route.back().customer_id].x, customers[route.back().customer_id].y);
+    debug(info); */
     total_time -= time_travel(customers[route.back().customer_id], customers[0],
                               vehicle_type);
     total_time += time_travel(customers[route.back().customer_id],
@@ -175,9 +182,11 @@ class routeSet {
     total_weight += multiRoute[trip_id].total_weight;
     if (not flag)
       return false;
-    if (flag and not valid_route() or not multiRoute[trip_id].valid_route()) {
-      pop(trip_id);
-      return false;
+    if (flag) {
+      if (not valid_route() or not multiRoute[trip_id].valid_route()) {
+        pop(trip_id);
+        return false;
+      }
     }
     return true;
   }
@@ -216,9 +225,11 @@ class Solution {
     // debug("complete init solution");
     for (int i = 0; i < num_truck; ++i) {
       truck_trip[i].set_vehicle_type(TTRUCK);
+      truck_trip[i].new_route();
     }
     for (int i = 0; i < num_drone; ++i) {
       drone_trip[i].set_vehicle_type(TDRONE);
+      drone_trip[i].new_route();
     }
     // debug("complete set vehicle type");
   }
@@ -662,7 +673,7 @@ class settings {
   int POPULATION_SIZE = 200;
   int OFFSPRING_PERCENT = 70;
   int MUTATION_ITER = 10;
-  int NUM_GENERATION = 100;
+  int NUM_GENERATION = 1;
 } general_setting;
 
 /// @brief log result variable

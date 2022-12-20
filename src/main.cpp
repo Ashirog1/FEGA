@@ -37,8 +37,11 @@ void read_input() {
 
   /// time_travel logging
   for (int i = 1; i < num_customer; ++i) {
-    log_debug << "time travel from 0 to " << i << " is "
-              << time_travel(customers[i], customers[0], TDRONE) << '\n';
+    log_debug << "distance from" << i << '\n';
+    for (int j = 1; j < num_customer; ++j) {
+      log_debug << (euclid_distance(customers[i], customers[j])) << ' ';
+    }
+    log_debug << '\n';
   }
 }
 
@@ -87,6 +90,7 @@ Solution init_random_solution() {
   const auto push_cus = [&](routeSet& routeSet, int trip_id, int cus_id) {
     std::pair<int, int> cus = {cus_id,
                                find_pushed_weight(routeSet, trip_id, cus_id)};
+
     if (routeSet.append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
     }
@@ -102,21 +106,15 @@ Solution init_random_solution() {
       // debug(current_lowerbound[i],
       // routeSet.multiRoute[trip_id].rem_weight());
       if (pushed_weight <= 0) continue;
-      debug(i, pushed_weight);
-      debug("before");
+/*       debug(i, pushed_weight);
+      debug("route");
       for (auto it : routeSet.multiRoute[trip_id].route)
-        debug(it.customer_id, it.weight);
+        debug(it.customer_id, it.weight); */
       bool flag = routeSet.append({i, pushed_weight}, trip_id);
-      debug("after append", flag);
-      for (auto it : routeSet.multiRoute[trip_id].route)
-        debug(it.customer_id, it.weight);
       if (flag)
         routeSet.pop(trip_id);
       else
         continue;
-      debug("after");
-      for (auto it : routeSet.multiRoute[trip_id].route)
-        debug(it.customer_id, it.weight);
       if (minimize<double>(
               min_dist,
               euclid_distance(
@@ -135,8 +133,11 @@ Solution init_random_solution() {
       auto next_cus = find_next_cus(routeSet, trip_id);
       debug(next_cus);
       if (next_cus.first == -1) break;
-      
+      debug("before");
+      for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
       push_cus(routeSet, trip_id, next_cus.first);
+      debug("after");
+      for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
       debug(current_lowerbound);
     }
   };
@@ -146,7 +147,8 @@ Solution init_random_solution() {
     int tmp = random_number_with_probability(
         build_partial_sum(init_piority_matrix(current_lowerbound)));
     debug("first customer is", tmp);
-    if (current_lowerbound[tmp] == 0) break;
+    if (current_lowerbound[tmp] == 0 or tmp == 0) break;
+
     push_cus(first_solution.truck_trip[i], 0, tmp);
 
     build_route(first_solution.truck_trip[i], 0);
@@ -158,10 +160,11 @@ Solution init_random_solution() {
       int tmp = random_number_with_probability(
           build_partial_sum(init_piority_matrix(current_lowerbound)));
       debug("first customer is", tmp);
-      if (current_lowerbound[tmp] == 0) break;
+      if (current_lowerbound[tmp] == 0 or tmp == 0) break;
       first_solution.drone_trip[i].new_route();
       push_cus(first_solution.drone_trip[i], route_id, tmp);
       build_route(first_solution.drone_trip[i], route_id);
+      if (first_solution.drone_trip[i].multiRoute[route_id].route.size() == 1) break;
       ++route_id;
     }
   }
@@ -401,6 +404,7 @@ void logging_to_csv() {
 int main() {
   read_input();
   random_init_population();
+  return 0;
   ga_process();
   logging_to_csv();
 
