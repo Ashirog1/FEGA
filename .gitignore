@@ -22,4 +22,4 @@ build/*
 src/input.txt
 src/result.log
 src/debug.log
-
+src/result.csv
