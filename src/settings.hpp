@@ -183,7 +183,8 @@ class routeSet {
     if (not flag)
       return false;
     if (flag) {
-      if (not valid_route() or not multiRoute[trip_id].valid_route()) {
+      if (not valid_route()) {
+        debug(total_time);
         pop(trip_id);
         return false;
       }
@@ -199,9 +200,6 @@ class routeSet {
   }
   bool valid_route() {
     if (total_time > time_limit) return false;
-    if (vehicle_type == TDRONE) {
-      if (total_time > duration_drone) return false;
-    }
     return true;
   }
   void set_vehicle_type(int type) { vehicle_type = type; }
@@ -673,7 +671,7 @@ class settings {
   int POPULATION_SIZE = 200;
   int OFFSPRING_PERCENT = 70;
   int MUTATION_ITER = 10;
-  int NUM_GENERATION = 1;
+  int NUM_GENERATION = 100;
 } general_setting;
 
 /// @brief log result variable

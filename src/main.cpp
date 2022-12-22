@@ -164,7 +164,10 @@ Solution init_random_solution() {
       first_solution.drone_trip[i].new_route();
       push_cus(first_solution.drone_trip[i], route_id, tmp);
       build_route(first_solution.drone_trip[i], route_id);
-      if (first_solution.drone_trip[i].multiRoute[route_id].route.size() == 1) break;
+      for (auto it :first_solution.drone_trip[i].multiRoute[route_id].route)
+        debug(it.customer_id, it.weight);
+      if (first_solution.drone_trip[i].multiRoute[route_id].route.back().customer_id == 0)
+        break;
       ++route_id;
     }
   }
@@ -404,7 +407,6 @@ void logging_to_csv() {
 int main() {
   read_input();
   random_init_population();
-  return 0;
   ga_process();
   logging_to_csv();
 
