@@ -36,10 +36,10 @@ void read_input() {
   assert(speed_drone != 0);
 
   /// time_travel logging
-  for (int i = 1; i < num_customer; ++i) {
+  for (int i = 0; i < num_customer; ++i) {
     log_debug << "distance from" << i << '\n';
     for (int j = 1; j < num_customer; ++j) {
-      log_debug << (euclid_distance(customers[i], customers[j])) << ' ';
+      log_debug << (time_travel(customers[i], customers[j], TDRONE)) << ' ';
     }
     log_debug << '\n';
   }
@@ -133,12 +133,12 @@ Solution init_random_solution() {
       auto next_cus = find_next_cus(routeSet, trip_id);
       debug(next_cus);
       if (next_cus.first == -1) break;
-      debug("before");
-      for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
+      // debug("before");
+      // for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
       push_cus(routeSet, trip_id, next_cus.first);
-      debug("after");
-      for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
-      debug(current_lowerbound);
+      // debug("after");
+      // for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
+      // debug(current_lowerbound);
     }
   };
 
@@ -219,7 +219,6 @@ Solution init_random_solution() {
   and i just tired
   */
 
-  first_solution.print_out();
   return first_solution;
 }
 
@@ -227,11 +226,14 @@ void random_init_population() {
   int valid = 0;
   int best = 0;
   for (int iter = 0; iter < general_setting.POPULATION_SIZE; ++iter) {
-    auto sol = init_random_solution();
-    valid += sol.valid_solution();
+
+    Solution sol = init_random_solution();
     Population.emplace_back(Chromosome(sol));
+
+    /// @brief logging process
     if (sol.valid_solution()) best = max(best, sol.evaluate());
-    // sol.print_out();
+    sol.print_out();
+    valid += sol.valid_solution();
     //    log_debug << "valid" << sol.valid_solution() << '\n';
   }
   log_debug << "best solution evaluate is " << best << '\n';
@@ -326,8 +328,8 @@ void ga_process() {
       int maxsize = Population[i].chr.size();
       int len =
           random_number_in_range(1, max(1, (int)Population[i].chr.size() / 5));
-
-      int s1 = random_number_in_range(0, len);
+      
+      int s1 = random_number_in_range(0, maxsize - 2 * len );
       int s2 =
           random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
 
@@ -357,7 +359,17 @@ void ga_process() {
     mutation();
 
     /*for debug*/
-    log_debug << Population[0].encode().evaluate() << '\n';
+    log_debug << "best solution of generation " << iter + 1 << "\n";
+    log_debug << "gene is\n";
+    log_debug << "[";
+    for (auto it : Population[0].chr) {
+      log_debug << "[" <<  it.first << ", " << it.second << "], ";
+    }
+    log_debug << "]\n";
+
+
+    log_debug << "objective function value " << Population[0].encode().evaluate() << '\n';
+    log_debug << "detail route\n";
     Population[0].encode().print_out();
 
     /*logging process*/
@@ -404,11 +416,34 @@ void logging_to_csv() {
   log_csv_result << Solution::educate_call;
 }
 
+namespace testing {
+  void test_mcmf() {
+    Solution sol;
+
+    sol.truck_trip[0].append({5, 1}, 0);
+    sol.truck_trip[0].append({1, 1}, 0);
+    sol.truck_trip[0].append({6, 1}, 0);
+    sol.truck_trip[0].append({3, 1}, 0);
+    sol.truck_trip[0].append({2, 1}, 0);
+
+    for (int i = 0; i < 11; ++i) {
+      sol.drone_trip[0].new_route();
+      sol.drone_trip[0].append({1, 1}, i);
+    }
+    sol.drone_trip[0].append({4, 1}, 11);
+    sol.print_out();
+    Population.emplace_back(Chromosome(sol));
+  }
+}
+
 int main() {
   read_input();
   random_init_population();
+  //testing::test_mcmf();
   ga_process();
   logging_to_csv();
+  
+  //testing::test_mcmf();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }

@@ -29,8 +29,8 @@ struct mincostmaxflow {
   };
 
   void addedge(int u, int v, int cap, int cost, int id = -1) {
-    edge e1 = {u, v, cap, cost, 0, id};
-    edge e2 = {v, u, 0, -cost, 0, -1};
+    edge e1 = {u, v, cap, -cost, 0, id};
+    edge e2 = {v, u, 0, cost, 0, -1};
     adj[u].push_back(e.size());
     e.push_back(e1);
     adj[v].push_back(e.size());

@@ -16,9 +16,7 @@ vehicle.hpp
 
 chromosome
 */
-
-const int TTRUCK = 0, TDRONE = 1;
-
+constexpr int TTRUCK = 0, TDRONE = 1;
 /// @brief default constraint parameter
 int num_customer, num_truck, num_drone, time_limit;
 double speed_truck, speed_drone;
@@ -99,6 +97,36 @@ class Route {
     assert(route.size() >= 1);
     auto [customer_id, weight] = info;
     assert(0 <= customer_id && customer_id < num_customer);
+
+
+    bool existed = false;
+    for (auto it : route) {
+      if (it.customer_id == customer_id) {
+        existed = true;
+        break;
+      }
+    }
+  
+    if (existed) {
+      for (auto&it : route) {
+        if (it.customer_id == customer_id) {
+          it.weight += weight;
+          total_weight += weight;
+          if (valid_route()) {
+            return true; 
+          } else {
+            for (auto it : route) debug(it.customer_id, it.weight);
+
+            it.weight -= weight;
+            total_weight -= weight;
+
+            for (auto it : route) debug(it.customer_id, it.weight);
+            return false;
+          }
+        }
+      }
+    }
+
 /*     debug("route");
     // /for (auto it : route) debug(it.customer_id, it.weight);
     debug(route.size());
@@ -184,7 +212,7 @@ class routeSet {
       return false;
     if (flag) {
       if (not valid_route()) {
-        debug(total_time);
+        //debug(total_time);
         pop(trip_id);
         return false;
       }
@@ -340,7 +368,7 @@ class Solution {
     }
     cur_route = 0;
     for (int i = 0; i < num_truck; ++i) {
-      for (auto route : truck_trip[i].multiRoute) {
+      for (auto &route : truck_trip[i].multiRoute) {
         ++cur_route;
         for (auto &cus : route.route) {
           if (cus.customer_id == 0) continue;
@@ -348,11 +376,12 @@ class Solution {
           cus.weight += assign_weight[{cur_route, N + cus.customer_id}];
           current_lowerbound[cus.customer_id] -=
               assign_weight[{cur_route, N + cus.customer_id}];
+          
         }
       }
     }
     for (int i = 0; i < num_drone; ++i) {
-      for (auto route : drone_trip[i].multiRoute) {
+      for (auto &route : drone_trip[i].multiRoute) {
         ++cur_route;
         mcmf.addedge(S, cur_route, route.rem_weight(), 0);
         for (auto &cus : route.route) {
@@ -365,9 +394,11 @@ class Solution {
     }
   }
   void educate2() {
-    /// heuristic
-    /// 1. trip with remaining weight -> push remaining customer
-    /// 2. do sth heuristic
+    ///
+
+    for (int i = 1; i <= num_customer; ++i) {
+       
+    }
   }
   bool valid_solution() {
     for (auto truck : truck_trip) {
@@ -400,6 +431,18 @@ class Solution {
     /// make sure valid_solution() return true
     ++evaluate_call;
     int ans = 0;
+    fill(total_weight.begin(), total_weight.end(), 0);
+    for (auto truck : truck_trip) {
+      for (auto r : truck.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    for (auto drone : drone_trip) {
+      double tot = 0;
+      for (auto r : drone.multiRoute) {
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+        tot += r.total_time;
+      }
+    }
     for (int i = 0; i < num_customer; ++i) {
       ans += customers[i].cost * total_weight[i];
     }
@@ -446,6 +489,7 @@ class Solution {
       }
     }
     log_debug << "complete truck with total weight is " << tot_weight << '\n';
+    log_debug << "complete truck with total time is " << truck_trip[0].total_time << '\n';
     tot_weight = 0;
     for (auto drone : drone_trip) {
       for (auto route : drone.multiRoute) {
@@ -459,11 +503,12 @@ class Solution {
     }
 
     log_debug << "complete drone with total weight is " << tot_weight << '\n';
+    log_debug << "complete drone with total time is " << drone_trip[0].total_time << '\n';
     log_debug << '\n';
   }
 };
 /* a constant seed random integer generator */
-std::mt19937 rng(64);
+std::mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
 int rand(int l, int r) { return l + rng() % (r - l + 1); }
 
@@ -473,7 +518,7 @@ return a real value in defined range
 double random_number_in_range(double l, double r) {
   std::uniform_real_distribution<double> unif(l, r);
   std::default_random_engine re;
-  return unif(re);
+  return unif(rng);
 }
 
 std::vector<double> build_partial_sum(const std::vector<double> &prob) {
@@ -568,11 +613,11 @@ class Chromosome {
     for (int i = 1; i < num_customer; ++i)
       sol.current_lowerbound[i] = customers[i].upper_weight;
     int current_vehicle = 0, trip_id = 0, current_pushed = 0;
-    log_debug << "[";
-    for (auto it : chr) {
-      log_debug << "[" << it.first << "," << it.second << "]";
-    }
-    log_debug << "]";
+    // log_debug << "[";
+    // for (auto it : chr) {
+    //   log_debug << "[" << it.first << "," << it.second << "]";
+    // }
+    // log_debug << "]";
 
     for (auto customer_info : chr) {
       auto [customer_id, customer_weight] = customer_info;
@@ -620,7 +665,6 @@ class Chromosome {
         if (tmp == customer_weight) break;
       }
     }
-    sol.print_out();
     return sol;
   }
   /*
