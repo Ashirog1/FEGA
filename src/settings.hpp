@@ -98,7 +98,6 @@ class Route {
     auto [customer_id, weight] = info;
     assert(0 <= customer_id && customer_id < num_customer);
 
-
     bool existed = false;
     for (auto it : route) {
       if (it.customer_id == customer_id) {
@@ -106,14 +105,14 @@ class Route {
         break;
       }
     }
-  
+
     if (existed) {
-      for (auto&it : route) {
+      for (auto &it : route) {
         if (it.customer_id == customer_id) {
           it.weight += weight;
           total_weight += weight;
           if (valid_route()) {
-            return true; 
+            return true;
           } else {
             for (auto it : route) debug(it.customer_id, it.weight);
 
@@ -127,13 +126,13 @@ class Route {
       }
     }
 
-/*     debug("route");
-    // /for (auto it : route) debug(it.customer_id, it.weight);
-    debug(route.size());
-    debug(route.back().customer_id);
-    debug(vehicle_type);
-    debug(customers[route.back().customer_id].x, customers[route.back().customer_id].y);
-    debug(info); */
+    /*     debug("route");
+        // /for (auto it : route) debug(it.customer_id, it.weight);
+        debug(route.size());
+        debug(route.back().customer_id);
+        debug(vehicle_type);
+        debug(customers[route.back().customer_id].x,
+       customers[route.back().customer_id].y); debug(info); */
     total_time -= time_travel(customers[route.back().customer_id], customers[0],
                               vehicle_type);
     total_time += time_travel(customers[route.back().customer_id],
@@ -208,11 +207,10 @@ class routeSet {
     bool flag = multiRoute[trip_id].append(info);
     total_time += multiRoute[trip_id].total_time;
     total_weight += multiRoute[trip_id].total_weight;
-    if (not flag)
-      return false;
+    if (not flag) return false;
     if (flag) {
       if (not valid_route()) {
-        //debug(total_time);
+        // debug(total_time);
         pop(trip_id);
         return false;
       }
@@ -274,7 +272,7 @@ class Solution {
       return 0;
     }
     return std::min(current_lowerbound[customer_id],
-                      find_remaining_weight(route_id, trip_id));
+                    find_remaining_weight(route_id, trip_id));
   }
   int find_remaining_weight(int route_id, int trip_id) {
     if (route_id > num_drone + num_truck) return 0;
@@ -376,7 +374,6 @@ class Solution {
           cus.weight += assign_weight[{cur_route, N + cus.customer_id}];
           current_lowerbound[cus.customer_id] -=
               assign_weight[{cur_route, N + cus.customer_id}];
-          
         }
       }
     }
@@ -394,11 +391,36 @@ class Solution {
     }
   }
   void educate2() {
-    ///
-
-    for (int i = 1; i <= num_customer; ++i) {
-       
+    /// reduce to satisfy
+    std::vector<int> total_weight(num_customer);
+    for (auto truck : truck_trip) {
+      for (auto r : truck.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
     }
+    for (auto drone : drone_trip) {
+      for (auto r : drone.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    const auto correct = [&](auto &loc) {
+      if (total_weight[loc.customer_id] > customers[loc.customer_id].lower_weight) {
+        int dec = min(loc.weight, total_weight[loc.customer_id] - customers[loc.customer_id].lower_weight);
+        loc.weight -= dec;
+        total_weight[loc.customer_id] -= dec;
+
+        debug(dec);
+      }
+    };
+    for (int i = 0; i < num_truck; ++i) {
+      for (auto &loc : truck_trip[i].multiRoute[0].route) {
+        correct(loc);
+      }
+    }
+    for (int i = 0; i < num_drone; ++i) {
+      for (auto &r : drone_trip[i].multiRoute) 
+        for (auto &loc : r.route) {
+          correct(loc);
+        }
+    } 
   }
   bool valid_solution() {
     for (auto truck : truck_trip) {
@@ -489,7 +511,8 @@ class Solution {
       }
     }
     log_debug << "complete truck with total weight is " << tot_weight << '\n';
-    log_debug << "complete truck with total time is " << truck_trip[0].total_time << '\n';
+    log_debug << "complete truck with total time is "
+              << truck_trip[0].total_time << '\n';
     tot_weight = 0;
     for (auto drone : drone_trip) {
       for (auto route : drone.multiRoute) {
@@ -503,7 +526,8 @@ class Solution {
     }
 
     log_debug << "complete drone with total weight is " << tot_weight << '\n';
-    log_debug << "complete drone with total time is " << drone_trip[0].total_time << '\n';
+    log_debug << "complete drone with total time is "
+              << drone_trip[0].total_time << '\n';
     log_debug << '\n';
   }
 };

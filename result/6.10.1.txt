@@ -1,3 +1,3 @@
 complete running
-convergence after 41
-Solution is 15250
+convergence after 13
+Solution is 16475

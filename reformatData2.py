@@ -11,7 +11,6 @@ def main():
   for f in files:
     print(f)
     os.remove(f)
-
   print("reading path", loc + "/Data/" + "para.csv")
   try:
     paramater = pd.read_csv(loc + "/Data/" + "para.csv")
@@ -20,6 +19,7 @@ def main():
     print(paramater.dtypes)
   except Exception:
     print("error opening paramater.xlsx")
+  
   valid_input = []
   for ind, row in paramater.iterrows():
     readfile = row["dataset"]

@@ -106,10 +106,10 @@ Solution init_random_solution() {
       // debug(current_lowerbound[i],
       // routeSet.multiRoute[trip_id].rem_weight());
       if (pushed_weight <= 0) continue;
-/*       debug(i, pushed_weight);
-      debug("route");
-      for (auto it : routeSet.multiRoute[trip_id].route)
-        debug(it.customer_id, it.weight); */
+      /*       debug(i, pushed_weight);
+            debug("route");
+            for (auto it : routeSet.multiRoute[trip_id].route)
+              debug(it.customer_id, it.weight); */
       bool flag = routeSet.append({i, pushed_weight}, trip_id);
       if (flag)
         routeSet.pop(trip_id);
@@ -134,40 +134,76 @@ Solution init_random_solution() {
       debug(next_cus);
       if (next_cus.first == -1) break;
       // debug("before");
-      // for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
+      // for (auto it : routeSet.multiRoute[trip_id].route)
+      // debug(it.customer_id, it.weight);
       push_cus(routeSet, trip_id, next_cus.first);
       // debug("after");
-      // for (auto it : routeSet.multiRoute[trip_id].route) debug(it.customer_id, it.weight);
-      // debug(current_lowerbound);
+      // for (auto it : routeSet.multiRoute[trip_id].route)
+      // debug(it.customer_id, it.weight); debug(current_lowerbound);
     }
+  };
+
+  const auto build_random_route = [&](routeSet& routeSet, int trip_id) {
+    int tmp = random_number_with_probability(
+        build_partial_sum(init_piority_matrix(current_lowerbound)));
+    debug("first customer is", tmp);
+    if (current_lowerbound[tmp] == 0 or tmp == 0) return;
+
+    push_cus(routeSet, trip_id, tmp);
+    build_route(routeSet, trip_id);
   };
 
   for (int i = 0; i < num_truck; ++i) {
     debug("build truck trip", i);
-    int tmp = random_number_with_probability(
-        build_partial_sum(init_piority_matrix(current_lowerbound)));
-    debug("first customer is", tmp);
-    if (current_lowerbound[tmp] == 0 or tmp == 0) break;
-
-    push_cus(first_solution.truck_trip[i], 0, tmp);
-
-    build_route(first_solution.truck_trip[i], 0);
+    build_random_route(first_solution.truck_trip[i], 0);
   }
+
   for (int i = 0; i < num_drone; ++i) {
     int route_id = 0;
     while (first_solution.drone_trip[i].valid_route()) {
       debug("build drone trip", i, "trip_id", route_id);
-      int tmp = random_number_with_probability(
-          build_partial_sum(init_piority_matrix(current_lowerbound)));
-      debug("first customer is", tmp);
-      if (current_lowerbound[tmp] == 0 or tmp == 0) break;
-      first_solution.drone_trip[i].new_route();
-      push_cus(first_solution.drone_trip[i], route_id, tmp);
-      build_route(first_solution.drone_trip[i], route_id);
-      for (auto it :first_solution.drone_trip[i].multiRoute[route_id].route)
+
+      build_random_route(first_solution.drone_trip[i], route_id);
+
+      for (auto it : first_solution.drone_trip[i].multiRoute[route_id].route)
         debug(it.customer_id, it.weight);
-      if (first_solution.drone_trip[i].multiRoute[route_id].route.back().customer_id == 0)
+
+      if (first_solution.drone_trip[i].multiRoute[route_id].route.size() <= 1)
         break;
+      /// create new route for drone
+      first_solution.drone_trip[i].new_route();
+      ++route_id;
+    }
+  }
+  for (int i = 1; i < num_customer; ++i) {
+    int current_weight = customers[i].lower_weight - current_lowerbound[i];
+    current_lowerbound[i] = customers[i].upper_weight - current_weight;
+  }
+
+  for (int i = 0; i < num_drone; ++i) {
+    int route_id = 0;
+    /// @brief find current route_id
+    /// @return
+
+    for (int j = 0; j < first_solution.drone_trip[i].multiRoute.size(); ++j) {
+      if (first_solution.drone_trip[i].multiRoute[j].route.size() <= 1) {
+        route_id = j;
+        break;
+      }
+    }
+
+    while (first_solution.drone_trip[i].valid_route()) {
+      debug("build drone trip", i, "trip_id", route_id);
+
+      build_random_route(first_solution.drone_trip[i], route_id);
+
+      for (auto it : first_solution.drone_trip[i].multiRoute[route_id].route)
+        debug(it.customer_id, it.weight);
+
+      if (first_solution.drone_trip[i].multiRoute[route_id].route.size() <= 1)
+        break;
+      /// create new route for drone
+      first_solution.drone_trip[i].new_route();
       ++route_id;
     }
   }
@@ -226,7 +262,7 @@ void random_init_population() {
   int valid = 0;
   int best = 0;
   for (int iter = 0; iter < general_setting.POPULATION_SIZE; ++iter) {
-
+    /// @brief
     Solution sol = init_random_solution();
     Population.emplace_back(Chromosome(sol));
 
@@ -251,7 +287,7 @@ void ga_process() {
       if (gen.encode().valid_solution())
         val.emplace_back(gen.encode().fitness(), gen);
       else
-        val.emplace_back(gen.encode().fitness() - 10000, gen);
+        val.emplace_back(gen.encode().fitness(), gen);
     }
     sort(val.begin(), val.end(),
          [&](auto x, auto y) { return x.first > y.first; });
@@ -283,11 +319,10 @@ void ga_process() {
     }
   };
   const auto educate = [&]() {
-    /*
-
-    */
+    /// @brief: educate Population
     for (auto& gen : offsprings) {
       auto sol = gen.encode();
+      sol.educate2();
       sol.educate();
       gen = Chromosome(sol);
     }
@@ -328,8 +363,8 @@ void ga_process() {
       int maxsize = Population[i].chr.size();
       int len =
           random_number_in_range(1, max(1, (int)Population[i].chr.size() / 5));
-      
-      int s1 = random_number_in_range(0, maxsize - 2 * len );
+
+      int s1 = random_number_in_range(0, maxsize - 2 * len);
       int s2 =
           random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
 
@@ -358,21 +393,20 @@ void ga_process() {
     choose_next_population();
     mutation();
 
-    /*for debug*/
+    /*logging best solution*/
     log_debug << "best solution of generation " << iter + 1 << "\n";
     log_debug << "gene is\n";
     log_debug << "[";
     for (auto it : Population[0].chr) {
-      log_debug << "[" <<  it.first << ", " << it.second << "], ";
+      log_debug << "[" << it.first << ", " << it.second << "], ";
     }
     log_debug << "]\n";
 
-
-    log_debug << "objective function value " << Population[0].encode().evaluate() << '\n';
+    log_debug << "objective function value "
+              << Population[0].encode().evaluate() << '\n';
     log_debug << "detail route\n";
     Population[0].encode().print_out();
 
-    /*logging process*/
     best_in_generation.push_back(Population[0].encode().evaluate());
     worst_in_generation.push_back(Population.back().encode().evaluate());
     int64_t total_results = 0;
@@ -389,6 +423,8 @@ void ga_process() {
   log_result << "complete running\n";
   log_result << "convergence after " << best_generation << '\n';
   log_result << "Solution is " << best.evaluate() << '\n';
+
+  log_debug << "best solution overall is\n" << "with objective function " << best.evaluate() << '\n';
   best.print_out();
   // assert(best.valid_solution());
 }
@@ -420,30 +456,32 @@ namespace testing {
   void test_mcmf() {
     Solution sol;
 
-    sol.truck_trip[0].append({5, 1}, 0);
-    sol.truck_trip[0].append({1, 1}, 0);
-    sol.truck_trip[0].append({6, 1}, 0);
-    sol.truck_trip[0].append({3, 1}, 0);
-    sol.truck_trip[0].append({2, 1}, 0);
+    sol.truck_trip[0].append({3, 75}, 0);
 
-    for (int i = 0; i < 11; ++i) {
-      sol.drone_trip[0].new_route();
-      sol.drone_trip[0].append({1, 1}, i);
-    }
-    sol.drone_trip[0].append({4, 1}, 11);
+
+    sol.educate2();
+
     sol.print_out();
-    Population.emplace_back(Chromosome(sol));
   }
-}
+  void test_encode() {
+    Chromosome chr;
+
+    for (int i = 1; i <= 6; ++i) chr.chr.emplace_back(i, 500);
+
+    for (int i = 1; i <= 10; ++i) chr.chr.emplace_back(1, 40);
+
+    chr.encode().print_out();
+  }
+}  // namespace testing
 
 int main() {
   read_input();
-  random_init_population();
-  //testing::test_mcmf();
-  ga_process();
-  logging_to_csv();
-  
-  //testing::test_mcmf();
+  // random_init_population();
+
+  // ga_process();
+  // logging_to_csv();
+
+  testing::test_encode();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }

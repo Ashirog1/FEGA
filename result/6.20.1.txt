@@ -1,3 +1,3 @@
 complete running
-convergence after 85
-Solution is 24675
+convergence after 4
+Solution is 25075

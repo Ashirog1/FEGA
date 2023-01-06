@@ -1,3 +1,3 @@
 complete running
-convergence after 97
-Solution is 19325
+convergence after 82
+Solution is 19900
