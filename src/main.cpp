@@ -45,16 +45,6 @@ void read_input() {
   }
 }
 
-std::vector<double> init_piority_matrix(
-    const std::vector<int>& current_lowerbound) {
-  std::vector<double> priority(num_customer, 0);
-  for (int j = 1; j < num_customer; ++j) {
-    priority[j] = 1.0 * (double)current_lowerbound[j] * customers[j].cost /
-                  (double)euclid_distance(customers[0], customers[j]);
-  }
-  debug(current_lowerbound, priority);
-  return priority;
-}
 
 Solution init_random_solution() {
   Solution first_solution;
@@ -238,6 +228,8 @@ Solution init_random_solution() {
   debug(first_solution.evaluate());
   /// std::chrono::steady_clock::time_point begin =
   /// std::chrono::steady_clock::now();
+  first_solution.educate3();
+  first_solution.educate2();
   first_solution.educate();
   /// std::chrono::steady_clock::time_point end =
   /// std::chrono::steady_clock::now();
@@ -282,17 +274,7 @@ void ga_process() {
   int best_generation = 0;
   const auto init = [&]() {
     offsprings.clear();
-    vector<pair<int, Chromosome>> val;
-    for (auto gen : Population) {
-      if (gen.encode().valid_solution())
-        val.emplace_back(gen.encode().fitness(), gen);
-      else
-        val.emplace_back(gen.encode().fitness(), gen);
-    }
-    sort(val.begin(), val.end(),
-         [&](auto x, auto y) { return x.first > y.first; });
-    Population.clear();
-    for (auto [w, v] : val) Population.emplace_back(v);
+    sort_population();
   };
   const auto evaluate = [&](int gen_id) {
     for (auto Sol : Population) {
@@ -308,7 +290,7 @@ void ga_process() {
     int off_springs_size = general_setting.POPULATION_SIZE *
                            general_setting.OFFSPRING_PERCENT / 100;
     // debug("mutation", off_springs_size, Population.size());
-    while (cnt <= off_springs_size) {
+    while (cnt < off_springs_size) {
       int i = rand(0, Population.size() - 1);
       int j = rand(0, Population.size() - 1);
       if (i == j) {
@@ -316,12 +298,18 @@ void ga_process() {
       }
       cnt++;
       offsprings.emplace_back(crossover(Population[i], Population[j]));
+
+      if (cnt < off_springs_size) {
+        ++cnt;
+        offsprings.emplace_back(crossover(Population[j], Population[i]));
+      }
     }
   };
   const auto educate = [&]() {
     /// @brief: educate Population
-    for (auto& gen : offsprings) {
+    for (auto& gen : Population) {
       auto sol = gen.encode();
+      sol.educate3();
       sol.educate2();
       sol.educate();
       gen = Chromosome(sol);
@@ -329,18 +317,7 @@ void ga_process() {
   };
   const auto choose_next_population = [&]() {
     /// @brief sort Population
-
-    vector<pair<int, Chromosome>> val;
-    for (auto gen : Population) {
-      if (gen.encode().valid_solution())
-        val.emplace_back(gen.encode().fitness(), gen);
-      else
-        val.emplace_back(gen.encode().fitness() - 10000, gen);
-    }
-    sort(val.begin(), val.end(),
-         [&](auto x, auto y) { return x.first > y.first; });
-    Population.clear();
-    for (auto [w, v] : val) Population.emplace_back(v);
+    sort_population();
 
     std::vector<Chromosome> next_population = offsprings;
     /// TODO: use addition vector to reduce the fitness computation
@@ -354,44 +331,22 @@ void ga_process() {
     std::swap(Population, next_population);
     //  for (auto it : Population) log_result << it.encode().evaluate() << ' ';
   };
-  const auto mutation = [&]() {
-    for (int iter = 0; iter < (general_setting.POPULATION_SIZE *
-                               general_setting.MUTATION_ITER) /
-                                  100;
-         ++iter) {
-      int i = random_number_in_range(10, (int)Population.size());
-      int maxsize = Population[i].chr.size();
-      int len =
-          random_number_in_range(1, max(1, (int)Population[i].chr.size() / 5));
-
-      int s1 = random_number_in_range(0, maxsize - 2 * len);
-      int s2 =
-          random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
-
-      Chromosome new_gen;
-
-      for (int j = 0; j < s1; ++j) new_gen.chr.push_back(Population[i].chr[j]);
-      for (int j = s2; j < min(maxsize, s2 + len); ++j)
-        new_gen.chr.push_back(Population[i].chr[j]);
-      for (int j = s1; j < s2; ++j) new_gen.chr.push_back(Population[i].chr[j]);
-      for (int j = s1; j < min(maxsize, s1 + len); ++j)
-        new_gen.chr.push_back(Population[i].chr[j]);
-      for (int j = s2 + len; j < maxsize; ++j)
-        new_gen.chr.push_back(Population[i].chr[j]);
-      // debug(Population[i].chr);
-      // debug(new_gen.chr);
-      Population[i] = new_gen;
-    }
-  };
   log_debug << "start ga_process\n";
   for (int iter = 0; iter <= general_setting.NUM_GENERATION; ++iter) {
+    educate();
     init();
-
+ 
     evaluate(iter);
     create_offspring();
-    educate();
     choose_next_population();
-    mutation();
+
+    sort_population();
+    mutation1();
+    //mutation2();
+
+    log_debug << "eval of generation " << iter + 1 << '\n';
+    for (auto gene : Population) log_debug << gene.encode().evaluate() << ' ';
+    log_debug << '\n';
 
     /*logging best solution*/
     log_debug << "best solution of generation " << iter + 1 << "\n";
@@ -402,9 +357,6 @@ void ga_process() {
     }
     log_debug << "]\n";
 
-    log_debug << "objective function value "
-              << Population[0].encode().evaluate() << '\n';
-    log_debug << "detail route\n";
     Population[0].encode().print_out();
 
     best_in_generation.push_back(Population[0].encode().evaluate());
@@ -455,33 +407,48 @@ void logging_to_csv() {
 namespace testing {
   void test_mcmf() {
     Solution sol;
+    Chromosome chr;
+    
+    chr.chr.emplace_back(4, 675);
+    chr.chr.emplace_back(3, 150);
+    chr.chr.emplace_back(6, 350);
+    chr.chr.emplace_back(5, 275);
+    chr.chr.emplace_back(1, 50);
 
-    sol.truck_trip[0].append({3, 75}, 0);
+    for (int i = 1; i <= 6; ++i) chr.chr.emplace_back(6, 40);
+    for (int i = 1; i <= 2; ++i) chr.chr.emplace_back(2, 40);
 
-
+    sol = chr.encode();
+    
+    sol.print_out();
+    
     sol.educate2();
 
+
+    sol.print_out();
+
+    sol.educate();
     sol.print_out();
   }
   void test_encode() {
     Chromosome chr;
 
-    for (int i = 1; i <= 6; ++i) chr.chr.emplace_back(i, 500);
+    // 5, 725], [2, 25], [6, 325], [3, 10], [1, 30], [1, 40], [1, 40]
 
-    for (int i = 1; i <= 10; ++i) chr.chr.emplace_back(1, 40);
-
+    
     chr.encode().print_out();
+    //[[4, 635], [3, 110], [2, 35], [6, 535], [5, 135], [1, 50], [4, 40], [5, 40], [5, 40], [4, 40], [3, 40], [6, 40], [2, 40], [6, 40], [6, 40], ]
   }
 }  // namespace testing
 
 int main() {
   read_input();
-  // random_init_population();
+  random_init_population();
 
-  // ga_process();
-  // logging_to_csv();
+  ga_process();
+  logging_to_csv();
 
-  testing::test_encode();
+  testing::test_mcmf();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }

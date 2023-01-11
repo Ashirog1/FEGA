@@ -29,8 +29,8 @@ struct mincostmaxflow {
   };
 
   void addedge(int u, int v, int cap, int cost, int id = -1) {
-    edge e1 = {u, v, cap, -cost, 0, id};
-    edge e2 = {v, u, 0, cost, 0, -1};
+    edge e1 = {u, v, cap, cost, 0, id};
+    edge e2 = {v, u, 0, -cost, 0, -1};
     adj[u].push_back(e.size());
     e.push_back(e1);
     adj[v].push_back(e.size());
@@ -58,11 +58,12 @@ struct mincostmaxflow {
         }
       }
     }
+
     return d[T] != inf;
   }
 
-  int64_t mcmf(int K = 1e9) {
-    int mfl = 0;
+  pair<int64_t, int64_t> mcmf(int K = 1e9) {
+    int64_t mfl = 0;
     int64_t mc = 0;
     while (spfa()) {
       int f = 1e9;
@@ -82,9 +83,8 @@ struct mincostmaxflow {
 
         v = e[id].from;
       }
-      if (mfl == K) break;
     }
-    return mc;
+    return make_pair(mfl, mc);
   }
 
 };

@@ -1,3 +1,3 @@
 complete running
 convergence after 0
-Solution is 25075
+Solution is 25275

@@ -6,16 +6,6 @@
 #include "random"
 #include "vector"
 
-/*
-TODO: try to split to different module.
-For example:
-route.hpp
-solution.hpp
-customer.hpp
-vehicle.hpp
-
-chromosome
-*/
 constexpr int TTRUCK = 0, TDRONE = 1;
 /// @brief default constraint parameter
 int num_customer, num_truck, num_drone, time_limit;
@@ -26,16 +16,6 @@ std::ofstream log_debug("debug.log");
 std::ofstream log_result("result.log");
 csvfile log_csv_result("result.csv");
 
-template <class T>
-std::vector<T> create(size_t size, T initialValue) {
-  return std::vector<T>(size, initialValue);
-}
-
-template <class T, class... Args>
-auto create(size_t head, Args &&...tail) {
-  auto inner = create<T>(tail...);
-  return std::vector<decltype(inner)>(head, inner);
-}
 
 class Customer {
  public:
@@ -57,6 +37,89 @@ double time_travel(const Customer &A, const Customer &B, int type) {
 }
 
 std::vector<Customer> customers;
+template <class T>
+bool minimize(T &x, const T &y) {
+  if (x > y) {
+    x = y;
+    return true;
+  }
+  return false;
+}
+
+std::mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+int rand(int l, int r) { return l + rng() % (r - l + 1); }
+
+/*
+return a real value in defined range
+*/
+double random_number_in_range(double l, double r) {
+  std::uniform_real_distribution<double> unif(l, r);
+  std::default_random_engine re;
+  return unif(rng);
+}
+
+std::vector<double> build_partial_sum(const std::vector<double> &prob) {
+  std::vector<double> partial(prob.size(), 0);
+  for (int i = 0; i < (int)prob.size(); ++i) {
+    partial[i] = (i == 0 ? 0 : partial[i - 1]) + prob[i];
+  }
+  debug(prob, partial);
+  return partial;
+}
+
+/*
+A random number generator that satisfy
+P(i) = prob(i) / (sigma(prob))
+*/
+
+int random_number_with_probability(const std::vector<double> &partial) {
+  double dice = random_number_in_range(0, partial.back());
+  debug(dice, partial.back());
+  return std::lower_bound(partial.begin(), partial.end(), dice) -
+         partial.begin();
+}
+
+std::vector<double> init_piority_matrix(
+    const std::vector<int>& current_lowerbound) {
+  std::vector<double> priority(num_customer, 0);
+  for (int j = 1; j < num_customer; ++j) {
+    priority[j] = 1.0 * (double)current_lowerbound[j] * customers[j].cost /
+                  (double)euclid_distance(customers[0], customers[j]);
+  }
+  debug(current_lowerbound, priority);
+  return priority;
+}
+
+class settings {
+ public:
+  int POPULATION_SIZE = 200;
+  int OFFSPRING_PERCENT = 99;
+  int MUTATION_ITER = 10;
+  int NUM_GENERATION = 100;
+} general_setting;
+
+/*
+TODO: try to split to different module.
+For example:
+route.hpp
+solution.hpp
+customer.hpp
+vehicle.hpp
+
+chromosome
+*/
+template <class T>
+std::vector<T> create(size_t size, T initialValue) {
+  return std::vector<T>(size, initialValue);
+}
+
+template <class T, class... Args>
+auto create(size_t head, Args &&...tail) {
+  auto inner = create<T>(tail...);
+  return std::vector<decltype(inner)>(head, inner);
+}
+
 
 class Route {
   class Node {
@@ -271,8 +334,9 @@ class Solution {
     if (trip_id > route_at(route_id)->multiRoute.size()) {
       return 0;
     }
-    return std::min(current_lowerbound[customer_id],
-                    find_remaining_weight(route_id, trip_id));
+    // debug(current_lowerbound[customer_id]);
+    return min(current_lowerbound[customer_id],
+               find_remaining_weight(route_id, trip_id));
   }
   int find_remaining_weight(int route_id, int trip_id) {
     if (route_id > num_drone + num_truck) return 0;
@@ -281,21 +345,24 @@ class Solution {
     if (trip_id > route_at(route_id)->multiRoute.size()) {
       return 0;
     }
-    return (route_id < num_truck)
-               ? truck_trip[route_id].multiRoute[trip_id].rem_weight()
-               : drone_trip[route_id - num_truck]
-                     .multiRoute[trip_id]
-                     .rem_weight();
+    if (route_id < num_truck)
+      return truck_trip[route_id].multiRoute[trip_id].rem_weight();
+    else {
+      return drone_trip[route_id - num_truck].multiRoute[trip_id].rem_weight();
+    }
   }
   int push_cus(int route_id, int trip_id, pair<int, int> customer_info) {
     std::pair<int, int> cus = {
         customer_info.first,
         find_pushed_weight(route_id, trip_id, customer_info.first)};
     cus.second = min(customer_info.second, cus.second);
+    // debug(customer_info, trip_id);
+    // debug(cus);
     if (cus.second == 0) return -1;
     if (route_at(route_id)->append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
       total_weight[cus.first] += cus.second;
+      // debug(customer_info);
       return cus.second;
     } else {
       return -1;
@@ -305,7 +372,6 @@ class Solution {
   void educate() {
     /// push process? push remaining weight to cus
 
-    if (not valid_solution()) return;
     std::vector<int> total_weight(num_customer);
     for (auto truck : truck_trip) {
       for (auto r : truck.multiRoute)
@@ -316,7 +382,8 @@ class Solution {
         for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
     }
     mincostmaxflow mcmf;
-    int N = num_truck, M = num_customer;
+    int N = 0, M = num_customer;
+    for (int i = 0; i < num_truck; ++i) N += truck_trip[i].multiRoute.size();
     for (int i = 0; i < num_drone; ++i) {
       N += drone_trip[i].multiRoute.size();
     }
@@ -325,42 +392,43 @@ class Solution {
 
     int cur_route = 0;
     for (int i = 0; i < num_truck; ++i) {
-      for (auto route : truck_trip[i].multiRoute) {
+      for (auto &route : truck_trip[i].multiRoute) {
         ++cur_route;
-        mcmf.addedge(S, cur_route, route.rem_weight(), 0);
+        route.total_weight = 0;
         for (auto cus : route.route) {
           if (cus.customer_id == 0) continue;
           mcmf.addedge(cur_route, N + cus.customer_id, INT_MAX, 0);
-          //    debug(cur_route, N + cus.customer_id);
+
+          // debug(cur_route, N + cus.customer_id, N);
+          route.total_weight += cus.weight;
         }
+        mcmf.addedge(S, cur_route, route.rem_weight(), 0);
       }
     }
     for (int i = 0; i < num_drone; ++i) {
-      for (auto route : drone_trip[i].multiRoute) {
+      for (auto &route : drone_trip[i].multiRoute) {
+        route.total_weight = 0;
         ++cur_route;
-        mcmf.addedge(S, cur_route, route.rem_weight(), 0);
         for (auto cus : route.route) {
           if (cus.customer_id == 0) continue;
           mcmf.addedge(cur_route, N + cus.customer_id, INT_MAX, 0);
+          route.total_weight += cus.weight;
+          // debug(cur_route, N + cus.customer_id, N);
         }
+        mcmf.addedge(S, cur_route, route.rem_weight(), 0);
       }
     }
     for (int i = 1; i < num_customer; ++i) {
-      mcmf.addedge(N + i, T, customers[i].upper_weight - (total_weight[i]),
-                   customers[i].cost);
-    }
-    for (auto e : mcmf.e) {
-      //   debug(e.from, e.to, e.cap, e.cost);
+      mcmf.addedge(N + i, T, customers[i].upper_weight - total_weight[i],
+                   -customers[i].cost);
     }
     mcmf.mcmf();
-
+    debug("go mcmf");
     for (auto e : mcmf.e) {
-      //      debug(e.from, e.to, e.cap, e.cost, e.flow);
     }
 
     /// assign weight based on mcmf solution
     map<pair<int, int>, int> assign_weight;
-
     for (auto e : mcmf.e) {
       assign_weight[{e.from, e.to}] = e.flow;
     }
@@ -401,26 +469,138 @@ class Solution {
       for (auto r : drone.multiRoute)
         for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
     }
-    const auto correct = [&](auto &loc) {
-      if (total_weight[loc.customer_id] > customers[loc.customer_id].lower_weight) {
-        int dec = min(loc.weight, total_weight[loc.customer_id] - customers[loc.customer_id].lower_weight);
+    const auto correct = [&](auto &r, auto &loc) {
+      if (total_weight[loc.customer_id] >
+          customers[loc.customer_id].lower_weight) {
+        int dec = min(loc.weight, total_weight[loc.customer_id] -
+                                      customers[loc.customer_id].lower_weight);
         loc.weight -= dec;
         total_weight[loc.customer_id] -= dec;
-
+        r.total_weight -= dec;
         debug(dec);
       }
     };
     for (int i = 0; i < num_truck; ++i) {
-      for (auto &loc : truck_trip[i].multiRoute[0].route) {
-        correct(loc);
+      for (auto &r : truck_trip[i].multiRoute) {
+        for (auto &loc : r.route) {
+          correct(r, loc);
+        }
       }
     }
     for (int i = 0; i < num_drone; ++i) {
-      for (auto &r : drone_trip[i].multiRoute) 
+      for (auto &r : drone_trip[i].multiRoute)
         for (auto &loc : r.route) {
-          correct(loc);
+          correct(r, loc);
         }
-    } 
+    }
+  }
+  void educate3() {
+    std::vector<int> current_lowerbound(num_customer);
+    for (int i = 0; i < num_customer; ++i)
+      current_lowerbound[i] = max(customers[i].upper_weight, 20);
+
+    const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
+                                        int customer_id) {
+      return min(current_lowerbound[customer_id],
+                routeSet.multiRoute[trip_id].rem_weight());
+    };
+    const auto push_cus = [&](routeSet& routeSet, int trip_id, int cus_id) {
+      std::pair<int, int> cus = {cus_id,
+                                find_pushed_weight(routeSet, trip_id, cus_id)};
+
+      if (routeSet.append(cus, trip_id)) {
+        current_lowerbound[cus.first] -= cus.second;
+      }
+    };
+
+    const auto find_next_cus = [&](routeSet& routeSet, int trip_id) {
+      std::pair<int, int> next_customer = {-1, 0};
+      double min_dist = std::numeric_limits<double>::max();
+      for (int i = 1; i < num_customer; ++i) {
+        /// check if successful append?
+        int pushed_weight =
+            min(current_lowerbound[i], routeSet.multiRoute[trip_id].rem_weight());
+        // debug(current_lowerbound[i],
+        // routeSet.multiRoute[trip_id].rem_weight());
+        if (pushed_weight <= 0) continue;
+        /*       debug(i, pushed_weight);
+              debug("route");
+              for (auto it : routeSet.multiRoute[trip_id].route)
+                debug(it.customer_id, it.weight); */
+        bool flag = routeSet.append({i, pushed_weight}, trip_id);
+        if (flag)
+          routeSet.pop(trip_id);
+        else
+          continue;
+        if (minimize<double>(
+                min_dist,
+                euclid_distance(
+                    customers
+                        [routeSet.multiRoute[trip_id].route.back().customer_id],
+                    customers[i]))) {
+          next_customer = {i, pushed_weight};
+        }
+      }
+      debug(next_customer);
+      return next_customer;
+    };
+
+    const auto build_route = [&](routeSet& routeSet, int trip_id) {
+      while (routeSet.valid_route()) {
+        auto next_cus = find_next_cus(routeSet, trip_id);
+        debug(next_cus);
+        if (next_cus.first == -1) break;
+        // debug("before");
+        // for (auto it : routeSet.multiRoute[trip_id].route)
+        // debug(it.customer_id, it.weight);
+        push_cus(routeSet, trip_id, next_cus.first);
+        // debug("after");
+        // for (auto it : routeSet.multiRoute[trip_id].route)
+        // debug(it.customer_id, it.weight); debug(current_lowerbound);
+      }
+    };
+
+    const auto build_random_route = [&](routeSet& routeSet, int trip_id) {
+      int tmp = random_number_with_probability(
+          build_partial_sum(init_piority_matrix(current_lowerbound)));
+      debug("first customer is", tmp);
+      if (current_lowerbound[tmp] == 0 or tmp == 0) return;
+
+      push_cus(routeSet, trip_id, tmp);
+      build_route(routeSet, trip_id);
+    };
+
+    for (int i = 1; i < num_customer; ++i) {
+      current_lowerbound[i] = customers[i].upper_weight - this->current_lowerbound[i];
+    }
+
+    for (int i = 0; i < num_drone; ++i) {
+      int route_id = 0;
+      /// @brief find current route_id
+      /// @return
+
+      for (int j = 0; j < drone_trip[i].multiRoute.size(); ++j) {
+        if (drone_trip[i].multiRoute[j].route.size() <= 1) {
+          route_id = j;
+          break;
+        }
+      }
+
+      while (drone_trip[i].valid_route()) {
+        debug("build drone trip", i, "trip_id", route_id);
+
+        build_random_route(drone_trip[i], route_id);
+
+        for (auto it : drone_trip[i].multiRoute[route_id].route)
+          debug(it.customer_id, it.weight);
+
+        if (drone_trip[i].multiRoute[route_id].route.size() <= 1)
+          break;
+        /// create new route for drone
+        drone_trip[i].new_route();
+        ++route_id;
+      }
+    }
   }
   bool valid_solution() {
     for (auto truck : truck_trip) {
@@ -494,8 +674,37 @@ class Solution {
     return alpha * truck_pen + beta * drone_pen;
   }
   int fitness(int alpha = 1, int beta = 1) { return evaluate() - penalty(); }
+  pair<int, int> find_remain_cus() {
+    std::fill(total_weight.begin(), total_weight.end(), 0);
+    for (auto truck : truck_trip) {
+      for (auto r : truck.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    for (auto drone : drone_trip) {
+      for (auto r : drone.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    vector<pair<int, int>> rem;
+    for (int i = 1; i < num_customer; ++i) {
+      if (total_weight[i] < customers[i].upper_weight)
+        rem.emplace_back(i, customers[i].upper_weight - total_weight[i]);
+    }
+    if (rem.empty()) return {-1, -1};
+    return rem[random_number_in_range(0, (int)rem.size() - 1)];
+  }
   void print_out() {
+    std::fill(total_weight.begin(), total_weight.end(), 0);
+    for (auto truck : truck_trip) {
+      for (auto r : truck.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    for (auto drone : drone_trip) {
+      for (auto r : drone.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
     log_debug << "solution debug\n";
+    log_debug << "objective function\n";
+    log_debug << evaluate() << '\n';
     log_debug << "customer weight\n";
     for (int i = 1; i < num_customer; ++i) log_debug << total_weight[i] << ' ';
     log_debug << '\n';
@@ -532,48 +741,6 @@ class Solution {
   }
 };
 /* a constant seed random integer generator */
-std::mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-
-int rand(int l, int r) { return l + rng() % (r - l + 1); }
-
-/*
-return a real value in defined range
-*/
-double random_number_in_range(double l, double r) {
-  std::uniform_real_distribution<double> unif(l, r);
-  std::default_random_engine re;
-  return unif(rng);
-}
-
-std::vector<double> build_partial_sum(const std::vector<double> &prob) {
-  std::vector<double> partial(prob.size(), 0);
-  for (int i = 0; i < (int)prob.size(); ++i) {
-    partial[i] = (i == 0 ? 0 : partial[i - 1]) + prob[i];
-  }
-  debug(prob, partial);
-  return partial;
-}
-
-/*
-A random number generator that satisfy
-P(i) = prob(i) / (sigma(prob))
-*/
-
-int random_number_with_probability(const std::vector<double> &partial) {
-  double dice = random_number_in_range(0, partial.back());
-  debug(dice, partial.back());
-  return std::lower_bound(partial.begin(), partial.end(), dice) -
-         partial.begin();
-}
-
-template <class T>
-bool minimize(T &x, const T &y) {
-  if (x > y) {
-    x = y;
-    return true;
-  }
-  return false;
-}
 
 /*
 for genetic part
@@ -632,11 +799,10 @@ class Chromosome {
   */
   Solution encode() {
     /// merge adj cus
-
     Solution sol;
     for (int i = 1; i < num_customer; ++i)
       sol.current_lowerbound[i] = customers[i].upper_weight;
-    int current_vehicle = 0, trip_id = 0, current_pushed = 0;
+    int current_vehicle = 0, trip_id = 0;
     // log_debug << "[";
     // for (auto it : chr) {
     //   log_debug << "[" << it.first << "," << it.second << "]";
@@ -645,39 +811,44 @@ class Chromosome {
 
     for (auto customer_info : chr) {
       auto [customer_id, customer_weight] = customer_info;
+      if (sol.current_lowerbound[customer_id] == 0) continue;
+      // debug(customer_info);
       if (customer_id == 0 or customer_id >= num_customer) continue;
-
       const auto pushable = [&]() {
-        int dec_weight = sol.push_cus(current_vehicle, trip_id, customer_info);
+        int dec_weight = sol.push_cus(current_vehicle, trip_id,
+                                      {customer_id, customer_weight});
         if (dec_weight <= 0) return false;
         customer_weight -= dec_weight;
         return true;
       };
       const auto push_route = [&]() {
-        while (current_vehicle < num_truck) {
-          if (not pushable()) {
-            ++current_vehicle;
-            trip_id = 0;
-          } else {
-            ++current_pushed;
-            break;
+        /// @brief truck route
+        if (current_vehicle < num_truck) {
+          while (current_vehicle < num_truck) {
+            if (not pushable()) {
+              ++current_vehicle;
+              trip_id = 0;
+            } else {
+              return;
+            }
           }
         }
         /// @brief drone route
         if (current_vehicle >= num_truck) {
           while (current_vehicle < num_truck + num_drone) {
             if (not pushable()) {
-              if (current_pushed == 0) {
+              // debug(trip_id, customer_id, customer_weight);
+              if (sol.drone_trip[current_vehicle - num_truck]
+                      .multiRoute[trip_id]
+                      .route.back()
+                      .customer_id == 0) {
                 ++current_vehicle;
-                current_pushed = 0;
                 trip_id = 0;
               } else {
                 ++trip_id;
                 sol.drone_trip[current_vehicle - num_truck].new_route();
-                current_pushed = 0;
               }
             } else {
-              ++current_pushed;
               break;
             }
           }
@@ -686,6 +857,7 @@ class Chromosome {
       while (customer_weight > 0) {
         auto tmp = customer_weight;
         push_route();
+        if (sol.current_lowerbound[customer_id] == 0) break;
         if (tmp == customer_weight) break;
       }
     }
@@ -699,6 +871,73 @@ class Chromosome {
   }
 };
 std::vector<Chromosome> Population;
+
+void sort_population() {
+  vector<pair<int, Chromosome>> val;
+  for (auto gen : Population) {
+    if (gen.encode().valid_solution())
+      val.emplace_back(gen.encode().fitness(), Chromosome(gen.encode()));
+    else
+      val.emplace_back(gen.encode().fitness() - 10000,
+                       Chromosome(gen.encode()));
+  }
+  sort(val.begin(), val.end(),
+       [&](auto x, auto y) { return x.first > y.first; });
+  Population.clear();
+  for (auto [w, v] : val) Population.emplace_back(v);
+}
+
+void mutation1() {
+  for (int iter = 0;
+       iter <
+       (general_setting.POPULATION_SIZE * general_setting.MUTATION_ITER) / 100;
+       ++iter) {
+    int i = random_number_in_range(1, (int)Population.size() - 1);
+    int maxsize = Population[i].chr.size();
+    int len =
+        random_number_in_range(1, max(1, (int)Population[i].chr.size() / 10));
+
+    int s1 = random_number_in_range(0, maxsize - 2 * len);
+    int s2 = random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
+
+    Chromosome new_gen;
+
+    for (int j = 0; j < s1; ++j) new_gen.chr.push_back(Population[i].chr[j]);
+    for (int j = s2; j < min(maxsize, s2 + len); ++j)
+      new_gen.chr.push_back(Population[i].chr[j]);
+    for (int j = s1; j < s2; ++j) new_gen.chr.push_back(Population[i].chr[j]);
+    for (int j = s1; j < min(maxsize, s1 + len); ++j)
+      new_gen.chr.push_back(Population[i].chr[j]);
+    for (int j = s2 + len; j < maxsize; ++j)
+      new_gen.chr.push_back(Population[i].chr[j]);
+    // debug(Population[i].chr);
+    // debug(new_gen.chr);
+    Population[i] = new_gen;
+  }
+}
+
+void mutation2() {
+  for (int iter = 0; iter < general_setting.MUTATION_ITER; ++iter) {
+    int i = random_number_in_range(1, (int)Population.size() - 1);
+    int j = random_number_in_range(0, Population[i].chr.size());
+
+    Solution sol = Population[i].encode();
+    
+    pair<int, int> cus = sol.find_remain_cus();
+    if (cus.first == -1) continue;
+
+    debug("before", Population[i].chr);
+    auto copy_gene = Population[i].chr;
+    copy_gene.clear();
+    for (int k = 0; k < j; ++k) copy_gene.emplace_back(Population[i].chr[k]);
+    copy_gene.emplace_back(cus);
+    for (int k = j; k < Population[i].chr.size(); ++k)
+      copy_gene.emplace_back(Population[i].chr[k]);
+
+    Population[i].chr = copy_gene;
+    debug("after", Population[i].chr);
+  }
+}
 
 /// C = A[:pivot] + B[pivot+1:] (plus some edge case checking)
 
@@ -733,14 +972,6 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
   for (auto it : C) c.chr.emplace_back(it);
   return c;
 }
-
-class settings {
- public:
-  int POPULATION_SIZE = 200;
-  int OFFSPRING_PERCENT = 70;
-  int MUTATION_ITER = 10;
-  int NUM_GENERATION = 100;
-} general_setting;
 
 /// @brief log result variable
 
