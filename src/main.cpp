@@ -372,6 +372,7 @@ void ga_process() {
     num_infeasible_solution.push_back(num_feasible);
   }
   debug(best.evaluate());
+  assert(best.valid_solution());
   log_result << "complete running\n";
   log_result << "convergence after " << best_generation << '\n';
   log_result << "Solution is " << best.evaluate() << '\n';
@@ -448,7 +449,7 @@ int main() {
   ga_process();
   logging_to_csv();
 
-  testing::test_mcmf();
+  /// testing::test_mcmf();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }

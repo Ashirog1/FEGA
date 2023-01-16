@@ -99,28 +99,6 @@ class settings {
   int NUM_GENERATION = 100;
 } general_setting;
 
-/*
-TODO: try to split to different module.
-For example:
-route.hpp
-solution.hpp
-customer.hpp
-vehicle.hpp
-
-chromosome
-*/
-template <class T>
-std::vector<T> create(size_t size, T initialValue) {
-  return std::vector<T>(size, initialValue);
-}
-
-template <class T, class... Args>
-auto create(size_t head, Args &&...tail) {
-  auto inner = create<T>(tail...);
-  return std::vector<decltype(inner)>(head, inner);
-}
-
-
 class Route {
   class Node {
    public:
@@ -488,16 +466,27 @@ class Solution {
       }
     }
     for (int i = 0; i < num_drone; ++i) {
-      for (auto &r : drone_trip[i].multiRoute)
+      for (auto &r : drone_trip[i].multiRoute) {
         for (auto &loc : r.route) {
           correct(r, loc);
         }
+      }
     }
   }
   void educate3() {
     std::vector<int> current_lowerbound(num_customer);
+    std::fill(total_weight.begin(), total_weight.end(), 0);
+    for (auto truck : truck_trip) {
+      for (auto r : truck.multiRoute)
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+    }
+    for (auto drone : drone_trip) {
+      for (auto r : drone.multiRoute) {
+        for (auto loc : r.route) total_weight[loc.customer_id] += loc.weight;
+      }
+    }
     for (int i = 0; i < num_customer; ++i)
-      current_lowerbound[i] = max(customers[i].upper_weight, 20);
+      current_lowerbound[i] = customers[i].upper_weight - total_weight[i];
 
     const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
                                         int customer_id) {
@@ -570,9 +559,6 @@ class Solution {
       build_route(routeSet, trip_id);
     };
 
-    for (int i = 1; i < num_customer; ++i) {
-      current_lowerbound[i] = customers[i].upper_weight - this->current_lowerbound[i];
-    }
 
     for (int i = 0; i < num_drone; ++i) {
       int route_id = 0;
@@ -587,13 +573,8 @@ class Solution {
       }
 
       while (drone_trip[i].valid_route()) {
-        debug("build drone trip", i, "trip_id", route_id);
-
         build_random_route(drone_trip[i], route_id);
-
-        for (auto it : drone_trip[i].multiRoute[route_id].route)
-          debug(it.customer_id, it.weight);
-
+        /// @brief only depot
         if (drone_trip[i].multiRoute[route_id].route.size() <= 1)
           break;
         /// create new route for drone
@@ -749,17 +730,7 @@ use std::list for O(1) mutation operation
 
 class Chromosome {
  public:
-  /*
-  {customer id, weight}
-  kind of conflict? right
-  */
   std::vector<std::pair<int, int>> chr;
-  /*
-  decode to a genetic
-  */
-  /*
-  truck trip
-  */
   int size() { return (int)chr.size(); }
   Chromosome() { chr.clear(); }
   Chromosome(int size) { chr.resize(size); }
