@@ -5,6 +5,7 @@
 #include "numeric"
 #include "random"
 #include "vector"
+#include "network_simplex.cpp"
 
 constexpr int TTRUCK = 0, TDRONE = 1;
 /// @brief default constraint parameter
@@ -94,7 +95,7 @@ std::vector<double> init_piority_matrix(
 class settings {
  public:
   int POPULATION_SIZE = 200;
-  int OFFSPRING_PERCENT = 99;
+  int OFFSPRING_PERCENT = 90;
   int MUTATION_ITER = 10;
   int NUM_GENERATION = 100;
 } general_setting;
@@ -347,6 +348,75 @@ class Solution {
     }
   }
   void split_process() {}
+  void educate_with_lowerbound() {
+    int N = 0, M = num_customer;
+    for (int i = 0; i < num_truck; ++i) N += truck_trip[i].multiRoute.size();
+    for (int i = 0; i < num_drone; ++i) {
+      N += drone_trip[i].multiRoute.size();
+    }
+    int S = N + M + 1, T = S + 1;
+    network_simplex<long, long, int64_t> ns(T + 5);
+
+    int cur_route = 0;
+    for (int i = 0; i < num_truck; ++i) {
+      for (auto &route : truck_trip[i].multiRoute) {
+        ++cur_route;
+        route.total_weight = 0;
+        for (auto cus : route.route) {
+          if (cus.customer_id == 0) continue;
+          ns.add(cur_route, N + cus.customer_id, 0, INT_MAX, 0);
+
+          // debug(cur_route, N + cus.customer_id, N);
+          route.total_weight += cus.weight;
+        }
+        ns.add(S, cur_route, 0, capacity_truck, 0);
+      }
+    }
+    for (int i = 0; i < num_drone; ++i) {
+      for (auto &route : drone_trip[i].multiRoute) {
+        route.total_weight = 0;
+        ++cur_route;
+        for (auto cus : route.route) {
+          if (cus.customer_id == 0) continue;
+          ns.add(cur_route, N + cus.customer_id, 0, INT_MAX, 0);
+          route.total_weight += cus.weight;
+          // debug(cur_route, N + cus.customer_id, N);
+        }
+        ns.add(S, cur_route, 0, capacity_drone, 0);
+      }
+    }
+    for (int i = 1; i < num_customer; ++i) {
+      ns.add(N + i, T, customers[i].lower_weight, customers[i].upper_weight,
+                -customers[i].cost);
+    }
+    ns.add(T, S, 0, INT_MAX, 0);
+    ns.mincost_circulation();
+    
+    debug("go mcmf");
+
+    /// assign weight based on mcmf solution
+    cur_route = 0;
+    int e = 0;
+    for (int i = 0; i < num_truck; ++i) {
+      for (auto &route : truck_trip[i].multiRoute) {
+        ++cur_route;
+        for (auto &cus : route.route) {
+          if (cus.customer_id == 0) continue;
+
+          cus.weight = ns.get_flow(e++);
+        }
+      }
+    }
+    for (int i = 0; i < num_drone; ++i) {
+      for (auto &route : drone_trip[i].multiRoute) {
+        ++cur_route;
+        for (auto &cus : route.route) {
+          if (cus.customer_id == 0) continue;
+          cus.weight = ns.get_flow(e++);
+        }
+      }
+    }
+  }
   void educate() {
     /// push process? push remaining weight to cus
 
@@ -426,7 +496,6 @@ class Solution {
     for (int i = 0; i < num_drone; ++i) {
       for (auto &route : drone_trip[i].multiRoute) {
         ++cur_route;
-        mcmf.addedge(S, cur_route, route.rem_weight(), 0);
         for (auto &cus : route.route) {
           if (cus.customer_id == 0) continue;
           cus.weight += assign_weight[{cur_route, N + cus.customer_id}];
@@ -874,10 +943,14 @@ void mutation1() {
     Chromosome new_gen;
 
     for (int j = 0; j < s1; ++j) new_gen.chr.push_back(Population[i].chr[j]);
-    for (int j = s2; j < min(maxsize, s2 + len); ++j)
+    // for (int j = s2; j < min(maxsize, s2 + len); ++j)
+    //   new_gen.chr.push_back(Population[i].chr[j]);
+    for (int j = min(maxsize, s2 + len) - 1; j >= s2; --j)
       new_gen.chr.push_back(Population[i].chr[j]);
     for (int j = s1; j < s2; ++j) new_gen.chr.push_back(Population[i].chr[j]);
-    for (int j = s1; j < min(maxsize, s1 + len); ++j)
+    // for (int j = s1; j < min(maxsize, s1 + len); ++j)
+    //   new_gen.chr.push_back(Population[i].chr[j]);
+    for (int j = min(maxsize, s1 + len) - 1; j >= s1; --j)
       new_gen.chr.push_back(Population[i].chr[j]);
     for (int j = s2 + len; j < maxsize; ++j)
       new_gen.chr.push_back(Population[i].chr[j]);

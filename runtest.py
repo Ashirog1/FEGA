@@ -13,22 +13,17 @@ def main():
   run("pwd")
 
   files = glob.glob(loc+'/result/*')
-  for f in files:
-    print(f)
-    os.remove(f)
+  # for f in files:
+  #   print(f)
+  #   os.remove(f)
   for f in os.listdir(loc+"/txtData"):
     print(f)
-    """
     if (f[:3] == "100" or f[:3] == "200"): continue
     if (f[:2] == "50"):
       continue
     if (f[:3] == "150"):
       continue
-    if (f[:3] == "20"):
-      continue
-    """
-    if (f[0] != '6'):
-      continue
+
     with open(loc + "/txtData/" + f) as input:
       if (sum(1 for l in input) == 0):
         continue 

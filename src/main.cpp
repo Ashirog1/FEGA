@@ -310,8 +310,9 @@ void ga_process() {
     for (auto& gen : Population) {
       auto sol = gen.encode();
       sol.educate3();
-      sol.educate2();
-      sol.educate();
+      sol.educate_with_lowerbound();
+      // sol.educate2();
+      // sol.educate();
       gen = Chromosome(sol);
     }
   };
@@ -423,12 +424,11 @@ namespace testing {
     
     sol.print_out();
     
-    sol.educate2();
+    sol.educate_with_lowerbound();
 
 
     sol.print_out();
 
-    sol.educate();
     sol.print_out();
   }
   void test_encode() {
@@ -442,9 +442,9 @@ int main() {
   random_init_population();
 
   ga_process();
-  logging_to_csv();
+  // logging_to_csv();
 
-  /// testing::test_mcmf();
+  testing::test_mcmf();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }
