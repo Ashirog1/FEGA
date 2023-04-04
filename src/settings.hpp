@@ -49,7 +49,7 @@ bool minimize(T &x, const T &y) {
 
 std::mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
 
-int rand(int l, int r) { return l + rng() % (r - l + 1); }
+int rand(int l, int r) { if (r < l) return r; return l + rng() % (r - l + 1); }
 
 /*
 return a real value in defined range
@@ -85,6 +85,7 @@ std::vector<double> init_piority_matrix(
     const std::vector<int>& current_lowerbound) {
   std::vector<double> priority(num_customer, 0);
   for (int j = 1; j < num_customer; ++j) {
+    /// assert(current_lowerbound[j] >= 0);
     priority[j] = 1.0 * (double)current_lowerbound[j] * customers[j].cost /
                   (double)euclid_distance(customers[0], customers[j]);
   }
@@ -98,6 +99,9 @@ class settings {
   int OFFSPRING_PERCENT = 90;
   int MUTATION_ITER = 10;
   int NUM_GENERATION = 100;
+  int GEN_PERM = 1;
+  int CROSSOVER2 = 1;
+  int MUTATION_OP = 1;
 } general_setting;
 
 class Route {
@@ -138,6 +142,7 @@ class Route {
   bool append(std::pair<int, int> info) {
     assert(route.size() >= 1);
     auto [customer_id, weight] = info;
+    debug(info);
     assert(0 <= customer_id && customer_id < num_customer);
 
     bool existed = false;
@@ -924,38 +929,69 @@ void sort_population() {
   for (auto [w, v] : val) Population.emplace_back(v);
 }
 
+void mutation_op1() {
+  int i = random_number_in_range(1, (int)Population.size() - 1);
+  int maxsize = Population[i].chr.size();
+  int len =
+      random_number_in_range(1, max(1, (int)Population[i].chr.size() / 10));
+
+  int s1 = random_number_in_range(0, maxsize - 2 * len);
+  int s2 = random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
+
+  Chromosome new_gen;
+
+  for (int j = 0; j < s1; ++j) new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = s2; j < min(maxsize, s2 + len); ++j)
+    new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = s1; j < s2; ++j) new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = s1; j < min(maxsize, s1 + len); ++j)
+    new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = s2 + len; j < maxsize; ++j)
+    new_gen.chr.push_back(Population[i].chr[j]);
+
+  Population[i] = new_gen;
+}
+
+void mutation_op3() {
+  int i = random_number_in_range(1, (int)Population.size() - 1);
+  int maxsize = Population[i].chr.size();
+  int len =
+      random_number_in_range(1, max(1, (int)Population[i].chr.size() / 10));
+
+  int s1 = random_number_in_range(0, maxsize - 2 * len);
+  int s2 = random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
+
+  Chromosome new_gen;
+
+  for (int j = 0; j < s1; ++j) new_gen.chr.push_back(Population[i].chr[j]);
+  // for (int j = s2; j < min(maxsize, s2 + len); ++j)
+  //   new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = min(maxsize, s2 + len) - 1; j >= s2; --j)
+    new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = s1; j < s2; ++j) new_gen.chr.push_back(Population[i].chr[j]);
+  // for (int j = s1; j < min(maxsize, s1 + len); ++j)
+  //   new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = min(maxsize, s1 + len) - 1; j >= s1; --j)
+    new_gen.chr.push_back(Population[i].chr[j]);
+  for (int j = s2 + len; j < maxsize; ++j)
+    new_gen.chr.push_back(Population[i].chr[j]);
+  // debug(Population[i].chr);
+  // debug(new_gen.chr);
+  Population[i] = new_gen;
+}
 void mutation1() {
   for (int iter = 0;
        iter <
        (general_setting.POPULATION_SIZE * general_setting.MUTATION_ITER) / 100;
        ++iter) {
-    int i = random_number_in_range(1, (int)Population.size() - 1);
-    int maxsize = Population[i].chr.size();
-    int len =
-        random_number_in_range(1, max(1, (int)Population[i].chr.size() / 10));
-
-    int s1 = random_number_in_range(0, maxsize - 2 * len);
-    int s2 = random_number_in_range(s1 + len, min(maxsize - len, s1 + 2 * len));
-
-    Chromosome new_gen;
-
-    for (int j = 0; j < s1; ++j) new_gen.chr.push_back(Population[i].chr[j]);
-    // for (int j = s2; j < min(maxsize, s2 + len); ++j)
-    //   new_gen.chr.push_back(Population[i].chr[j]);
-    for (int j = min(maxsize, s2 + len) - 1; j >= s2; --j)
-      new_gen.chr.push_back(Population[i].chr[j]);
-    for (int j = s1; j < s2; ++j) new_gen.chr.push_back(Population[i].chr[j]);
-    // for (int j = s1; j < min(maxsize, s1 + len); ++j)
-    //   new_gen.chr.push_back(Population[i].chr[j]);
-    for (int j = min(maxsize, s1 + len) - 1; j >= s1; --j)
-      new_gen.chr.push_back(Population[i].chr[j]);
-    for (int j = s2 + len; j < maxsize; ++j)
-      new_gen.chr.push_back(Population[i].chr[j]);
-    // debug(Population[i].chr);
-    // debug(new_gen.chr);
-    Population[i] = new_gen;
+    if (rand(0, general_setting.MUTATION_OP) == 0) {
+      mutation_op1();
+    } else {
+      mutation_op3();
+    }
   }
 }
+
 
 void mutation2() {
   for (int iter = 0; iter < general_setting.MUTATION_ITER; ++iter) {
@@ -1012,6 +1048,42 @@ Chromosome crossover(const Chromosome &a, const Chromosome &b) {
   // debug(A, B, C);
   for (auto it : C) c.chr.emplace_back(it);
   return c;
+}
+
+std::pair<Chromosome, Chromosome> crossover2(const Chromosome &a, const Chromosome &b) {
+  /// write clear code
+  Chromosome ca = a, cb = b;
+
+  int len = rand(0, min(a.chr.size(), b.chr.size()));
+  int st = rand(0, min(a.chr.size(), b.chr.size()) - len);
+
+  for (int i = st; i <= st + len - 1; ++i) 
+    swap(ca.chr[i], cb.chr[i]);
+
+  log_debug << "before\n";
+  log_debug << "[";
+  for (auto it : a.chr) {
+    log_debug << "[" << it.first << "," << it.second << "]";
+  }
+  log_debug << "]\n";
+  log_debug << "[";
+  for (auto it : b.chr) {
+    log_debug << "[" << it.first << "," << it.second << "]";
+  }
+  log_debug << "]\n";
+  log_debug << " after\n";
+
+  for (auto it : ca.chr) {
+    log_debug << "[" << it.first << "," << it.second << "]";
+  }
+  log_debug << "]\n";
+  log_debug << "[";
+  for (auto it : cb.chr) {
+    log_debug << "[" << it.first << "," << it.second << "]";
+  }
+  log_debug << "]\n";
+  
+  return make_pair(ca, cb);
 }
 
 /// @brief log result variable

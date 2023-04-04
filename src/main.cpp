@@ -4,23 +4,23 @@
 #include "settings.hpp"
 
 void read_input() {
-  std::ifstream read_file("input.txt");
+  // std::ifstream read_file("input.txt");
   /*
   tip for input reading
 
   depot is customers[0] = {all value equal to 0}
   */
-  read_file >> num_truck >> num_drone >> time_limit;
-  read_file >> speed_truck >> speed_drone >> capacity_truck >> capacity_drone >>
+  std::cin >> num_truck >> num_drone >> time_limit;
+  std::cin >> speed_truck >> speed_drone >> capacity_truck >> capacity_drone >>
       duration_drone;
   Customer tmp;
   num_customer = 1;
   customers.emplace_back(Customer());
-  while (read_file >> tmp.x >> tmp.y >> tmp.lower_weight >> tmp.upper_weight >>
+  while (std::cin >> tmp.x >> tmp.y >> tmp.lower_weight >> tmp.upper_weight >>
          tmp.cost) {
     customers.emplace_back(tmp);
   }
-  read_file.close();
+  // read_file.close();
   num_customer = customers.size();
 
   debug(num_truck, num_drone, time_limit);
@@ -36,13 +36,14 @@ void read_input() {
   assert(speed_drone != 0);
 
   /// time_travel logging
-  for (int i = 0; i < num_customer; ++i) {
-    log_debug << "distance from" << i << '\n';
-    for (int j = 1; j < num_customer; ++j) {
-      log_debug << (time_travel(customers[i], customers[j], TDRONE)) << ' ';
-    }
-    log_debug << '\n';
-  }
+  /// for (int i = 0; i < num_customer; ++i) {
+  //   log_debug << "distance from" << i << '\n';
+  //   for (int j = 1; j < num_customer; ++j) {
+  //     log_debug << (time_travel(customers[i], customers[j], TDRONE)) << ' ';
+  //   }
+  //   log_debug << '\n';
+  // }
+  //exit(0);
 }
 
 
@@ -80,9 +81,10 @@ Solution init_random_solution() {
   const auto push_cus = [&](routeSet& routeSet, int trip_id, int cus_id) {
     std::pair<int, int> cus = {cus_id,
                                find_pushed_weight(routeSet, trip_id, cus_id)};
-
     if (routeSet.append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
+      debug(cus.first, current_lowerbound[cus.first]);
+      assert(current_lowerbound[cus.first] >= 0);
     }
   };
 
@@ -165,38 +167,6 @@ Solution init_random_solution() {
       ++route_id;
     }
   }
-  for (int i = 1; i < num_customer; ++i) {
-    int current_weight = customers[i].lower_weight - current_lowerbound[i];
-    current_lowerbound[i] = customers[i].upper_weight - current_weight;
-  }
-
-  for (int i = 0; i < num_drone; ++i) {
-    int route_id = 0;
-    /// @brief find current route_id
-    /// @return
-
-    for (int j = 0; j < first_solution.drone_trip[i].multiRoute.size(); ++j) {
-      if (first_solution.drone_trip[i].multiRoute[j].route.size() <= 1) {
-        route_id = j;
-        break;
-      }
-    }
-
-    while (first_solution.drone_trip[i].valid_route()) {
-      debug("build drone trip", i, "trip_id", route_id);
-
-      build_random_route(first_solution.drone_trip[i], route_id);
-
-      for (auto it : first_solution.drone_trip[i].multiRoute[route_id].route)
-        debug(it.customer_id, it.weight);
-
-      if (first_solution.drone_trip[i].multiRoute[route_id].route.size() <= 1)
-        break;
-      /// create new route for drone
-      first_solution.drone_trip[i].new_route();
-      ++route_id;
-    }
-  }
   // log first_solution
   /*
   log_debug << "after 3.2\n";
@@ -247,12 +217,25 @@ Solution init_random_solution() {
   return first_solution;
 }
 
+Solution init_with_permutation() {
+  vector<int> p(num_customer);
+  iota(p.begin(), p.end(), 1);
+  shuffle(p.begin(), p.end(), rng);
+
+  Chromosome chr;
+  for (auto cus : p) chr.chr.emplace_back(cus, customers[cus].lower_weight);
+  Solution sol = chr.encode();
+  sol.educate3();
+  sol.educate_with_lowerbound();
+  return sol;
+}
+
 void random_init_population() {
   int valid = 0;
   int best = 0;
   for (int iter = 0; iter < general_setting.POPULATION_SIZE; ++iter) {
     /// @brief
-    Solution sol = init_random_solution();
+    Solution sol = (rand(0, general_setting.GEN_PERM) == 0 ?  init_random_solution() : init_with_permutation());
     Population.emplace_back(Chromosome(sol));
 
     /// @brief logging process
@@ -293,12 +276,23 @@ void ga_process() {
       if (i == j) {
         continue;
       }
-      cnt++;
-      offsprings.emplace_back(crossover(Population[i], Population[j]));
+      if (rand(0, general_setting.CROSSOVER2) == 0) {
+        cnt++;
+        offsprings.emplace_back(crossover(Population[i], Population[j]));
 
-      if (cnt < off_springs_size) {
-        ++cnt;
-        offsprings.emplace_back(crossover(Population[j], Population[i]));
+        if (cnt < off_springs_size) {
+          ++cnt;
+          offsprings.emplace_back(crossover(Population[j], Population[i]));
+        }
+      } else {
+        auto next = crossover2(Population[i], Population[j]);
+        for (auto it : next.first.chr) debug(it);
+        cnt++;
+        offsprings.emplace_back(next.first);
+        if (cnt < off_springs_size) {
+          ++cnt;
+          offsprings.emplace_back(next.second);
+        }
       }
     }
   };
@@ -370,12 +364,17 @@ void ga_process() {
     num_infeasible_solution.push_back(num_feasible);
   }
   debug(best.evaluate());
-  assert(best.valid_solution());
-  log_result << "complete running\n";
-  log_result << "convergence after " << best_generation << '\n';
-  log_result << "Solution is " << best.evaluate() << '\n';
-
-  log_debug << "best solution overall is\n" << "with objective function " << best.evaluate() << '\n';
+  // assert(best.valid_solution());
+  // log_result << "complete running\n";
+  // log_result << "convergence after " << best_generation << '\n';
+  // log_result << "Solution is " << best.evaluate() << '\n';
+  std::cout << best.evaluate() << ';';
+  int max_drone_trip = 0;
+  for (int i = 0; i < num_drone; ++i) {
+    max_drone_trip = max(max_drone_trip, (int)best.drone_trip[i].multiRoute.size());
+  }
+  std::cout << max_drone_trip << ";";
+  // log_debug << "best solution overall is\n" << "with objective function " << best.evaluate() << '\n';
   best.print_out();
   // assert(best.valid_solution());
 }
@@ -386,7 +385,7 @@ void logging_to_csv() {
   const auto vector_to_string = [&](const auto& v) {
     string ans = "[";
     for (const auto& it : v) {
-      ans += to_string(it);
+      ans += to_string((int)it);
       ans += ',';
     }
     ans += ']';
@@ -397,10 +396,12 @@ void logging_to_csv() {
   average = vector_to_string(average_in_generation);
   infeasible = vector_to_string(num_infeasible_solution);
 
-  log_csv_result << best << worst << average << infeasible;
+  std::cout << best << '\n';
 
-  log_csv_result << Solution::evaluate_call;
-  log_csv_result << Solution::educate_call;
+  // log_csv_result << best << worst << average << infeasible;
+
+  // log_csv_result << Solution::evaluate_call;
+  // log_csv_result << Solution::educate_call;
 }
 
 namespace testing {
@@ -428,12 +429,17 @@ namespace testing {
   }
 }  // namespace testing
 
-int main() {
+int main(int argc, char*argv[]) {
+  /// assign 
+  general_setting.GEN_PERM = stoi(argv[1]);
+  general_setting.CROSSOVER2 = stoi(argv[2]);
+  general_setting.MUTATION_OP = stoi(argv[3]);
+  
   read_input();
   random_init_population();
 
   ga_process();
-  // logging_to_csv();
+  logging_to_csv();
 
   // testing::test_mcmf();
 
