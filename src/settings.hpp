@@ -365,8 +365,6 @@ class Solution {
         for (auto cus : route.route) {
           if (cus.customer_id == 0) continue;
           ns.add(cur_route, N + cus.customer_id, 0, INT_MAX, 0);
-
-          // debug(cur_route, N + cus.customer_id, N);
           route.total_weight += cus.weight;
         }
         ns.add(S, cur_route, 0, capacity_truck, 0);
@@ -399,21 +397,20 @@ class Solution {
     int e = 0;
     for (int i = 0; i < num_truck; ++i) {
       for (auto &route : truck_trip[i].multiRoute) {
-        ++cur_route;
         for (auto &cus : route.route) {
           if (cus.customer_id == 0) continue;
-
           cus.weight = ns.get_flow(e++);
         }
+        e++;
       }
     }
     for (int i = 0; i < num_drone; ++i) {
       for (auto &route : drone_trip[i].multiRoute) {
-        ++cur_route;
         for (auto &cus : route.route) {
           if (cus.customer_id == 0) continue;
           cus.weight = ns.get_flow(e++);
         }
+        e++;
       }
     }
   }

@@ -154,7 +154,7 @@ struct network_simplex {
 
         for (int e = 0; e < E; e++) {
             auto [u, v] = edge[e].node;
-            edge[e].flow = 0;
+            ///edge[e].flow = 0;
             edge[e].state = STATE_LOWER;
             edge[e].upper -= edge[e].lower;
             node[u].supply -= edge[e].lower;

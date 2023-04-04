@@ -225,12 +225,10 @@ Solution init_random_solution() {
   }
   */
 
-  debug(first_solution.evaluate());
   /// std::chrono::steady_clock::time_point begin =
   /// std::chrono::steady_clock::now();
   first_solution.educate3();
-  first_solution.educate2();
-  first_solution.educate();
+  first_solution.educate_with_lowerbound();
   /// std::chrono::steady_clock::time_point end =
   /// std::chrono::steady_clock::now();
 
@@ -238,7 +236,6 @@ Solution init_random_solution() {
   /// std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count()
   /// << "[µs]" << std::endl;
 
-  debug(first_solution.evaluate());
   /*
   3.2. Split tour for every trip
 
@@ -421,14 +418,8 @@ namespace testing {
     for (int i = 1; i <= 2; ++i) chr.chr.emplace_back(2, 40);
 
     sol = chr.encode();
-    
     sol.print_out();
-    
     sol.educate_with_lowerbound();
-
-
-    sol.print_out();
-
     sol.print_out();
   }
   void test_encode() {
@@ -444,7 +435,7 @@ int main() {
   ga_process();
   // logging_to_csv();
 
-  testing::test_mcmf();
+  // testing::test_mcmf();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }
