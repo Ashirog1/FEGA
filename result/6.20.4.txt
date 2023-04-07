@@ -1,3 +1,0 @@
-complete running
-convergence after 23
-Solution is 16325
