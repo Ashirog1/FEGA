@@ -14,6 +14,8 @@ class TabuOperator {
   tabuQueue to update tabuList
 
   (route, customer)
+
+  TODO: add removeTabu(i, j)
   */
 
   std::set<std::pair<int, int>> tabuList;
@@ -22,6 +24,7 @@ class TabuOperator {
 
  public:
   TabuOperator(int tabuSize) : tabuSize(tabuSize) {}
+  TabuOperator() {}
 
   void normalize() {
     assert(tabuQueue.size() == tabuList.size());
@@ -44,6 +47,9 @@ class TabuOperator {
       return true;
     }
     return false;
+  }
+  void remove(int i, int j) {
+
   }
 } tabuList;
 
@@ -81,7 +87,7 @@ class Solution {
         if (customer == 0) continue;
         ns.add(truck + 1, num_route + customer, 0, INT_MAX, 0);
       }
-      ns.add(S, truck + 1, 0, capacity_truck, 0);
+      ns.add(S, truck + 1, 0, truck_capacity[truck], 0);
     }
 
     for (int i = 1; i < num_customer; ++i) {
@@ -140,8 +146,39 @@ class Solution {
     return current_route;
   }
   /*route id*/
-  int worstFeasbile() {}
-} global_solution;
+  int worstFeasbile() {
+    int res = -1;
+    double current_worst = 0;
+    for (int truck = 0; truck < num_truck; ++truck) {
+      double D = 0;
+      for (int i = 0; i + 1 < route[truck].size(); ++i) {
+        D += customerDistance(i, i + 1);
+      }
+      double current_exceed =
+          (D - time_limit_truck[truck]) / time_limit_truck[truck];
+      if (current_worst < current_exceed) {
+        res = truck;
+        current_worst = current_exceed;
+      }
+    }
+    return res;
+  }
+  /*find farthest*/
+  int farthest(int route_id) {
+    int farthest_customer = -1;
+    for (auto customer : route[route_id]) {
+      if (farthest_customer == -1 or customerDistance(0, farthest_customer) <
+                                         customerDistance(0, customer)) {
+        farthest_customer = customer;
+      }
+    }
+    return farthest_customer;
+  }
+  void remove(int route_id, int customer) {
+    route[route_id].erase(
+        std::remove(route[route_id].begin(), route[route_id].end(), customer));
+  }
+} global_solution, best;
 
 /*TSH in one route*/
 std::vector<int> inRouteTSH(std::vector<int> route_order) {
@@ -158,8 +195,8 @@ std::vector<int> inRouteTSH(std::vector<int> route_order) {
       /*find nearest customer*/
       int nearest = -1;
       for (int i = 0; i + 1 < route.size(); ++i) {
-        if (nearest == -1 or customer_distance(route[i], customer) <
-                                 customer_distance(nearest, customer)) {
+        if (nearest == -1 or customerDistance(route[i], customer) <
+                                 customerDistance(nearest, customer)) {
           nearest = i;
         }
       }
@@ -170,28 +207,31 @@ std::vector<int> inRouteTSH(std::vector<int> route_order) {
         route.insert(route.begin() + nearest, customer);
         continue;
       }
-      if (customer_distance(nearest, nearest - 1) +
-              customer_distance(customer, nearest + 1) <
-          customer_distance(nearest - 1, nearest + 1) +
-              customer_distance(nearest, customer)) {
-        
-        ta
+      if (customerDistance(nearest, nearest - 1) +
+              customerDistance(customer, nearest + 1) <
+          customerDistance(nearest - 1, nearest + 1) +
+              customerDistance(nearest, customer)) {
+        route.insert(route.begin() + nearest, customer);
+      } else {
+        route.insert(route.begin() + nearest - 1, customer);
       }
     }
   }
+  return route;
 }
 
 void TSH() {
   for (int truck = 0; truck < num_truck; ++truck) {
+    /// remove z[i][k] = 0 from current route
     global_solution.assignRoute(truck,
                                 inRouteTSH(global_solution.getRoute(truck)));
   }
 }
 
 void readInput() {
-  std::cin >> num_truck >> num_drone >> time_limit;
-  std::cin >> speed_truck >> speed_drone >> capacity_truck >> capacity_drone >>
-      duration_drone;
+  std::cin >> num_truck;
+  time_limit_truck.resize(num_truck);
+  truck_capacity.resize(num_truck);
   Customer tmp;
   num_customer = 1;
   customers.emplace_back(Customer());
@@ -223,21 +263,40 @@ void initSolution() {
 }
 
 /*add farthest node from a route in tabu*/
-void removeArc() {}
+void removeArc() {
+  int truck = global_solution.worstFeasbile();
+  int customer = global_solution.farthest(truck);
+  global_solution.remove(truck, customer);
+  tabuList.addTabu(truck, customer);
+}
 
 /*made feasible solution non tabu*/
-void assignArc() {}
+void assignArc() {
+  if (global_solution.isFeasible()) {
+    for (int truck = 0; truck < num_truck; ++truck) {
+      for (int customer : global_solution.getRoute(truck)) {
+        tabuList.remove(truck, customer);
+      }
+    }
+  }
+}
 
-void addArc() {}
+void addArc() {
+
+}
 
 void tabuSearch() {
   for (int iterator = 0; iterator < TABU_ITERATOR; ++iterator) {
     /// step 2 -> 4
     while (not global_solution.isFeasible()) {
-      /// init based on tabu list
+      /// networkflow based on tabu list
       initSolution();
+      /// to tsp heuristic in every route
       TSH();
+      /// remove worst arc from solution
       removeArc();
+      global_solution.logging();
+      exit(0);
     }
 
     /// step 5
@@ -255,10 +314,8 @@ int main(int argc, char* argv[]) {
 
   TABU_ITERATOR = stoi(argv[1]);
   TABU_CYCLE = stoi(argv[2]);
+
   tabuList = TabuOperator(TABU_CYCLE);
   readInput();
-  ///
-  initSolution();
-
   tabuSearch();
 }
