@@ -1,29 +1,43 @@
 #pragma once
 
-#include "customer.h"
 #include "vector"
 #include "random"
+#include "chrono"
+#include "math.h"
 
+class Customer {
+ public:
+  Customer() {
+    lower_weight = upper_weight = cost = 0;
+    x = y = 0;
+  }
+  int lower_weight, upper_weight, cost;
+  double x = 0, y = 0;
+};
 
-std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+double euclidDistance(const Customer &A, const Customer &B) {
+  return sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
+}
 
-int num_customer, num_truck, num_drone, time_limit;
+std::mt19937 rng(64);
+
+int num_customer, num_truck, num_drone;
 double speed_truck, speed_drone;
-int capacity_truck, capacity_drone, duration_drone;
 std::vector<Customer> customers;
-std::vector<int> time_limit_truck;
+std::vector<int> time_limit_truck, truck_capacity;
 
 const int TTRUCK = 0, TDRONE = 1;
 
 
 int TABU_ITERATOR = 0;
 int TABU_CYCLE = 0;
+int LOCAL_SEARCH_OP = 0;
 
 
 /*helper func*/
 Customer customerInfo(int customer_id) {
   return customers[customer_id];
 }
-double customer_distance(int i, int j) {
-  return euclid_distance(customerInfo(i), customerInfo(j));
+double customerDistance(int i, int j) {
+    return euclidDistance(customerInfo(i), customerInfo(j));
 }

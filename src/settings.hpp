@@ -5,7 +5,7 @@
 #include "numeric"
 #include "random"
 #include "vector"
-#include "network_simplex.cpp"
+#include "network_simplex.hpp"
 
 constexpr int TTRUCK = 0, TDRONE = 1;
 /// @brief default constraint parameter
@@ -28,12 +28,12 @@ class Customer {
   double x = 0, y = 0;
 };
 
-double euclid_distance(const Customer &A, const Customer &B) {
+double euclidDistance(const Customer &A, const Customer &B) {
   return sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
 }
 
 double time_travel(const Customer &A, const Customer &B, int type) {
-  return (1.0 * euclid_distance(A, B)) /
+  return (1.0 * euclidDistance(A, B)) /
          (type == TTRUCK ? (double)speed_truck : (double)speed_drone);
 }
 
@@ -87,7 +87,7 @@ std::vector<double> init_piority_matrix(
   for (int j = 1; j < num_customer; ++j) {
     /// assert(current_lowerbound[j] >= 0);
     priority[j] = 1.0 * (double)current_lowerbound[j] * customers[j].cost /
-                  (double)euclid_distance(customers[0], customers[j]);
+                  (double)euclidDistance(customers[0], customers[j]);
   }
   debug(current_lowerbound, priority);
   return priority;
@@ -594,7 +594,7 @@ class Solution {
           continue;
         if (minimize<double>(
                 min_dist,
-                euclid_distance(
+                euclidDistance(
                     customers
                         [routeSet.multiRoute[trip_id].route.back().customer_id],
                     customers[i]))) {

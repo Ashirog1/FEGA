@@ -26,3 +26,5 @@ src/result.csv
 
 # binary file
 *.out
+
+Data_Shetty/*
