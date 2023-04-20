@@ -1,5 +1,6 @@
 #include "bits/stdc++.h"
 #include "constant.h"
+#include "debug.hpp"
 #include "network_simplex.hpp"
 
 const int MAX_ROUTE = 1000, MAX_CUSTOMER = 1000;
@@ -40,19 +41,15 @@ class TabuOperator {
   bool checkTabu(int i, int j) {
     if (tabuList.find({i, j}) != tabuList.end()) {
       return true;
-    }
+    }/*  */
     return false;
   }
   void remove(int i, int j) {
     if (tabuList.find({i, j}) != tabuList.end())
       tabuList.erase(tabuList.find({i, j}));
   }
-  void incTabuSize(double delta=1.1) {
-    tabuSize += delta;
-  }
-  int size() {
-    return (int)tabuSize;
-  }
+  void incTabuSize(double delta = 1.1) { tabuSize += delta; }
+  int size() { return (int)tabuSize; }
 } tabuList;
 
 class Solution {
@@ -106,6 +103,7 @@ class Solution {
         if (customer == 0) continue;
         z[truck][customer] = ns.get_flow(e++);
       }
+      e++;
     }
   }
   void assignRoute(int route_id, const std::vector<int>& other_route) {
@@ -113,6 +111,7 @@ class Solution {
   }
   void logging() {
     for (int truck = 0; truck < num_truck; ++truck) {
+      std::cout << distance(truck) << '\n';
       std::cout << "[";
       for (auto customer : route[truck]) {
         std::cout << "[" << customer << ", " << z[truck][customer] << "], ";
@@ -129,7 +128,7 @@ class Solution {
     }
     return current_weight;
   }
-  bool isFeasible() {
+  bool isFeasibleNetwork() {
     auto current_weight = getCurrentWeight();
     for (int customer = 1; customer < num_customer; ++customer) {
       if (current_weight[customer] < customers[customer].lower_weight or
@@ -156,16 +155,21 @@ class Solution {
       }
       double current_exceed =
           (D - time_limit_truck[truck]) / time_limit_truck[truck];
-      if (current_exceed > 0)
-        worst.emplace_back(current_exceed, truck);
+      if (current_exceed > 0) worst.emplace_back(current_exceed, truck);
     }
     std::sort(worst.rbegin(), worst.rend());
     std::vector<std::pair<int, int>> res;
     for (auto [_, truck] : worst) {
       res.emplace_back(truck, farthest(truck));
-      for (auto c : route[truck]) res.emplace_back(truck, c);
     }
     return res;
+  }
+  double distance(int truck) {
+    double D = 0;
+    for (int i = 0; i + 1 < route[truck].size(); ++i) {
+      D += customerDistance(i, i + 1);
+    }
+    return D;
   }
   /*find farthest*/
   int farthest(int route_id) {
@@ -191,13 +195,42 @@ class Solution {
     }
     return res;
   }
-  bool isValid() {
-    return (isFeasible() and worstFeasbile().empty());
+  bool isValid() { ++valid_solution_called; return (isFeasibleNetwork() and worstFeasbile().empty()); }
+  std::vector<std::pair<int, int>> getEdgeList() {
+    std::vector<std::pair<double, int>> worst;
+    for (int truck = 0; truck < num_truck; ++truck) {
+      double D = 0;
+      for (int i = 0; i + 1 < route[truck].size(); ++i) {
+        D += customerDistance(i, i + 1);
+      }
+      double current_exceed =
+          (D - time_limit_truck[truck]) / time_limit_truck[truck];
+      if (current_exceed > 0) worst.emplace_back(current_exceed, truck);
+    }
+    std::sort(worst.rbegin(), worst.rend());
+    std::vector<std::pair<int, int>> res;
+    for (auto [_, truck] : worst) {
+      auto croute = route[truck];
+      std::sort(croute.begin(), croute.end(), [&](int c1, int c2) {
+        return customerDistance(0, c1) > customerDistance(0, c2);
+      });
+      for (auto c : croute) {
+        if (c != 0) res.emplace_back(truck, c);
+      }
+    }
+    return res;
+  }
+  int getEdge(int t, int c) { return z[t][c]; }
+  void addEdge(int t, int c) {
+    route[t].push_back(c);
   }
 } global_solution, best;
 
 /*TSH in one route*/
 std::vector<int> inRouteTSH(std::vector<int> route_order) {
+  /**/
+  std::sort(route_order.begin(), route_order.end());
+  route_order.erase(std::unique(route_order.begin(), route_order.end()), route_order.end());
   /*random a permutation*/
   std::shuffle(route_order.begin(), route_order.end(), rng);
   std::vector<int> route;
@@ -228,11 +261,12 @@ std::vector<int> inRouteTSH(std::vector<int> route_order) {
           customerDistance(nearest - 1, customer) +
               customerDistance(nearest, nearest + 1)) {
         route.insert(route.begin() + nearest + 1, customer);
-      } else {  
-        if (nearest + 2 != route.size() - 1)
+      } else {
+        if (nearest + 2 < route.size() - 1) {
           route.insert(route.begin() + nearest + 2, customer);
-        else
+        } else {
           route.insert(route.begin() + nearest + 1, customer);
+        }
       }
     }
   }
@@ -249,11 +283,11 @@ void TSH() {
 
 void readInput() {
   std::cin >> num_truck;
-  
+
   time_limit_truck.resize(num_truck);
   truck_capacity.resize(num_truck);
-  for (auto &it : time_limit_truck) std::cin >> it;
-  for (auto &it : truck_capacity) std::cin >> it;
+  for (auto& it : time_limit_truck) std::cin >> it;
+  for (auto& it : truck_capacity) std::cin >> it;
 
   Customer tmp;
   num_customer = 1;
@@ -263,6 +297,10 @@ void readInput() {
     customers.emplace_back(tmp);
   }
   num_customer = customers.size();
+
+  /*
+  test for sucess input reading
+  */
 }
 
 void initSolution() {
@@ -287,7 +325,7 @@ void initSolution() {
 
 /*made feasible solution non tabu*/
 void assignArc() {
-  if (global_solution.isFeasible()) {
+  if (global_solution.isFeasibleNetwork()) {
     for (int truck = 0; truck < num_truck; ++truck) {
       for (int customer : global_solution.getRoute(truck)) {
         tabuList.remove(truck, customer);
@@ -307,7 +345,7 @@ void removeArcFromTabu() {
 }
 
 void step4() {
-  auto edges = global_solution.worstFeasbile();
+  auto edges = global_solution.getEdgeList();
   int cnt = 0;
   while (true) {
     bool good = false;
@@ -319,45 +357,96 @@ void step4() {
         good = true;
         break;
       }
+      if (not global_solution.isFeasibleNetwork()) {
+        tabuList.remove(t, c);
+      }
+      // tabuList.remove(t, c);
     }
     if (good) break;
     tabuList.incTabuSize();
-    std::cout << "still in step 4 " << tabuList.size() << '\n'; 
     if (tabuList.size() >= 1000) break;
   }
 }
+void tryMove(int c, int t, int alter) {
+  global_solution.remove(t, c);
+  global_solution.addEdge(t, alter);
+  global_solution.educateNetworkSimplex();
+  TSH();
+}
 
 void localSearch() {
+  int best_diff = 0;
+  std::tuple<int, int, int> best_move;
+
   for (int c = 0; c < num_customer; ++c) {
     for (int t = 0; t < num_truck; ++t) {
-      ///  
+      ///
+      int old_objective = global_solution.value();
+      int old_distance = global_solution.distance(t);
+
+
+      if (global_solution.getEdge(t, c)) {
+        for (int alter = 0; alter < num_truck; ++alter) {
+          if (global_solution.getEdge(t, alter)) continue;
+          /// [t, c] -> [alter, c]
+          tryMove(c, t, alter);
+          if (global_solution.isValid()) {
+            int diff_objective = global_solution.value() - old_objective;
+            int diff_distance = global_solution.distance(t) - old_distance;
+
+            /// type 1 move
+            if (diff_objective > 0) {
+              if (best_diff < diff_objective) {
+                best_diff = diff_objective;
+                
+                best_move = std::make_tuple(t, c, alter);
+              } 
+            }
+
+          }
+          /// undo move
+          tryMove(c, alter, t);
+        }
+      }
     }
+  }
+  std::cout << best_diff << '\n';
+
+  if (best_diff > 0) {
+    auto [t, c, alter] = best_move;
+    tabuList.addTabu(c, alter);
+    tryMove(t, c, alter); 
   }
 }
 
 void step6() {
   for (int iter = 0; iter < LOCAL_SEARCH_OP; ++iter) {
-
+    localSearch();
   }
 }
 
 void tabuSearch() {
-  for (int iterator = 0; iterator < TABU_ITERATOR; ++iterator) {
+  chrono::steady_clock::time_point start = chrono::steady_clock::now();
+  chrono::steady_clock::time_point end = start + chrono::minutes(2);
+  
+  while (true) {
     /// step 2 -> 4
     /// networkflow based on tabu list
     initSolution();
     /// tsp heuristic in every route
     TSH();
+    /// global_solution.logging();
     /// step 4
     step4();
     /// step 5
     removeArcFromTabu();
     /// step 6
-    step6();
+    /// step6();
+    if (chrono::steady_clock::now() > end) break;
   }
-  global_solution.logging();
-  std::cout << global_solution.isValid() << '\n';
-  std::cout << global_solution.value();
+  /// global_solution.logging();
+  std::cout << global_solution.isValid() << ',';
+  std::cout << global_solution.value() << ',' << valid_solution_called;
 }
 
 int main(int argc, char* argv[]) {
@@ -366,7 +455,6 @@ int main(int argc, char* argv[]) {
   TABU_ITERATOR = stoi(argv[1]);
   TABU_CYCLE = stoi(argv[2]);
   LOCAL_SEARCH_OP = stoi(argv[3]);
-
 
   tabuList = TabuOperator(TABU_CYCLE);
 

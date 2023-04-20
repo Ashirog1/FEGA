@@ -41,3 +41,8 @@ Customer customerInfo(int customer_id) {
 double customerDistance(int i, int j) {
     return euclidDistance(customerInfo(i), customerInfo(j));
 }
+
+/*
+for checking and logging process
+*/
+int valid_solution_called = 0;

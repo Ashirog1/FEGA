@@ -71,7 +71,7 @@ Solution init_random_solution() {
   */
   std::vector<int> current_lowerbound(num_customer);
   for (int i = 0; i < num_customer; ++i)
-    current_lowerbound[i] = max(customers[i].lower_weight, 20);
+    current_lowerbound[i] = max(customers[i].lower_weight, 1);
 
   const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
                                       int customer_id) {
@@ -109,7 +109,7 @@ Solution init_random_solution() {
         continue;
       if (minimize<double>(
               min_dist,
-              euclid_distance(
+              euclidDistance(
                   customers
                       [routeSet.multiRoute[trip_id].route.back().customer_id],
                   customers[i]))) {
