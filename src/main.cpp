@@ -10,9 +10,17 @@ void read_input() {
 
   depot is customers[0] = {all value equal to 0}
   */
-  std::cin >> num_truck >> num_drone >> time_limit;
-  std::cin >> speed_truck >> speed_drone >> capacity_truck >> capacity_drone >>
-      duration_drone;
+  std::cin >> num_truck;
+  speed_truck = 1;
+  speed_drone = 1;
+
+  duration_truck.resize(num_truck);
+  capacity_truck.resize(num_truck);
+  for (int i = 0; i < num_truck; ++i) 
+    std::cin >> duration_truck[i];
+  for (int i = 0; i < num_truck; ++i)
+    std::cin >> capacity_truck[i];
+
   Customer tmp;
   num_customer = 1;
   customers.emplace_back(Customer());
@@ -20,6 +28,7 @@ void read_input() {
          tmp.cost) {
     customers.emplace_back(tmp);
   }
+
   // read_file.close();
   num_customer = customers.size();
 
@@ -59,8 +68,9 @@ Solution init_random_solution() {
   for (int i = 0; i < num_drone; ++i) {
     first_solution.drone_trip[i].set_vehicle_type(TDRONE);
   }
-  for (int i = 0; i < num_drone; ++i) {
+  for (int i = 0; i < num_truck; ++i) {
     first_solution.truck_trip[i].set_vehicle_type(TTRUCK);
+    first_solution.truck_trip[i].vehicle_id = i;
   }
 
   /*
@@ -71,7 +81,7 @@ Solution init_random_solution() {
   */
   std::vector<int> current_lowerbound(num_customer);
   for (int i = 0; i < num_customer; ++i)
-    current_lowerbound[i] = max(customers[i].lower_weight, 1);
+    current_lowerbound[i] = max(customers[i].lower_weight, 20);
 
   const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
                                       int customer_id) {
@@ -109,7 +119,7 @@ Solution init_random_solution() {
         continue;
       if (minimize<double>(
               min_dist,
-              euclidDistance(
+              euclid_distance(
                   customers
                       [routeSet.multiRoute[trip_id].route.back().customer_id],
                   customers[i]))) {
@@ -235,7 +245,9 @@ void random_init_population() {
   int best = 0;
   for (int iter = 0; iter < general_setting.POPULATION_SIZE; ++iter) {
     /// @brief
-    Solution sol = (rand(0, general_setting.GEN_PERM) == 0 ?  init_random_solution() : init_with_permutation());
+    Solution sol = (random_number_in_range(0, 1)
+    
+     < general_setting.GEN_PERM ?  init_random_solution() : init_with_permutation());
     Population.emplace_back(Chromosome(sol));
 
     /// @brief logging process
@@ -270,31 +282,85 @@ void ga_process() {
     int off_springs_size = general_setting.POPULATION_SIZE *
                            general_setting.OFFSPRING_PERCENT / 100;
     // debug("mutation", off_springs_size, Population.size());
+    general_setting.CNT_SUCC_CROSSOVER1 = 0;
+    general_setting.CNT_SUCC_CROSSOVER2 = 0;
+    int cnt_cr1 = 0;
+    int cnt_cr2 = 0;
+    double succ_rate_cr1;
+    double succ_rate_cr2;
     while (cnt < off_springs_size) {
       int i = rand(0, Population.size() - 1);
       int j = rand(0, Population.size() - 1);
       if (i == j) {
         continue;
       }
-      if (rand(0, general_setting.CROSSOVER2) == 0) {
+      if (random_number_in_range(0, 1) < general_setting.CROSSOVER2) {
         cnt++;
-        offsprings.emplace_back(crossover(Population[i], Population[j]));
+        cnt_cr1 ++;
+        Chromosome c = crossover(Population[i], Population[j]);
+        offsprings.emplace_back(c);
+        double fitness_a = Population[i].encode().fitness();
+        double fitness_b = Population[j].encode().fitness();
+        double fitness_c = c.encode().fitness();
 
+        if(fitness_c > fitness_a || fitness_c > fitness_b) {
+          general_setting.CNT_SUCC_CROSSOVER1 ++;
+        }
         if (cnt < off_springs_size) {
-          ++cnt;
-          offsprings.emplace_back(crossover(Population[j], Population[i]));
+          cnt++;
+          cnt_cr1 ++;
+          Chromosome c = crossover(Population[i], Population[j]);
+          offsprings.emplace_back(c);
+          fitness_a = Population[i].encode().fitness();
+          fitness_b = Population[j].encode().fitness();
+          fitness_c = c.encode().fitness();
+          
+          if(fitness_c > fitness_a || fitness_c > fitness_b) {
+          general_setting.CNT_SUCC_CROSSOVER1 ++;
+          }
         }
       } else {
         auto next = crossover2(Population[i], Population[j]);
         for (auto it : next.first.chr) debug(it);
         cnt++;
+        cnt_cr2++;
         offsprings.emplace_back(next.first);
+        double fitness_a = Population[i].encode().fitness(); 
+        double fitness_b = Population[j].encode().fitness(); 
+        double fitness_c = next.first.encode().fitness();
+        
+        if(fitness_c > fitness_a || fitness_c > fitness_b) {
+          general_setting.CNT_SUCC_CROSSOVER2 ++;
+        }
         if (cnt < off_springs_size) {
-          ++cnt;
+          cnt++;
+          cnt_cr2++;
           offsprings.emplace_back(next.second);
+          fitness_a = Population[i].encode().fitness(); 
+          fitness_b = Population[j].encode().fitness(); 
+          fitness_c = next.second.encode().fitness();
+          
+          if(fitness_c > fitness_a || fitness_c > fitness_b) {
+            general_setting.CNT_SUCC_CROSSOVER2 ++;
+        }
         }
       }
     }
+  if (cnt_cr1 == 0) {
+    succ_rate_cr1 = general_setting.EPSILON;
+  }
+  else {
+    succ_rate_cr1 = max(general_setting.CNT_SUCC_CROSSOVER1 / double(cnt_cr1), general_setting.EPSILON);
+  }
+
+  if (cnt_cr2 == 0) {
+    succ_rate_cr2 = general_setting.EPSILON;
+  } 
+  else {
+    succ_rate_cr2 = max(general_setting.CNT_SUCC_CROSSOVER2 / double(cnt_cr2), general_setting.EPSILON);
+  }
+  
+  general_setting.CROSSOVER2 = general_setting.CROSSOVER2 * (1 - general_setting.ALPHA ) + general_setting.ALPHA * (succ_rate_cr1) / (succ_rate_cr2 + succ_rate_cr1);
   };
   const auto educate = [&]() {
     /// @brief: educate Population
@@ -324,24 +390,26 @@ void ga_process() {
     //  for (auto it : Population) log_result << it.encode().evaluate() << ' ';
   };
   log_debug << "start ga_process\n";
-  for (int iter = 0; iter <= general_setting.NUM_GENERATION; ++iter) {
+  chrono::steady_clock::time_point end = start + chrono::minutes(2);
+  while (true) {
     educate();
     init();
  
-    evaluate(iter);
+    evaluate(0);
     create_offspring();
     choose_next_population();
 
     sort_population();
+
     mutation1();
     //mutation2();
 
-    log_debug << "eval of generation " << iter + 1 << '\n';
+    // log_debug << "eval of generation " << iter + 1 << '\n';
     for (auto gene : Population) log_debug << gene.encode().evaluate() << ' ';
     log_debug << '\n';
 
     /*logging best solution*/
-    log_debug << "best solution of generation " << iter + 1 << "\n";
+    // log_debug << "best solution of generation " << iter + 1 << "\n";
     log_debug << "gene is\n";
     log_debug << "[";
     for (auto it : Population[0].chr) {
@@ -362,13 +430,18 @@ void ga_process() {
     average_in_generation.push_back(1.0 * (double)total_results /
                                     (int)Population.size());
     num_infeasible_solution.push_back(num_feasible);
+
+
+    /*stop condition*/
+    if (chrono::steady_clock::now() > end) break;
   }
   debug(best.evaluate());
   // assert(best.valid_solution());
   // log_result << "complete running\n";
   // log_result << "convergence after " << best_generation << '\n';
   // log_result << "Solution is " << best.evaluate() << '\n';
-  std::cout << best.evaluate() << ';';
+  std::cout << best.valid_solution() << ";";
+  std::cout << best.evaluate() << ";";
   int max_drone_trip = 0;
   for (int i = 0; i < num_drone; ++i) {
     max_drone_trip = max(max_drone_trip, (int)best.drone_trip[i].multiRoute.size());
@@ -431,10 +504,7 @@ namespace testing {
 
 int main(int argc, char*argv[]) {
   /// assign 
-  general_setting.GEN_PERM = stoi(argv[1]);
-  general_setting.CROSSOVER2 = stoi(argv[2]);
-  general_setting.MUTATION_OP = stoi(argv[3]);
-  
+  general_setting.ALPHA = stod(argv[1]);
   read_input();
   random_init_population();
 
