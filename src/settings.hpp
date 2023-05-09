@@ -5,7 +5,7 @@
 #include "numeric"
 #include "random"
 #include "vector"
-#include "network_simplex.cpp"
+#include "network_simplex.hpp"
 
 constexpr int TTRUCK = 0, TDRONE = 1;
 /// @brief default constraint parameter
@@ -225,6 +225,8 @@ class Route {
     if (vehicle_type == TTRUCK) {
       return total_weight <= capacity_truck[vehicle_id];
     }
+    assert(0);
+    return false;
   }
   /*
     set before route building
@@ -249,9 +251,6 @@ class routeSet {
   }
   routeSet(int _vehicle_type) {
     set_vehicle_type(_vehicle_type);
-    multiRoute.emplace_back(Route());
-    multiRoute.back().set_vehicle_type(vehicle_type);
-    multiRoute.back().vehicle_id = vehicle_id;
   }
   /*{customer_id, weight}*/
   bool append(std::pair<int, int> info, int trip_id) {
@@ -298,13 +297,12 @@ class Solution {
     total_weight.assign(num_customer, 0);
     for (int i = 0; i < num_customer; ++i)
       current_lowerbound[i] = customers[i].lower_weight;
-    truck_trip.resize(num_truck, routeSet(TTRUCK));
-    drone_trip.resize(num_drone, routeSet(TDRONE));
     // debug("complete init solution");
     for (int i = 0; i < num_truck; ++i) {
-      truck_trip[i].set_vehicle_type(TTRUCK);
-      truck_trip[i].new_route();
-      truck_trip[i].vehicle_id = i;
+      routeSet rs(TTRUCK);
+      rs.vehicle_id = i;
+      rs.new_route();
+      truck_trip.push_back(rs);
     }
     for (int i = 0; i < num_drone; ++i) {
       drone_trip[i].set_vehicle_type(TDRONE);
@@ -1124,3 +1122,6 @@ vector<int> num_infeasible_solution;
 
 
 chrono::steady_clock::time_point start = chrono::steady_clock::now();
+
+
+Solution base_solution;

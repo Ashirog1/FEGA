@@ -32,11 +32,6 @@ void read_input() {
   // read_file.close();
   num_customer = customers.size();
 
-  debug(num_truck, num_drone, time_limit);
-  debug(speed_truck, speed_drone, capacity_truck, capacity_drone,
-        duration_drone);
-  for (auto x : customers)
-    debug(x.x, x.y, x.lower_weight, x.upper_weight, x.cost);
 
   /*
   assert limit of constraint
@@ -58,19 +53,9 @@ void read_input() {
 
 Solution init_random_solution() {
   Solution first_solution;
-  first_solution.drone_trip.resize(num_drone, routeSet(TDRONE));
-  first_solution.truck_trip.resize(num_truck, routeSet(TTRUCK));
 
-  /*
-  set vehicle type for every trip
-  try to dynamic calculate remaining time
-  */
-  for (int i = 0; i < num_drone; ++i) {
-    first_solution.drone_trip[i].set_vehicle_type(TDRONE);
-  }
   for (int i = 0; i < num_truck; ++i) {
-    first_solution.truck_trip[i].set_vehicle_type(TTRUCK);
-    first_solution.truck_trip[i].vehicle_id = i;
+    debug(first_solution.truck_trip[i].multiRoute[0].vehicle_id);
   }
 
   /*
@@ -80,8 +65,8 @@ Solution init_random_solution() {
   3.2. Init first route for every vehicle
   */
   std::vector<int> current_lowerbound(num_customer);
-  for (int i = 0; i < num_customer; ++i)
-    current_lowerbound[i] = max(customers[i].lower_weight, 20);
+  for (int i = 1; i < num_customer; ++i)
+    current_lowerbound[i] = max(customers[i].lower_weight, 1);
 
   const auto find_pushed_weight = [&](routeSet& routeSet, int trip_id,
                                       int customer_id) {
@@ -93,7 +78,7 @@ Solution init_random_solution() {
                                find_pushed_weight(routeSet, trip_id, cus_id)};
     if (routeSet.append(cus, trip_id)) {
       current_lowerbound[cus.first] -= cus.second;
-      debug(cus.first, current_lowerbound[cus.first]);
+      debug(cus, current_lowerbound[cus.first]);
       assert(current_lowerbound[cus.first] >= 0);
     }
   };
@@ -134,6 +119,7 @@ Solution init_random_solution() {
     while (routeSet.valid_route()) {
       auto next_cus = find_next_cus(routeSet, trip_id);
       debug(next_cus);
+      debug(routeSet.multiRoute[trip_id].rem_weight());
       if (next_cus.first == -1) break;
       // debug("before");
       // for (auto it : routeSet.multiRoute[trip_id].route)
@@ -391,7 +377,7 @@ void ga_process() {
   };
   log_debug << "start ga_process\n";
   chrono::steady_clock::time_point end = start + chrono::minutes(2);
-  while (true) {
+  for (int iter = 0; iter < general_setting.NUM_GENERATION; ++iter) {
     educate();
     init();
  
@@ -433,7 +419,7 @@ void ga_process() {
 
 
     /*stop condition*/
-    if (chrono::steady_clock::now() > end) break;
+    /// if (chrono::steady_clock::now() > end) break;
   }
   debug(best.evaluate());
   // assert(best.valid_solution());
@@ -477,41 +463,14 @@ void logging_to_csv() {
   // log_csv_result << Solution::educate_call;
 }
 
-namespace testing {
-  void test_mcmf() {
-    Solution sol;
-    Chromosome chr;
-    
-    chr.chr.emplace_back(4, 675);
-    chr.chr.emplace_back(3, 150);
-    chr.chr.emplace_back(6, 350);
-    chr.chr.emplace_back(5, 275);
-    chr.chr.emplace_back(1, 50);
-
-    for (int i = 1; i <= 6; ++i) chr.chr.emplace_back(6, 40);
-    for (int i = 1; i <= 2; ++i) chr.chr.emplace_back(2, 40);
-
-    sol = chr.encode();
-    sol.print_out();
-    sol.educate_with_lowerbound();
-    sol.print_out();
-  }
-  void test_encode() {
-    Chromosome chr;
-    chr.encode().print_out();
-  }
-}  // namespace testing
-
 int main(int argc, char*argv[]) {
   /// assign 
   general_setting.ALPHA = stod(argv[1]);
   read_input();
   random_init_population();
-
   ga_process();
   logging_to_csv();
 
-  // testing::test_mcmf();
 
   cerr << "\nTime elapsed: " << 1000 * clock() / CLOCKS_PER_SEC << "ms\n";
 }

@@ -429,7 +429,7 @@ void tabuSearch() {
   chrono::steady_clock::time_point start = chrono::steady_clock::now();
   chrono::steady_clock::time_point end = start + chrono::minutes(2);
   
-  while (true) {
+  for (int i = 0; i < TABU_ITERATOR; ++i) {
     /// step 2 -> 4
     /// networkflow based on tabu list
     initSolution();
@@ -442,7 +442,7 @@ void tabuSearch() {
     removeArcFromTabu();
     /// step 6
     /// step6();
-    if (chrono::steady_clock::now() > end) break;
+    // if (chrono::steady_clock::now() > end) break;
   }
   /// global_solution.logging();
   std::cout << global_solution.isValid() << ',';
