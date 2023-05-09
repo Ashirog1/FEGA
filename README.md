@@ -14,3 +14,7 @@ cd script
 python reformatData.py
 python benchmark.py
 ```
+
+```bash
+g++ main.cpp -o a.exe && a.exe 5 5 2 < input.txt
+```
