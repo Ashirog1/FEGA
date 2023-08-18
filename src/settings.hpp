@@ -5,13 +5,13 @@
 #include "numeric"
 #include "random"
 #include "vector"
-#include "network_simplex.hpp"
+#include "network_simplex.cpp"
 
 constexpr int TTRUCK = 0, TDRONE = 1;
 /// @brief default constraint parameter
-int num_customer, num_truck, num_drone;
+int num_customer, num_truck, num_drone, time_limit;
 double speed_truck, speed_drone;
-std::vector<int> capacity_truck, capacity_drone, duration_truck;
+int capacity_truck, capacity_drone, duration_drone;
 
 std::ofstream log_debug("debug.log");
 std::ofstream log_result("result.log");
@@ -95,11 +95,11 @@ std::vector<double> init_piority_matrix(
 
 class settings {
  public:
-  int POPULATION_SIZE = 200;
+  int POPULATION_SIZE = 100;
   int OFFSPRING_PERCENT = 90;
   int MUTATION_ITER = 10;
-  int NUM_GENERATION = 200;
-  double GEN_PERM = 1;
+  int NUM_GENERATION = 100;
+  double GEN_PERM = 1.0;
   double CROSSOVER2 = 0.5;
   double MUTATION_OP = 0.5;
   int CNT_SUCC_CROSSOVER1 = 0;
@@ -133,7 +133,6 @@ class Route {
   1 is drone
   */
   int vehicle_type;
-  int vehicle_id;
   /*
   id of truck/drone that manage that trip
 
@@ -220,20 +219,21 @@ class Route {
     route.pop_back();
   }
   bool valid_route() {
-    if (total_time > duration_truck[vehicle_id]) return false;
+    if (total_time > time_limit) return false;
 
     if (vehicle_type == TTRUCK) {
-      return total_weight <= capacity_truck[vehicle_id];
+      return total_weight <= capacity_truck;
+    } else {
+      return (total_weight <= capacity_drone and total_time <= duration_drone);
     }
-    assert(0);
-    return false;
   }
   /*
     set before route building
   */
   void set_vehicle_type(int type) { vehicle_type = type; }
   int rem_weight() {
-    return capacity_truck[vehicle_id] - total_weight;
+    return (vehicle_type == TTRUCK ? capacity_truck : capacity_drone) -
+           total_weight;
   }
 };
 
@@ -243,14 +243,14 @@ class routeSet {
   double total_time = 0;
   int total_weight = 0;
   int vehicle_type = 0;
-  int vehicle_id = 0;
   void new_route() {
     multiRoute.emplace_back(Route());
     multiRoute.back().set_vehicle_type(vehicle_type);
-    multiRoute.back().vehicle_id = vehicle_id;
   }
   routeSet(int _vehicle_type) {
     set_vehicle_type(_vehicle_type);
+    multiRoute.emplace_back(Route());
+    multiRoute.back().set_vehicle_type(vehicle_type);
   }
   /*{customer_id, weight}*/
   bool append(std::pair<int, int> info, int trip_id) {
@@ -278,7 +278,7 @@ class routeSet {
     total_weight += multiRoute[trip_id].total_weight;
   }
   bool valid_route() {
-    if (total_time > duration_truck[vehicle_id]) return false;
+    if (total_time > time_limit) return false;
     return true;
   }
   void set_vehicle_type(int type) { vehicle_type = type; }
@@ -297,12 +297,12 @@ class Solution {
     total_weight.assign(num_customer, 0);
     for (int i = 0; i < num_customer; ++i)
       current_lowerbound[i] = customers[i].lower_weight;
+    truck_trip.resize(num_truck, routeSet(TTRUCK));
+    drone_trip.resize(num_drone, routeSet(TDRONE));
     // debug("complete init solution");
     for (int i = 0; i < num_truck; ++i) {
-      routeSet rs(TTRUCK);
-      rs.vehicle_id = i;
-      rs.new_route();
-      truck_trip.push_back(rs);
+      truck_trip[i].set_vehicle_type(TTRUCK);
+      truck_trip[i].new_route();
     }
     for (int i = 0; i < num_drone; ++i) {
       drone_trip[i].set_vehicle_type(TDRONE);
@@ -378,7 +378,20 @@ class Solution {
           ns.add(cur_route, N + cus.customer_id, 0, INT_MAX, 0);
           route.total_weight += cus.weight;
         }
-        ns.add(S, cur_route, 0, capacity_truck[i], 0);
+        ns.add(S, cur_route, 0, capacity_truck, 0);
+      }
+    }
+    for (int i = 0; i < num_drone; ++i) {
+      for (auto &route : drone_trip[i].multiRoute) {
+        route.total_weight = 0;
+        ++cur_route;
+        for (auto cus : route.route) {
+          if (cus.customer_id == 0) continue;
+          ns.add(cur_route, N + cus.customer_id, 0, INT_MAX, 0);
+          route.total_weight += cus.weight;
+          // debug(cur_route, N + cus.customer_id, N);
+        }
+        ns.add(S, cur_route, 0, capacity_drone, 0);
       }
     }
     for (int i = 1; i < num_customer; ++i) {
@@ -698,13 +711,22 @@ class Solution {
   int penalty(int alpha = 1, int beta = 1) {
     if (valid_solution()) return 0;
     double truck_pen = 0, drone_pen = 0;
-    for (int i = 0; i < num_truck; ++i) {
-      for (auto route : truck_trip[i].multiRoute) {
+    for (auto truck : truck_trip) {
+      for (auto route : truck.multiRoute) {
         int benefit = 0;
         for (auto loc : route.route) {
           benefit += loc.weight * customers[loc.customer_id].cost;
         }
-        truck_pen += 1.0 * route.total_time / (double)duration_truck[i] * benefit;
+        truck_pen += 1.0 * route.total_time / (double)time_limit * benefit;
+      }
+    }
+    for (auto drone : drone_trip) {
+      for (auto route : drone.multiRoute) {
+        int benefit = 0;
+        for (auto loc : route.route) {
+          benefit += loc.weight * customers[loc.customer_id].cost;
+        }
+        drone_pen += 1.0 * route.total_time / (double)duration_drone * benefit;
       }
     }
     return alpha * truck_pen + beta * drone_pen;
@@ -770,8 +792,10 @@ class Solution {
       }
     }
 
-    log_debug << "complete drone with total weight is " << tot_weight << '\n';
-    log_debug << '\n';
+    // log_debug << "complete drone with total weight is " << tot_weight << '\n';
+    // log_debug << "complete drone with total time is "
+    //           << drone_trip[0].total_time << '\n';
+    // log_debug << '\n';
   }
 };
 /* a constant seed random integer generator */
@@ -913,9 +937,9 @@ void sort_population() {
 
 void mutation_op1() {
   int i = random_number_in_range(1, (int)Population.size() - 1);
-
   int maxsize = Population[i].chr.size();
-  if (maxsize == 0) return;
+  if (maxsize ==0)
+      return;
   int len =
       random_number_in_range(1, max(1, (int)Population[i].chr.size() / 10));
 
@@ -942,7 +966,8 @@ void mutation_op1() {
 void mutation_op3() {
   int i = random_number_in_range(1, (int)Population.size() - 1);
   int maxsize = Population[i].chr.size();
-  if (Population[i].chr.size() == 0) return;
+    if (maxsize ==0)
+      return;
   int len =
       random_number_in_range(1, max(1, (int)Population[i].chr.size() / 10));
 
@@ -966,7 +991,6 @@ void mutation_op3() {
   // debug(Population[i].chr);
   // debug(new_gen.chr);
   double tmp = Population[i].encode().evaluate();
-
   Population[i] = new_gen;
   if (new_gen.encode().evaluate() > tmp) {
     general_setting.CNT_SUCC_MUTATION2 += 1;
@@ -1119,9 +1143,3 @@ vector<double> average_in_generation, best_in_generation, worst_in_generation;
 int Solution::educate_call = 0;
 int Solution::evaluate_call = 0;
 vector<int> num_infeasible_solution;
-
-
-chrono::steady_clock::time_point start = chrono::steady_clock::now();
-
-
-Solution base_solution;
