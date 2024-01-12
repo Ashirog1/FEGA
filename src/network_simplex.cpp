@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-static_assert(sizeof(int) == 4 && sizeof(long) == 8);
+//static_assert(sizeof(int) == 4 && sizeof(long) == 8);
 
 struct linked_lists {
     int L, N;
@@ -219,6 +219,11 @@ struct network_simplex {
         Flow flow_delta = edge[in_arc].upper;
         OutArcSide side = SAME_EDGE;
         int u_out = -1;
+
+
+
+
+
 
         // Go up the cycle from source to the join node
         for (int u = source; u != join; u = node[u].parent) {

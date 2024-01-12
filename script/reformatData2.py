@@ -7,7 +7,7 @@ import glob
 def main():
     loc = os.getcwd()
     print("loc", loc)
-    files = glob.glob(loc + "/txtData2/*")
+    files = glob.glob(loc + "/txtData/*")
     for f in files:
         print(f)
         os.remove(f)
